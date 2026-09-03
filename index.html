@@ -740,24 +740,14 @@
   });
 
   // Scroll reveal — fades elements in once as they enter the viewport.
-  // Anything already visible on initial load is shown immediately (no
-  // opacity-0 delay) so it can never delay Largest Contentful Paint.
+  // IntersectionObserver reports intersection state natively without
+  // forcing synchronous layout, so no manual position scan is needed.
   (function(){
     var els = document.querySelectorAll('.reveal');
     if(!('IntersectionObserver' in window)){
       els.forEach(function(el){ el.classList.add('is-visible'); });
       return;
     }
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var visibleNow = [];
-    var toObserve = [];
-    // Read all layout positions first, then write — avoids forced
-    // synchronous reflow from interleaving reads and writes per element.
-    els.forEach(function(el){
-      var top = el.getBoundingClientRect().top;
-      if(top < vh){ visibleNow.push(el); } else { toObserve.push(el); }
-    });
-    visibleNow.forEach(function(el){ el.classList.add('is-visible'); });
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
@@ -766,7 +756,7 @@
         }
       });
     }, { threshold: 0.15 });
-    toObserve.forEach(function(el){ observer.observe(el); });
+    els.forEach(function(el){ observer.observe(el); });
   })();
 </script>
 
