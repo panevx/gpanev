@@ -262,9 +262,15 @@
     border-bottom:1px solid var(--border-gold);
   }
   .entry:first-child{ border-top:1px solid var(--border-gold); }
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
   .entry .when{ font-family:'Cinzel', serif; font-size:0.85rem; letter-spacing:0.16em; color:var(--gold); padding-top:6px; line-height:1.4; }
   .entry h3{ font-size:1.7rem; color:var(--parchment); }
   .entry .role{ font-family:'Cinzel', serif; font-size:0.68rem; letter-spacing:0.14em; color:rgba(201,162,75,0.85); margin:4px 0 14px; text-transform:uppercase; }
+  .entry .hook{ font-size:1.05rem; color:var(--gold-soft); font-weight:500; margin-bottom:8px; }
   .entry p{ font-size:1rem; color:rgba(237,230,214,0.8); margin-bottom: 20px; }
   .entry-action{
     display: inline-block;
@@ -491,52 +497,57 @@
     <h2 style="margin-top:14px;">Selected Projects &amp; Experience</h2>
     <div class="entries">
       
-      <div class="entry">
+      <div class="entry reveal">
         <div class="when">2025</div>
         <div>
           <h3>AnimalSync</h3>
           <div class="role">Technical Lead &amp; Developer &mdash; JA National Qualifier</div>
-          <p>Directed the technical execution of a pet-monitoring concept developed by a student team. Built a demonstrable HTML-based interface under severe time constraints, integrating concepts for smart-collar tracking, veterinary access, and an SOS community network. The project successfully advanced to the Junior Achievement National Finals stage.</p>
+          <p class="hook">Advanced to the Junior Achievement National Finals.</p>
+          <p>Directed technical execution for a student-built pet-monitoring concept — smart-collar tracking, vet access, and an SOS network — delivered as a working HTML interface under severe time constraints.</p>
           <button class="entry-action" onclick="openModal('animalsync')">[ Read Full Case Study &rarr; ]</button>
         </div>
       </div>
 
-      <div class="entry">
+      <div class="entry reveal">
         <div class="when">2025 &mdash; 2026</div>
         <div>
           <h3>Invest Sofia (SOAPI)</h3>
           <div class="role">Internship (2025) &bull; Marketing Contributor (2026)</div>
-          <p>Completed an initial 64-hour internship in 2025 with Sofia’s official municipal investment body, followed by a marketing-focused role in 2026. Contributed to digital marketing, audience building, and municipal communication initiatives focused on regional capital attraction.</p>
+          <p class="hook">64-hour internship → ongoing marketing role.</p>
+          <p>Contributed to digital marketing and audience-building initiatives for Sofia's official municipal investment body.</p>
           <button class="entry-action" onclick="openModal('soapi')">[ View Details &rarr; ]</button>
         </div>
       </div>
 
-      <div class="entry">
+      <div class="entry reveal">
         <div class="when">2017 &mdash; 2025</div>
         <div>
           <h3>Audience Acquisition &amp; Distribution</h3>
           <div class="role">Digital Growth Experimentation</div>
-          <p>Developed a practical understanding of digital distribution and algorithmic behavior. After averaging 30K+ views on gaming content in 2021–2022, I conducted a specific experiment in 2025: reviving a dormant 3-year-old TikTok account and pivoting to a completely unaligned niche (street interviews). Overriding algorithmic friction, the account generated over 676,000 organic views in just 5 days.</p>
+          <p class="hook">676,000+ organic views generated in 5 days.</p>
+          <p>Revived a dormant 3-year-old TikTok account, pivoted to a completely unaligned niche, and overrode algorithmic friction with pure content strategy.</p>
           <button class="entry-action" onclick="openModal('tiktok')">[ View Proof &rarr; ]</button>
         </div>
       </div>
 
-      <div class="entry">
+      <div class="entry reveal">
         <div class="when">June 2026</div>
         <div>
           <h3>Erasmus+ STEM Delegation</h3>
           <div class="role">EU Mobility Project &mdash; Croatia</div>
-          <p>Represented 2 SU "Acad. Emiliyan Stanev" during a 5-day educational mobility program focused on ICT and STEM. Hosted at Gimnazija Metković in Croatia, this international engagement overlapped with, and took precedence over, the JA National Finals.</p>
+          <p class="hook">Represented the school on an EU mobility program.</p>
+          <p>5-day ICT/STEM delegation hosted at Gimnazija Metković in Croatia — took precedence over the JA National Finals.</p>
           <button class="entry-action" onclick="openModal('erasmus')">[ View Details &rarr; ]</button>
         </div>
       </div>
 
-      <div class="entry">
+      <div class="entry reveal">
         <div class="when">October 2025</div>
         <div>
           <h3>Intellectual Property Training</h3>
           <div class="role">EUIPO &amp; BG Patent Office</div>
-          <p>Participated in an educational session on intellectual property, focusing on trademarks, industrial design, and their roles in sustainable business development. This foundational knowledge directly catalyzed the conceptualization of AnimalSync.</p>
+          <p class="hook">Trademark &amp; industrial design training, Sofia.</p>
+          <p>This foundational knowledge directly catalyzed the conceptualization of AnimalSync.</p>
           <button class="entry-action" onclick="openModal('euipo')">[ View Certification &rarr; ]</button>
         </div>
       </div>
@@ -551,7 +562,7 @@
     <h2>Technical Capabilities</h2>
     <div class="spec-grid">
       
-      <div class="spec-card">
+      <div class="spec-card reveal">
         <h3>Systems, Privacy &amp; Android</h3>
         <ul>
           <li>Linux Administration &amp; Experimentation (Ubuntu, Zorin, CachyOS)</li>
@@ -562,7 +573,7 @@
         </ul>
       </div>
 
-      <div class="spec-card">
+      <div class="spec-card reveal">
         <h3>AI-Assisted Development</h3>
         <ul>
           <li>Advanced Prompting &amp; LLM Workflows</li>
@@ -573,7 +584,7 @@
         </ul>
       </div>
 
-      <div class="spec-card">
+      <div class="spec-card reveal">
         <h3>Digital Distribution</h3>
         <ul>
           <li>Algorithmic Reach &amp; Account Revival Strategy</li>
@@ -727,6 +738,24 @@
   document.getElementById('modalOverlay').addEventListener('click', function(e) {
     if(e.target === this) closeModal();
   });
+
+  // Scroll reveal — fades elements in once as they enter the viewport
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(function(el){ observer.observe(el); });
+  })();
 </script>
 
 </body>
