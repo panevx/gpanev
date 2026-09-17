@@ -37,21 +37,22 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#0F241B">
+<meta name="theme-color" content="#123A2B">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
   :root{
     --ink:#0B0D0A;
-    --bottle:#0F241B;
-    --bottle-deep:#081712;
-    --gold:#C9A24B;
-    --gold-soft:#E6CE8D;
+    --bottle:#1E5B45;
+    --bottle-deep:#123A2B;
+    --gold:#D4A017;
+    --gold-soft:#E9C468;
     --parchment:#EDE6D6;
-    --border-gold: rgba(201,162,75,0.18);
+    --border-gold: rgba(212,160,23,0.22);
+    --bottle-tint: rgba(30,91,69,0.35);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -66,6 +67,7 @@
   h1,h2,h3,h4{font-family:'Cormorant Garamond', serif; font-weight:500; letter-spacing:0.01em;}
   .eyebrow{
     font-family:'Cinzel', serif;
+    font-weight:700;
     font-size:0.68rem;
     letter-spacing:0.32em;
     text-transform:uppercase;
@@ -106,7 +108,7 @@
     content:"";
     position:absolute; inset:0;
     background-image:
-      repeating-linear-gradient(0deg, rgba(201,162,75,0.035) 0px, rgba(201,162,75,0.035) 1px, transparent 1px, transparent 3px);
+      repeating-linear-gradient(0deg, rgba(212,160,23,0.035) 0px, rgba(212,160,23,0.035) 1px, transparent 1px, transparent 3px);
     pointer-events:none;
   }
   .seal{
@@ -156,6 +158,7 @@
   }
   .hero-context {
     font-family: 'Cinzel', serif;
+    font-weight: 700;
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     color: var(--gold);
@@ -186,10 +189,10 @@
     transition:background .35s, color .35s, border-color .35s, opacity .3s;
   }
   .btn:hover{ background:var(--gold); color:var(--ink); }
-  .btn.ghost{ border-color:rgba(201,162,75,0.4); color:rgba(237,230,214,0.7); }
-  .btn.ghost:hover{ background:rgba(201,162,75,0.1); color:var(--gold-soft); border-color:var(--gold); }
+  .btn.ghost{ border-color:rgba(212,160,23,0.4); color:rgba(237,230,214,0.7); }
+  .btn.ghost:hover{ background:rgba(212,160,23,0.1); color:var(--gold-soft); border-color:var(--gold); }
   .btn.disabled{ cursor: not-allowed; opacity: 0.4; border-style: dashed; }
-  .btn.disabled:hover{ background: transparent; color: rgba(237,230,214,0.7); border-color: rgba(201,162,75,0.4); }
+  .btn.disabled:hover{ background: transparent; color: rgba(237,230,214,0.7); border-color: rgba(212,160,23,0.4); }
 
   /* METRICS STRIP */
   .metrics-strip{
@@ -231,7 +234,7 @@
   .current-focus {
     margin-top: 50px;
     padding: 35px;
-    background: rgba(15, 36, 27, 0.4);
+    background: var(--bottle-tint);
     border: 1px solid var(--border-gold);
     text-align: left;
   }
@@ -267,14 +270,15 @@
   @media (prefers-reduced-motion: reduce){
     .reveal{ opacity:1; transform:none; transition:none; }
   }
-  .entry .when{ font-family:'Cinzel', serif; font-size:0.85rem; letter-spacing:0.16em; color:var(--gold); padding-top:6px; line-height:1.4; }
+  .entry .when{ font-family:'Cinzel', serif; font-weight:700; font-size:0.85rem; letter-spacing:0.16em; color:var(--gold); padding-top:6px; line-height:1.4; }
   .entry h3{ font-size:1.7rem; color:var(--parchment); }
-  .entry .role{ font-family:'Cinzel', serif; font-size:0.68rem; letter-spacing:0.14em; color:rgba(201,162,75,0.85); margin:4px 0 14px; text-transform:uppercase; }
+  .entry .role{ font-family:'Cinzel', serif; font-weight:700; font-size:0.68rem; letter-spacing:0.14em; color:rgba(212,160,23,0.85); margin:4px 0 14px; text-transform:uppercase; }
   .entry .hook{ font-size:1.05rem; color:var(--gold-soft); font-weight:500; margin-bottom:8px; }
   .entry p{ font-size:1rem; color:rgba(237,230,214,0.8); margin-bottom: 20px; }
   .entry-action{
     display: inline-block;
     font-family: 'Cinzel', serif;
+    font-weight: 700;
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     color: var(--gold);
@@ -297,12 +301,13 @@
     text-align: left;
   }
   .spec-card{
-    background: rgba(15, 36, 27, 0.4);
+    background: var(--bottle-tint);
     border: 1px solid var(--border-gold);
     padding: 35px;
   }
   .spec-card h3{
     font-family: 'Cinzel', serif;
+    font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.15em;
     color: var(--gold-soft);
@@ -340,9 +345,10 @@
     text-align:center;
     padding:50px 6vw 60px;
     font-family:'Cinzel', serif;
+    font-weight:700;
     font-size:0.65rem;
     letter-spacing:0.2em;
-    color:rgba(201,162,75,0.85);
+    color:rgba(212,160,23,0.85);
     text-transform:uppercase;
     border-top: 1px solid var(--border-gold);
   }
@@ -388,7 +394,7 @@
   /* MODAL DRAWER */
   .modal-overlay{
     position: fixed; inset: 0; z-index: 100;
-    background: rgba(8, 23, 18, 0.92);
+    background: rgba(10, 33, 24, 0.92);
     backdrop-filter: blur(12px);
     display: flex; align-items: center; justify-content: center;
     padding: 20px;
@@ -412,7 +418,7 @@
   }
   .modal-close:hover { color: var(--gold-soft); }
   .modal-title{ font-size: 2.4rem; color: var(--gold-soft); margin-bottom: 6px; }
-  .modal-subtitle{ font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 30px; text-transform: uppercase; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px; }
+  .modal-subtitle{ font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.75rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 30px; text-transform: uppercase; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px; }
   
   .modal-body{ font-size: 1rem; color: rgba(237,230,214,0.85); line-height: 1.7; }
   .modal-body h4 { font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--gold-soft); text-transform: uppercase; margin: 30px 0 12px; }
@@ -606,6 +612,7 @@
     <div class="contact-actions">
       <a class="btn" href="https://raw.githubusercontent.com/panevx/gpanev/main/george_panev_cv.pdf" target="_blank">Download CV</a>
       <a class="btn ghost" href="mailto:iamgeorgepanev@gmail.com">Email Me</a>
+      <a class="btn ghost" href="https://www.instagram.com/panevx/" target="_blank">Instagram</a>
       <a class="btn ghost" href="https://www.tiktok.com/@panevx" target="_blank">TikTok</a>
     </div>
   </div>
