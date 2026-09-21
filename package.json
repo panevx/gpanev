@@ -1,0 +1,15 @@
+{
+  "name": "george-panev-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio",
+  "scripts": {
+    "build": "echo 'Static site, no build required'",
+    "start": "npx serve ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.0.0"
+  },
+  "author": "George Panev",
+  "license": "MIT"
+}
