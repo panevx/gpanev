@@ -89,9 +89,22 @@
     text-transform:uppercase;
   }
   nav .brand{color:var(--gold-soft); letter-spacing:0.3em; font-weight: 600;}
-  nav ul{list-style:none; display:flex; gap:32px;}
+  nav ul{list-style:none; display:flex; gap:32px; align-items:center;}
   nav a{opacity:0.75; transition:opacity .3s; text-decoration:none;}
   nav a:hover{opacity:1; color:var(--gold-soft);}
+  .lang-toggle{
+    font-family:'Cinzel', serif;
+    font-size:0.65rem;
+    letter-spacing:0.2em;
+    color:var(--gold-soft);
+    background:transparent;
+    border:1px solid var(--border-gold);
+    padding:8px 14px;
+    cursor:pointer;
+    text-transform:uppercase;
+    transition:border-color .3s, background .3s;
+  }
+  .lang-toggle:hover{ border-color:var(--gold); background:rgba(212,160,23,0.1); }
   @media (max-width:760px){ nav ul{display:none;} }
 
   /* HERO */
@@ -445,116 +458,117 @@
 <nav>
   <div class="brand">G. Panev</div>
   <ul>
-    <li><a href="#about">Overview</a></li>
-    <li><a href="#dossier">Dossier</a></li>
-    <li><a href="#capabilities">Capabilities</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-bg="Преглед">Overview</a></li>
+    <li><a href="#dossier" data-bg="Досие">Dossier</a></li>
+    <li><a href="#capabilities" data-bg="Умения">Capabilities</a></li>
+    <li><a href="#contact" data-bg="Контакти">Contact</a></li>
   </ul>
+  <button class="lang-toggle" id="langToggle" onclick="toggleLang()">BG</button>
 </nav>
 
 <main>
 <section class="hero">
   <div class="seal"><span>GP</span></div>
   <h1>George <em>Panev</em></h1>
-  <div class="hero-context">18 Years Old &bull; Sofia, Bulgaria</div>
-  <p class="sub">I build things. I understand technology, digital growth, and strategic execution. Combining hands-on product development with an entrepreneurial mindset to turn ideas into functional reality.</p>
+  <div class="hero-context" data-bg="18 години &bull; София, България">18 Years Old &bull; Sofia, Bulgaria</div>
+  <p class="sub" data-bg="Изграждам неща. Разбирам технологиите, дигиталния растеж и стратегическото изпълнение. Съчетавам практическа продуктова разработка с предприемачески начин на мислене, за да превръщам идеите в реално работещи резултати.">I build things. I understand technology, digital growth, and strategic execution. Combining hands-on product development with an entrepreneurial mindset to turn ideas into functional reality.</p>
   <div class="cta">
-    <a class="btn" href="#dossier">Explore Dossier</a>
-    <a class="btn ghost" href="#contact">Connect</a>
+    <a class="btn" href="#dossier" data-bg="Разгледай Досието">Explore Dossier</a>
+    <a class="btn ghost" href="#contact" data-bg="Свържи се">Connect</a>
   </div>
 </section>
 
 <div class="metrics-strip">
   <div class="metric-item">
     <div class="metric-value">676K+</div>
-    <div class="metric-label">5-Day Viral Views (2025)</div>
+    <div class="metric-label" data-bg="Вирусни Гледания за 5 Дни (2025)">5-Day Viral Views (2025)</div>
   </div>
   <div class="metric-item">
     <div class="metric-value">2025&ndash;2026</div>
-    <div class="metric-label">Invest Sofia Engagement</div>
+    <div class="metric-label" data-bg="Ангажимент с Invest Sofia">Invest Sofia Engagement</div>
   </div>
   <div class="metric-item">
-    <div class="metric-value">National Qualifier</div>
-    <div class="metric-label">JA Entrepreneurship Finals</div>
+    <div class="metric-value" data-bg="Национален Финалист">National Qualifier</div>
+    <div class="metric-label" data-bg="Финали на JA по Предприемачество">JA Entrepreneurship Finals</div>
   </div>
   <div class="metric-item">
     <div class="metric-value">30K+</div>
-    <div class="metric-label">Avg. Views / Gaming Video</div>
+    <div class="metric-label" data-bg="Средно Гледания / Гейминг Видео">Avg. Views / Gaming Video</div>
   </div>
 </div>
 
 <section class="about" id="about">
   <div class="section-inner">
-    <span class="eyebrow">Overview</span>
-    <h2>Execution &amp; Technology</h2>
-    <p>I operate at the intersection of technical experimentation and product building. Whether it involves designing functional application prototypes under pressure, navigating Linux environments, or engineering deliberate digital growth campaigns, my focus is always on practical execution.</p>
-    <p>I rely heavily on AI-assisted workflows to accelerate development, allowing me to translate technical concepts into demonstrable software efficiently.</p>
+    <span class="eyebrow" data-bg="Преглед">Overview</span>
+    <h2 data-bg="Изпълнение и Технологии">Execution &amp; Technology</h2>
+    <p data-bg="Работя на пресечната точка между техническо експериментиране и изграждане на продукти. Независимо дали става въпрос за проектиране на функционални приложни прототипи под напрежение, работа в Linux среди или изграждане на целенасочени кампании за дигитален растеж, фокусът ми винаги е върху практическото изпълнение.">I operate at the intersection of technical experimentation and product building. Whether it involves designing functional application prototypes under pressure, navigating Linux environments, or engineering deliberate digital growth campaigns, my focus is always on practical execution.</p>
+    <p data-bg="Разчитам сериозно на работни процеси с изкуствен интелект, за да ускоря разработката и да превръщам технически концепции в работещ софтуер бързо и ефективно.">I rely heavily on AI-assisted workflows to accelerate development, allowing me to translate technical concepts into demonstrable software efficiently.</p>
     
     <div class="current-focus">
-      <h3>Current Focus</h3>
-      <p>I am currently completing my final year of high school (12th grade) and preparing for the transition into university and professional work. I continue to build technical projects and remain open to strategic collaborations and high-value opportunities as I determine my long-term academic and professional direction.</p>
+      <h3 data-bg="Текущ Фокус">Current Focus</h3>
+      <p data-bg="В момента завършвам последната година от гимназията (12-ти клас) и се подготвям за прехода към университет и професионална реализация. Продължавам да изграждам технически проекти и оставам отворен за стратегически партньорства и стойностни възможности, докато определям дългосрочната си академична и професионална посока.">I am currently completing my final year of high school (12th grade) and preparing for the transition into university and professional work. I continue to build technical projects and remain open to strategic collaborations and high-value opportunities as I determine my long-term academic and professional direction.</p>
     </div>
   </div>
 </section>
 
 <section class="dossier" id="dossier">
   <div class="section-inner">
-    <span class="eyebrow">Dossier</span>
-    <h2 style="margin-top:14px;">Selected Projects &amp; Experience</h2>
+    <span class="eyebrow" data-bg="Досие">Dossier</span>
+    <h2 style="margin-top:14px;" data-bg="Избрани Проекти и Опит">Selected Projects &amp; Experience</h2>
     <div class="entries">
       
       <div class="entry reveal">
         <div class="when">2025</div>
         <div>
           <h3>AnimalSync</h3>
-          <div class="role">Technical Lead &amp; Developer &mdash; JA National Qualifier</div>
-          <p class="hook">Advanced to the Junior Achievement National Finals.</p>
-          <p>Directed technical execution for a student-built pet-monitoring concept — smart-collar tracking, vet access, and an SOS network — delivered as a working HTML interface under severe time constraints.</p>
-          <button class="entry-action" onclick="openModal('animalsync')">[ Read Full Case Study &rarr; ]</button>
+          <div class="role" data-bg="Технически Ръководител и Разработчик — Национален Финалист на JA">Technical Lead &amp; Developer &mdash; JA National Qualifier</div>
+          <p class="hook" data-bg="Класира се за Националния финал на Junior Achievement.">Advanced to the Junior Achievement National Finals.</p>
+          <p data-bg="Ръководех техническото изпълнение на концепция за проследяване на домашни любимци, разработена от ученици — проследяване чрез умен нашийник, достъп до ветеринари и SOS мрежа — реализирана като работещ HTML интерфейс при сериозен недостиг на време.">Directed technical execution for a student-built pet-monitoring concept — smart-collar tracking, vet access, and an SOS network — delivered as a working HTML interface under severe time constraints.</p>
+          <button class="entry-action" data-bg="[ Пълен Казус &rarr; ]" onclick="openModal('animalsync')">[ Read Full Case Study &rarr; ]</button>
         </div>
       </div>
 
       <div class="entry reveal">
-        <div class="when">2025 &mdash; 2026</div>
+        <div class="when" data-bg="2025 &mdash; 2026">2025 &mdash; 2026</div>
         <div>
           <h3>Invest Sofia (SOAPI)</h3>
-          <div class="role">Internship (2025) &bull; Marketing Contributor (2026)</div>
-          <p class="hook">64-hour internship → ongoing marketing role.</p>
-          <p>Contributed to digital marketing and audience-building initiatives for Sofia's official municipal investment body.</p>
-          <button class="entry-action" onclick="openModal('soapi')">[ View Details &rarr; ]</button>
+          <div class="role" data-bg="Стаж (2025) &bull; Маркетинг Сътрудник (2026)">Internship (2025) &bull; Marketing Contributor (2026)</div>
+          <p class="hook" data-bg="64-часов стаж → продължаваща роля в маркетинга.">64-hour internship → ongoing marketing role.</p>
+          <p data-bg="Допринесох за дигиталния маркетинг и инициативите за изграждане на аудитория на официалната общинска инвестиционна агенция на София.">Contributed to digital marketing and audience-building initiatives for Sofia's official municipal investment body.</p>
+          <button class="entry-action" data-bg="[ Виж Детайли &rarr; ]" onclick="openModal('soapi')">[ View Details &rarr; ]</button>
         </div>
       </div>
 
       <div class="entry reveal">
-        <div class="when">2017 &mdash; 2025</div>
+        <div class="when" data-bg="2017 &mdash; 2025">2017 &mdash; 2025</div>
         <div>
-          <h3>Audience Acquisition &amp; Distribution</h3>
-          <div class="role">Digital Growth Experimentation</div>
-          <p class="hook">676,000+ organic views generated in 5 days.</p>
-          <p>Revived a dormant 3-year-old TikTok account, pivoted to a completely unaligned niche, and overrode algorithmic friction with pure content strategy.</p>
-          <button class="entry-action" onclick="openModal('tiktok')">[ View Proof &rarr; ]</button>
+          <h3 data-bg="Придобиване и Разпространение на Аудитория">Audience Acquisition &amp; Distribution</h3>
+          <div class="role" data-bg="Експерименти с Дигитален Растеж">Digital Growth Experimentation</div>
+          <p class="hook" data-bg="676 000+ органични гледания за 5 дни.">676,000+ organic views generated in 5 days.</p>
+          <p data-bg="Съживих неактивен 3-годишен TikTok профил, преминах към напълно различна ниша и преодолях алгоритмичното съпротивление единствено чрез стратегия за съдържание.">Revived a dormant 3-year-old TikTok account, pivoted to a completely unaligned niche, and overrode algorithmic friction with pure content strategy.</p>
+          <button class="entry-action" data-bg="[ Виж Доказателства &rarr; ]" onclick="openModal('tiktok')">[ View Proof &rarr; ]</button>
         </div>
       </div>
 
       <div class="entry reveal">
-        <div class="when">June 2026</div>
+        <div class="when" data-bg="Юни 2026">June 2026</div>
         <div>
-          <h3>Erasmus+ STEM Delegation</h3>
-          <div class="role">EU Mobility Project &mdash; Croatia</div>
-          <p class="hook">Represented the school on an EU mobility program.</p>
-          <p>5-day ICT/STEM delegation hosted at Gimnazija Metković in Croatia — took precedence over the JA National Finals.</p>
-          <button class="entry-action" onclick="openModal('erasmus')">[ View Details &rarr; ]</button>
+          <h3 data-bg="Erasmus+ STEM Делегация">Erasmus+ STEM Delegation</h3>
+          <div class="role" data-bg="Проект за Мобилност на ЕС — Хърватия">EU Mobility Project &mdash; Croatia</div>
+          <p class="hook" data-bg="Представих училището в програма за мобилност на ЕС.">Represented the school on an EU mobility program.</p>
+          <p data-bg="5-дневна ИКТ/STEM делегация в Gimnazija Metković, Хърватия — с приоритет пред Националния финал на JA.">5-day ICT/STEM delegation hosted at Gimnazija Metković in Croatia — took precedence over the JA National Finals.</p>
+          <button class="entry-action" data-bg="[ Виж Детайли &rarr; ]" onclick="openModal('erasmus')">[ View Details &rarr; ]</button>
         </div>
       </div>
 
       <div class="entry reveal">
-        <div class="when">October 2025</div>
+        <div class="when" data-bg="Октомври 2025">October 2025</div>
         <div>
-          <h3>Intellectual Property Training</h3>
-          <div class="role">EUIPO &amp; BG Patent Office</div>
-          <p class="hook">Trademark &amp; industrial design training, Sofia.</p>
-          <p>This foundational knowledge directly catalyzed the conceptualization of AnimalSync.</p>
-          <button class="entry-action" onclick="openModal('euipo')">[ View Certification &rarr; ]</button>
+          <h3 data-bg="Обучение по Интелектуална Собственост">Intellectual Property Training</h3>
+          <div class="role" data-bg="EUIPO и Патентно Ведомство на България">EUIPO &amp; BG Patent Office</div>
+          <p class="hook" data-bg="Обучение по търговски марки и промишлен дизайн, София.">Trademark &amp; industrial design training, Sofia.</p>
+          <p data-bg="Тези основни знания пряко доведоха до концепцията за AnimalSync.">This foundational knowledge directly catalyzed the conceptualization of AnimalSync.</p>
+          <button class="entry-action" data-bg="[ Виж Сертификат &rarr; ]" onclick="openModal('euipo')">[ View Certification &rarr; ]</button>
         </div>
       </div>
 
@@ -564,39 +578,39 @@
 
 <section class="capabilities" id="capabilities">
   <div class="section-inner">
-    <span class="eyebrow">Specification</span>
-    <h2>Technical Capabilities</h2>
+    <span class="eyebrow" data-bg="Спецификация">Specification</span>
+    <h2 data-bg="Технически Умения">Technical Capabilities</h2>
     <div class="spec-grid">
       
       <div class="spec-card reveal">
-        <h3>Systems, Privacy &amp; Android</h3>
+        <h3 data-bg="Системи, Поверителност и Android">Systems, Privacy &amp; Android</h3>
         <ul>
-          <li>Linux Administration &amp; Experimentation (Ubuntu, Zorin, CachyOS)</li>
-          <li>Privacy-Focused Environments (Tails, Kali Linux)</li>
-          <li>Android Custom ROMs &amp; Debloating Scripts</li>
-          <li>System-Level Access (KernelSU, Magisk)</li>
-          <li>Hardware Performance &amp; Thermal Tuning</li>
+          <li data-bg="Администриране и Експериментиране с Linux (Ubuntu, Zorin, CachyOS)">Linux Administration &amp; Experimentation (Ubuntu, Zorin, CachyOS)</li>
+          <li data-bg="Среди с Фокус върху Поверителността (Tails, Kali Linux)">Privacy-Focused Environments (Tails, Kali Linux)</li>
+          <li data-bg="Персонализирани Android ROM-ове и Скриптове за Debloating">Android Custom ROMs &amp; Debloating Scripts</li>
+          <li data-bg="Достъп на Системно Ниво (KernelSU, Magisk)">System-Level Access (KernelSU, Magisk)</li>
+          <li data-bg="Хардуерна Производителност и Термична Настройка">Hardware Performance &amp; Thermal Tuning</li>
         </ul>
       </div>
 
       <div class="spec-card reveal">
-        <h3>AI-Assisted Development</h3>
+        <h3 data-bg="Разработка с Помощта на ИИ">AI-Assisted Development</h3>
         <ul>
-          <li>Advanced Prompting &amp; LLM Workflows</li>
-          <li>Iterative Prototyping &amp; "Vibe Coding"</li>
-          <li>Translating Concepts into Functional Interfaces</li>
-          <li>HTML, CSS, and JavaScript Integration</li>
-          <li>Debugging with AI Assistance</li>
+          <li data-bg="Напреднало Промптиране и LLM Работни Процеси">Advanced Prompting &amp; LLM Workflows</li>
+          <li data-bg="Итеративно Прототипиране и „Vibe Coding“">Iterative Prototyping &amp; "Vibe Coding"</li>
+          <li data-bg="Превръщане на Концепции във Функционални Интерфейси">Translating Concepts into Functional Interfaces</li>
+          <li data-bg="Интеграция на HTML, CSS и JavaScript">HTML, CSS, and JavaScript Integration</li>
+          <li data-bg="Debug-ване с Помощта на ИИ">Debugging with AI Assistance</li>
         </ul>
       </div>
 
       <div class="spec-card reveal">
-        <h3>Digital Distribution</h3>
+        <h3 data-bg="Дигитално Разпространение">Digital Distribution</h3>
         <ul>
-          <li>Algorithmic Reach &amp; Account Revival Strategy</li>
-          <li>Audience Retention Analytics</li>
-          <li>Cross-Platform Content Architecture</li>
-          <li>Broadcast Setup (OBS Studio, Hardware Encoding)</li>
+          <li data-bg="Алгоритмичен Обхват и Стратегия за Съживяване на Профили">Algorithmic Reach &amp; Account Revival Strategy</li>
+          <li data-bg="Анализ на Задържането на Аудитория">Audience Retention Analytics</li>
+          <li data-bg="Кросплатформена Архитектура на Съдържанието">Cross-Platform Content Architecture</li>
+          <li data-bg="Настройка за Излъчване (OBS Studio, Хардуерно Кодиране)">Broadcast Setup (OBS Studio, Hardware Encoding)</li>
         </ul>
       </div>
 
@@ -606,12 +620,12 @@
 
 <section class="contact" id="contact">
   <div class="section-inner">
-    <span class="eyebrow">Contact</span>
-    <h2>Direct Inquiries</h2>
-    <p>Open to discussions regarding technical projects, professional opportunities, and strategic collaborations.</p>
+    <span class="eyebrow" data-bg="Контакти">Contact</span>
+    <h2 data-bg="Директни Запитвания">Direct Inquiries</h2>
+    <p data-bg="Отворен съм за разговори относно технически проекти, професионални възможности и стратегически партньорства.">Open to discussions regarding technical projects, professional opportunities, and strategic collaborations.</p>
     <div class="contact-actions">
-      <a class="btn" href="https://raw.githubusercontent.com/panevx/gpanev/main/george_panev_cv.pdf" target="_blank">Download CV</a>
-      <a class="btn ghost" href="mailto:iamgeorgepanev@gmail.com">Email Me</a>
+      <a class="btn" href="https://raw.githubusercontent.com/panevx/gpanev/main/george_panev_cv.pdf" target="_blank" data-bg="Изтегли CV">Download CV</a>
+      <a class="btn ghost" href="mailto:iamgeorgepanev@gmail.com" data-bg="Имейл">Email Me</a>
       <a class="btn ghost" href="https://www.instagram.com/panevx/" target="_blank">Instagram</a>
       <a class="btn ghost" href="https://www.tiktok.com/@panevx" target="_blank">TikTok</a>
     </div>
@@ -620,8 +634,8 @@
 </main>
 
 <footer>
-  George Panev &mdash; Portfolio
-  <div class="location-badge">Coordinates: 42.6977° N, 23.3219° E | Sofia, Bulgaria</div>
+  <span data-bg="George Panev &mdash; Портфолио">George Panev &mdash; Portfolio</span>
+  <div class="location-badge" data-bg="Координати: 42.6977° С, 23.3219° И | София, България">Coordinates: 42.6977° N, 23.3219° E | Sofia, Bulgaria</div>
 </footer>
 
 <!-- BACK TO TOP BUTTON -->
@@ -729,8 +743,88 @@
     }
   };
 
+  const modalDataBG = {
+    animalsync: {
+      title: "AnimalSync",
+      subtitle: "Продуктов Прототип и Финалист на Junior Achievement",
+      body: `
+        <p>AnimalSync е концепция за продукт за проследяване на домашни любимци, разработена от екип ученици от клас 11Г в 2 СУ „Акад. Емилиян Станев“. Проектът успешно се класира за Националния финал на Junior Achievement.</p>
+
+        <h4>Произход</h4>
+        <p>Концепцията се роди по време на образователен уъркшоп, воден от EUIPO и Патентното ведомство на Република България, фокусиран върху интелектуалната собственост, търговските марки и устойчивото развитие на бизнеса. С около 1,5 часа за замисляне на компания, първоначалният ни екип формулира основата на AnimalSync.</p>
+
+        <h4>Моята Роля и Техническо Изпълнение</h4>
+        <p>Въпреки че не бях първоначалният автор на концепцията, изпълнявах ролята на технически ръководител и основен разработчик. Първоначалната цел беше изграждане на нативно Android приложение на Kotlin. Осъзнавайки сериозните времеви ограничения обаче, взех практическото инженерно решение да сменя подхода. Разработих функционален прототип на интерфейс на база HTML, който успешно демонстрира визията на продукта, осигурявайки ни осезаем актив за представянето.</p>
+
+        <h4>Концепцията на Продукта</h4>
+        <p>AnimalSync беше проектиран около умен нашийник на база ESP32, комуникиращ с нашето приложение. Планираният набор от функции включваше:</p>
+        <ul>
+          <li><strong>Проследяване на Любимеца:</strong> Проследяване на сън, стъпки, калории, телесна температура, ниво на стрес и сърдечен ритъм.</li>
+          <li><strong>Контекстуално Време:</strong> Локализирани метеорологични данни за препоръки за облекло на любимеца при тежки условия.</li>
+          <li><strong>Достъп до Ветеринари:</strong> Вградена карта, показваща близки клиники за по-бърз контакт при спешност.</li>
+          <li><strong>SOS и Мрежа за Изгубени Любимци:</strong> Основна функция, позволяваща на собствениците да сигнализират за изгубен любимец. Системата уведомява други потребители на AnimalSync и близки ветеринари, създавайки мрежа за възстановяване с помощта на общността.</li>
+          <li><strong>Споделена Отговорност:</strong> Функционалност за временно свързване на профила на любимеца с разхождач на кучета или гледач, който може да задейства SOS режима при нужда.</li>
+        </ul>
+
+        <h4>Изпълнение и Предизвикателства</h4>
+        <p>Процесът на разработка не беше безпроблемен. Включваше стриктни срокове, противоречиви мнения за посоката на продукта и сериозни разногласия в екипа. Преодоляхме тези трудности чрез повторна итерация, като в крайна сметка изчистихме концепцията до ясен, демонстрируем продукт.</p>
+
+        <h4>Резултат</h4>
+        <p>Изпълнението на прототипа и нашето представяне спечелиха на AnimalSync място като финалист за Националния финал на Junior Achievement. Въпреки че бяхме поканени на финалния етап, в крайна сметка не присъствахме поради конфликт в графика с нашия проект по мобилност Erasmus+ в Хърватия.</p>
+
+        <div class="case-links">
+          <p><a href="https://project-animalsync.2su.bg/" target="_blank">Виж Живия Прототип</a></p>
+          <p><a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank">Виж Официалното Академично Признание</a></p>
+        </div>
+      `
+    },
+    soapi: {
+      title: "Invest Sofia (SOAPI)",
+      subtitle: "Общинска Инвестиционна Агенция (2025–2026)",
+      body: `
+        <p>Започнах с 64-часов стаж през 2025 г. в Столична агенция за инвестиции (Invest Sofia), придобивайки представа за икономическите процеси в публичния сектор. Върнах се през 2026 г. в роля, фокусирана върху маркетинга, допринасяйки за дигиталните комуникации, ангажираността на аудиторията и инициативите за институционална информираност, насочени към привличане на капитал в града.</p>
+        <div class="case-links">
+          <p><a href="https://investsofia.com/" target="_blank">Виж Официалния Портал на Invest Sofia</a></p>
+        </div>
+      `
+    },
+    erasmus: {
+      title: "Делегация Erasmus+",
+      subtitle: "Проект за Мобилност по ИКТ и STEM (Юни 2026)",
+      body: `
+        <p>Участвах в групова програма за мобилност Erasmus+, фокусирана върху цели в областта на ИКТ и STEM. Представих 2 СУ „Акад. Емилиян Станев“ по време на интензивен 5-дневен образователен обмен, приет от Gimnazija Metković в Метковичи, Хърватия.</p>
+        <div class="case-links">
+          <p><a href="https://www.facebook.com/VtoroSU/posts/pfbid0C8pX2mKYQu8opEUxCApTGvdwf5f5fkQmewtzVb3ddGrz6xMa4nJpJRcNxyv8XpFCl" target="_blank">Виж Официалното Академично Признание</a></p>
+          <p><em>Сертификат при запитване.</em></p>
+        </div>
+      `
+    },
+    euipo: {
+      title: "Обучение по Интелектуална Собственост",
+      subtitle: "Устойчиво Развитие на Бизнеса (Окт. 2025)",
+      body: `
+        <p>Завърших образователно обучение в София, организирано от Службата на Европейския съюз за интелектуална собственост (EUIPO) и Патентното ведомство на Република България. Сесията обхвана наличността на търговски марки, промишления дизайн и приложението на интелектуалната собственост в устойчивите бизнес модели.</p>
+        <div class="case-links">
+          <p><a href="https://www.facebook.com/VtoroSU/posts/pfbid09Rmw86NXaXVeHx3wZxfrrJbHE8y49vnAN8jobmFsFaQdQ1HA8Jf4bv3FU7K1GCnnl" target="_blank">Виж Официалното Академично Признание</a></p>
+          <p><em>Сертификат при запитване.</em></p>
+        </div>
+      `
+    },
+    tiktok: {
+      title: "Експеримент за Придобиване на Аудитория",
+      subtitle: "Съживяване на TikTok Профил (2025)",
+      body: `
+        <p>Скрийншот от анализа, показващ скока в гледанията за 5 дни след съживяване на неактивен профил и смяна на нишата на съдържанието.</p>
+        <img src="https://raw.githubusercontent.com/panevx/gpanev/main/TikTok.jpg" alt="TikTok анализ, показващ над 676 000 органични гледания за 5 дни след съживяване на неактивен профил" style="max-width:100%; border:1px solid var(--border-gold); margin-top:10px;">
+        <div class="case-links">
+          <p><a href="https://www.tiktok.com/@panevx" target="_blank">Виж TikTok Профила</a></p>
+        </div>
+      `
+    }
+  };
+
   function openModal(key) {
-    const data = modalData[key];
+    const data = (currentLang === 'bg' ? modalDataBG : modalData)[key];
     if(!data) return;
     document.getElementById('modalTitle').innerHTML = data.title;
     document.getElementById('modalSubtitle').innerHTML = data.subtitle;
@@ -741,6 +835,30 @@
   function closeModal() {
     document.getElementById('modalOverlay').classList.remove('active');
   }
+
+  // Language toggle — swaps innerHTML on every [data-bg] element and caches
+  // the original English markup on first switch so it can be restored.
+  let currentLang = localStorage.getItem('siteLang') || (navigator.language && navigator.language.toLowerCase().startsWith('bg') ? 'bg' : 'en');
+
+  function applyLang(lang) {
+    document.querySelectorAll('[data-bg]').forEach(function(el){
+      if(!el.hasAttribute('data-en-cache')){
+        el.setAttribute('data-en-cache', el.innerHTML);
+      }
+      el.innerHTML = lang === 'bg' ? el.getAttribute('data-bg') : el.getAttribute('data-en-cache');
+    });
+    document.documentElement.lang = lang;
+    var btn = document.getElementById('langToggle');
+    if(btn) btn.textContent = lang === 'bg' ? 'EN' : 'BG';
+    currentLang = lang;
+    localStorage.setItem('siteLang', lang);
+  }
+
+  function toggleLang(){
+    applyLang(currentLang === 'bg' ? 'en' : 'bg');
+  }
+
+  applyLang(currentLang);
 
   document.getElementById('modalOverlay').addEventListener('click', function(e) {
     if(e.target === this) closeModal();
