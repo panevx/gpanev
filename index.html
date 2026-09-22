@@ -75,6 +75,15 @@
     --black-45: rgba(0,0,0,0.45);
 
     --ease: cubic-bezier(.2,.9,.25,1);
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --glass-bg: rgba(18, 36, 29, 0.55);
+    --glass-edge: rgba(233, 196, 104, 0.28);
+    --glass-highlight: rgba(237, 230, 214, 0.16);
+    /* Higher-opacity variant for the modal: it carries long-form reading
+       text, so contrast needs to stay stable regardless of what's
+       scrolled behind it — verified against WCAG at 0.85 alpha over
+       every background color actually used on this page (7-10:1). */
+    --modal-glass-bg: rgba(18, 36, 29, 0.85);
     --space-sm: 16px;
     --space-md: 32px;
     --space-lg: 56px;
@@ -120,10 +129,21 @@
     background:linear-gradient(to bottom, var(--ink-95), transparent);
     backdrop-filter: blur(8px);
     pointer-events:none;
+    transition: background .5s var(--ease-spring), backdrop-filter .5s var(--ease-spring),
+                box-shadow .5s var(--ease-spring);
+  }
+  /* Once there's page content scrolling underneath, the nav becomes an
+     actual glass surface — translucent panel + specular edge — instead
+     of just a gradient fade over the hero. */
+  nav.scrolled::before{
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(160%);
+    box-shadow: inset 0 1px 0 0 var(--glass-highlight), 0 8px 30px var(--black-45);
+    border-bottom: 1px solid var(--glass-edge);
   }
   nav .brand{color:var(--gold-soft); letter-spacing:0.3em; font-weight: 600;}
   nav ul{list-style:none; display:flex; gap:32px; align-items:center;}
-  nav a{opacity:0.75; transition:opacity .3s, color .3s; text-decoration:none;}
+  nav a{opacity:0.75; transition:opacity .3s var(--ease-spring), color .3s var(--ease-spring); text-decoration:none;}
   nav a:hover{opacity:1; color:var(--gold-soft);}
   nav a.active{ opacity:1; color:var(--gold-soft); }
   .lang-toggle{
@@ -287,13 +307,16 @@
     text-decoration:none;
     background: transparent;
     cursor: pointer;
-    transition:background .35s, color .35s, border-color .35s, opacity .3s;
+    transition:background .35s var(--ease-spring), color .35s var(--ease-spring),
+               border-color .35s var(--ease-spring), opacity .3s var(--ease-spring),
+               transform .35s var(--ease-spring);
   }
-  .btn:hover{ background:var(--gold); color:var(--ink); }
+  .btn:hover{ background:var(--gold); color:var(--ink); transform:scale(1.02); }
+  .btn:active{ transform:scale(0.98); }
   .btn.ghost{ border-color:var(--gold-40); color:var(--parchment-70); }
   .btn.ghost:hover{ background:var(--gold-10); color:var(--gold-soft); border-color:var(--gold); }
   .btn.disabled{ cursor: not-allowed; opacity: 0.4; border-style: dashed; }
-  .btn.disabled:hover{ background: transparent; color: var(--parchment-70); border-color: var(--gold-40); }
+  .btn.disabled:hover{ background: transparent; color: var(--parchment-70); border-color: var(--gold-40); transform:none; }
 
   /* METRICS STRIP */
   .metrics-strip{
@@ -337,6 +360,7 @@
     padding: 35px;
     background: var(--bottle-tint);
     border: 1px solid var(--border-gold);
+    box-shadow: inset 0 1px 0 0 var(--glass-highlight);
     text-align: left;
   }
   .current-focus h3 {
@@ -365,7 +389,7 @@
     padding:45px 20px;
     margin:0 -20px;
     border-bottom:1px solid var(--border-gold);
-    transition: background .4s var(--ease), padding-left .4s var(--ease);
+    transition: background .4s var(--ease-spring), padding-left .4s var(--ease-spring);
   }
   .entry:first-child{ border-top:1px solid var(--border-gold); }
   .entry:hover{ background:var(--gold-10); padding-left:32px; }
@@ -409,13 +433,14 @@
   .spec-card{
     background: var(--bottle-tint);
     border: 1px solid var(--border-gold);
+    box-shadow: inset 0 1px 0 0 var(--glass-highlight);
     padding: 35px;
-    transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+    transition: transform .4s var(--ease-spring), border-color .4s var(--ease-spring), box-shadow .4s var(--ease-spring);
   }
   .spec-card:hover{
-    transform: translateY(-6px);
+    transform: translateY(-6px) scale(1.01);
     border-color: var(--gold-40);
-    box-shadow: 0 20px 40px var(--black-45);
+    box-shadow: inset 0 1px 0 0 var(--glass-highlight), 0 20px 40px var(--black-45);
   }
   @media (hover:none){ .spec-card:hover{ transform:none; box-shadow:none; } }
   .spec-card h3{
@@ -471,15 +496,19 @@
     font-size: 0.6rem;
   }
 
-  /* BACK TO TOP BUTTON */
+  /* BACK TO TOP BUTTON — floats over scrolling content, so it's the
+     clearest case for an actual glass surface (something real sits
+     behind it to blur). */
   .back-to-top {
     position: fixed;
     bottom: 40px;
     right: 40px;
     width: 48px;
     height: 48px;
-    background: var(--bottle-deep);
-    border: 1px solid var(--gold);
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-edge);
+    box-shadow: inset 0 1px 0 0 var(--glass-highlight), 0 8px 24px var(--black-45);
     color: var(--gold-soft);
     display: flex;
     align-items: center;
@@ -490,18 +519,21 @@
     font-size: 1.2rem;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(10px);
-    transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease;
+    transform: translateY(10px) scale(1);
+    transition: opacity .4s var(--ease-spring), transform .4s var(--ease-spring),
+                background .3s var(--ease-spring), border-color .3s var(--ease-spring);
     z-index: 99;
   }
   .back-to-top.visible {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
   .back-to-top:hover {
     background: var(--gold);
+    border-color: var(--gold-soft);
     color: var(--ink);
+    transform: translateY(0) scale(1.08);
   }
 
   /* MODAL DRAWER */
@@ -512,18 +544,22 @@
     display: flex; align-items: center; justify-content: center;
     padding: 20px;
     opacity: 0; pointer-events: none;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.4s var(--ease-spring);
   }
   .modal-overlay.active{ opacity: 1; pointer-events: auto; }
   .modal-box{
-    background: var(--ink);
-    border: 1px solid var(--gold);
+    background: var(--modal-glass-bg);
+    backdrop-filter: blur(25px) saturate(160%);
+    border: 1px solid var(--glass-edge);
     max-width: 850px; width: 100%;
     max-height: 90vh; overflow-y: auto;
     padding: 50px;
     position: relative;
-    box-shadow: 0 20px 50px var(--black-80);
+    box-shadow: inset 0 1px 0 0 var(--glass-highlight), 0 20px 50px var(--black-80);
+    transform: scale(0.97);
+    transition: transform 0.4s var(--ease-spring);
   }
+  .modal-overlay.active .modal-box{ transform: scale(1); }
   .modal-close{
     position: absolute; top: 20px; right: 25px;
     background: none; border: none; color: var(--gold);
@@ -756,7 +792,8 @@
 </div>
 
 <script>
-  // Scroll to Top Logic
+  // Scroll to Top Logic + nav glass state
+  var navEl = document.querySelector('nav');
   window.addEventListener('scroll', () => {
     const btn = document.getElementById('backToTop');
     if (window.scrollY > 400) {
@@ -764,6 +801,7 @@
     } else {
       btn.classList.remove('visible');
     }
+    navEl.classList.toggle('scrolled', window.scrollY > 40);
   });
 
   // Mobile hamburger nav
