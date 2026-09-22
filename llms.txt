@@ -1,0 +1,30 @@
+# George Panev
+
+> Student, builder, and technical lead from Sofia, Bulgaria. Works at the intersection of product prototyping, AI-assisted development, and digital growth.
+
+George is completing his final year of high school (12th grade) in Sofia, Bulgaria, and is preparing for university. He relies heavily on AI-assisted workflows to translate technical concepts into working software.
+
+## Overview
+
+- [Portfolio](https://georgepanev.com/): Single-page portfolio covering background, projects, technical capabilities, and contact information.
+- [CV (PDF)](https://georgepanev.com/george_panev_cv.pdf): Full resume/CV.
+
+## Selected Projects
+
+- AnimalSync (2025): Technical lead and developer for a student pet-monitoring product concept that qualified for the Junior Achievement National Finals. Live prototype: https://project-animalsync.2su.bg/
+- Invest Sofia / SOAPI (2025–2026): Internship, then ongoing marketing contributor role at Sofia's official municipal investment agency. https://investsofia.com/
+- Audience Acquisition & Distribution (2017–2025): Revived a dormant TikTok account, generating 676,000+ organic views in 5 days through content strategy. https://www.tiktok.com/@panevx
+- Erasmus+ STEM Delegation (June 2026): Represented his school on an EU mobility program, a 5-day ICT/STEM exchange in Metković, Croatia.
+- Intellectual Property Training (October 2025): Training by EUIPO and the Bulgarian Patent Office on trademarks and industrial design.
+
+## Technical Capabilities
+
+- Systems, Privacy & Android: Linux administration (Ubuntu, Zorin, CachyOS), privacy-focused environments (Tails, Kali Linux), Android custom ROMs and system-level access (KernelSU, Magisk).
+- AI-Assisted Development: Advanced prompting and LLM workflows, iterative prototyping, HTML/CSS/JavaScript integration, AI-assisted debugging.
+- Digital Distribution: Algorithmic reach and account revival strategy, audience retention analytics, cross-platform content architecture.
+
+## Contact
+
+- Email: iamgeorgepanev@gmail.com
+- Instagram: https://www.instagram.com/panevx/
+- TikTok: https://www.tiktok.com/@panevx

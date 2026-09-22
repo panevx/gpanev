@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>George Panev — Portfolio</title>
-<meta name="description" content="Personal portfolio of George Panev — student, builder, and technical lead from Sofia, Bulgaria. Product prototyping, AI-assisted development, and digital growth work.">
+<meta name="description" content="George Panev — student, builder, and technical lead from Sofia, Bulgaria, working on product prototyping and AI-assisted development.">
 <meta name="author" content="George Panev">
 <meta name="robots" content="index, follow">
 
@@ -47,7 +47,7 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
   :root{
-    --ink:#0B0D0A;
+    --ink:#0A1912;
     --bottle:#1E5B45;
     --bottle-deep:#123A2B;
     --gold:#D4A017;
@@ -67,7 +67,7 @@
     --gold-85: rgba(212,160,23,0.85);
     --gold-40: rgba(212,160,23,0.4);
     --gold-10: rgba(212,160,23,0.1);
-    --ink-70: rgba(11,13,10,0.7);
+    --ink-70: rgba(10,25,18,0.7);
     --modal-scrim: rgba(10,33,24,0.92);
     --black-80: rgba(0,0,0,0.8);
     --black-45: rgba(0,0,0,0.45);
@@ -238,6 +238,15 @@
     animation: rise 0.7s ease-out forwards;
   }
   .hero h1 em{ font-style:normal; color:var(--gold-soft); }
+  .hero-role{
+    display:block;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:clamp(1.1rem, 2.4vw, 1.6rem);
+    color:var(--gold-soft);
+    margin-top:10px;
+    letter-spacing:0.02em;
+  }
   .hero p.sub{
     max-width: 620px;
     margin:20px auto 0;
@@ -570,7 +579,7 @@
 <main>
 <section class="hero">
   <div class="seal"><span>GP</span></div>
-  <h1>George <em>Panev</em></h1>
+  <h1>George <em>Panev</em> <span class="hero-role" data-bg="Строител и Технически Ръководител">Builder &amp; Technical Lead</span></h1>
   <div class="hero-context" data-bg="18 години &bull; София, България">18 Years Old &bull; Sofia, Bulgaria</div>
   <p class="sub" data-bg="Изграждам неща. Разбирам технологиите, дигиталния растеж и стратегическото изпълнение. Съчетавам практическа продуктова разработка с предприемачески начин на мислене, за да превръщам идеите в реално работещи резултати.">I build things. I understand technology, digital growth, and strategic execution. Combining hands-on product development with an entrepreneurial mindset to turn ideas into functional reality.</p>
   <div class="cta">
