@@ -1036,26 +1036,39 @@
   })();
 
   // Scroll-spy — highlights the nav link for whichever section's top has
-  // most recently passed a fixed reference line below the nav. Checked
-  // against a reference line (not a narrow IntersectionObserver band)
-  // because a thin band can straddle a section boundary and skip a
-  // section during a fast scroll.
+  // most recently passed a fixed reference line below the nav. Section
+  // offsets are cached up front (and on resize) instead of read with
+  // getBoundingClientRect() inside the scroll handler: querying layout
+  // geometry on every scroll frame, while other scroll listeners on this
+  // page write classList changes in the same tick, was a measured forced
+  // synchronous reflow (flagged by PageSpeed Insights). Caching turns the
+  // hot path into a plain number comparison against window.scrollY, no
+  // layout read at all.
   (function(){
     var links = document.querySelectorAll('#navList a[href^="#"]');
     var sections = Array.prototype.map.call(links, function(a){
-      return { link: a, el: document.querySelector(a.getAttribute('href')) };
+      return { link: a, el: document.querySelector(a.getAttribute('href')), top: 0 };
     }).filter(function(s){ return s.el; });
     if(!sections.length) return;
+
+    function cacheOffsets(){
+      sections.forEach(function(s){ s.top = s.el.getBoundingClientRect().top + window.scrollY; });
+    }
 
     var ticking = false;
     function updateActive(){
       ticking = false;
-      var line = window.innerHeight * 0.3;
+      var line = window.scrollY + window.innerHeight * 0.3;
       var current = sections[0];
       sections.forEach(function(s){
-        if(s.el.getBoundingClientRect().top <= line) current = s;
+        if(s.top <= line) current = s;
       });
       sections.forEach(function(s){ s.link.classList.toggle('active', s === current); });
+    }
+    cacheOffsets();
+    window.addEventListener('resize', cacheOffsets);
+    if(document.fonts && document.fonts.ready){
+      document.fonts.ready.then(cacheOffsets);
     }
     window.addEventListener('scroll', function(){
       if(ticking) return;
