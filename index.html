@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" id="top">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>George Panev — Portfolio</title>
-<meta name="description" content="George Panev — student, builder, and technical lead from Sofia, Bulgaria, working on product prototyping and AI-assisted development.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>George Panev</title>
+<meta name="description" content="George Panev — student builder from Sofia, Bulgaria. Software prototypes, technical leadership, and digital growth.">
 <meta name="author" content="George Panev">
 <meta name="robots" content="index, follow">
-
-<meta property="og:title" content="George Panev — Portfolio">
-<meta property="og:description" content="Student, builder, and technical lead from Sofia, Bulgaria. Product prototyping, AI-assisted development, and digital growth work.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://georgepanev.com/android-chrome-512x512.png">
-
 <link rel="canonical" href="https://georgepanev.com/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="George Panev — Portfolio">
-<meta name="twitter:description" content="Student, builder, and technical lead from Sofia, Bulgaria. Product prototyping, AI-assisted development, and digital growth work.">
+
+<meta property="og:title" content="George Panev">
+<meta property="og:description" content="Student builder from Sofia, Bulgaria. Software prototypes, technical leadership, and digital growth.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://georgepanev.com/">
+<meta property="og:image" content="https://georgepanev.com/android-chrome-512x512.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="George Panev">
+<meta name="twitter:description" content="Student builder from Sofia, Bulgaria. Software prototypes, technical leadership, and digital growth.">
 <meta name="twitter:image" content="https://georgepanev.com/android-chrome-512x512.png">
 
 <script type="application/ld+json">
@@ -24,14 +24,11 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "George Panev",
-  "alternateName": ["Georgi Panev", "Panev", "Георги Панев", "Панев"],
+  "alternateName": ["Georgi Panev", "Георги Панев"],
   "url": "https://georgepanev.com/",
-  "sameAs": ["https://www.tiktok.com/@panevx"],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Sofia",
-    "addressCountry": "BG"
-  }
+  "email": "mailto:iamgeorgepanev@gmail.com",
+  "sameAs": ["https://www.tiktok.com/@panevx", "https://www.instagram.com/panevx/"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Sofia", "addressCountry": "BG" }
 }
 </script>
 
@@ -39,1054 +36,430 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#123A2B">
+<meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0D0C" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+
+<!-- Pick the language before first paint so there's no flash of the wrong one. -->
+<script>
+  (function(){
+    var lang = null;
+    try { lang = localStorage.getItem('siteLang'); } catch(e) {}
+    if (lang !== 'en' && lang !== 'bg') lang = (navigator.language || '').toLowerCase().indexOf('bg') === 0 ? 'bg' : 'en';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.lang = lang;
+  })();
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+
 <style>
   :root{
-    --ink:#0A1912;
-    --bottle:#1E5B45;
-    --bottle-deep:#123A2B;
-    --gold:#D4A017;
-    --gold-soft:#E9C468;
-    --parchment:#EDE6D6;
-    --border-gold: rgba(212,160,23,0.22);
-    --bottle-tint: rgba(30,91,69,0.35);
+    --bg:#FAFAFA;
+    --surface:#FFFFFF;
+    --fg:#09090B;
+    --muted:#52525B;
+    --border:#E4E4E7;
+    --accent:#1E5B45;
+    --accent-fg:#FFFFFF;
+    --ring:#1E5B45;
 
-    /* Alpha variants of the palette above — named by opacity so every
-       translucent value in the sheet traces back to one source instead
-       of a scattered literal. */
-    --parchment-85: rgba(237,230,214,0.85);
-    --parchment-80: rgba(237,230,214,0.8);
-    --parchment-78: rgba(237,230,214,0.78);
-    --parchment-70: rgba(237,230,214,0.7);
-    --parchment-65: rgba(237,230,214,0.65);
-    --gold-85: rgba(212,160,23,0.85);
-    --gold-40: rgba(212,160,23,0.4);
-    --gold-10: rgba(212,160,23,0.1);
-    --ink-70: rgba(10,25,18,0.7);
-    --modal-scrim: rgba(10,33,24,0.92);
-    --black-80: rgba(0,0,0,0.8);
-    --black-45: rgba(0,0,0,0.45);
+    --sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-    --ease: cubic-bezier(.2,.9,.25,1);
-    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+    --space-6:24px; --space-8:32px; --space-12:48px; --space-16:64px; --space-24:96px;
+    --measure:680px;
+    --dur:200ms;
+    --ease:cubic-bezier(.2,.8,.2,1);
   }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0B0D0C;
+      --surface:#131614;
+      --fg:#F4F4F5;
+      --muted:#A1A1AA;
+      --border:#27272A;
+      --accent:#7FD1A8;
+      --accent-fg:#0B0D0C;
+      --ring:#7FD1A8;
+    }
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  *{ margin:0; padding:0; }
+  html{ -webkit-text-size-adjust:100%; }
   body{
-    background:var(--ink);
-    color:var(--parchment);
-    font-family:'EB Garamond', serif;
-    font-size:19px;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--sans);
+    font-size:1rem;
     line-height:1.6;
-    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
   }
-  h1,h2,h3,h4{font-family:'Cormorant Garamond', serif; font-weight:500; letter-spacing:0.01em;}
-  .eyebrow{
-    font-family:'Cinzel', serif;
-    font-weight:700;
-    font-size:0.68rem;
-    letter-spacing:0.32em;
-    text-transform:uppercase;
-    color:var(--gold);
-    display:inline-block;
-  }
-  a{color:inherit;}
+  a{ color:inherit; text-decoration-color:var(--border); text-underline-offset:3px; text-decoration-thickness:1px; transition:text-decoration-color var(--dur) var(--ease), color var(--dur) var(--ease); }
+  a:hover{ text-decoration-color:currentColor; }
+  :focus-visible{ outline:2px solid var(--ring); outline-offset:3px; border-radius:2px; }
+  img{ max-width:100%; height:auto; display:block; }
 
-  /* NAVIGATION */
-  nav{
-    position:fixed; top:0; left:0; right:0; z-index:56;
-    display:flex; justify-content:space-between; align-items:center;
-    padding:24px 6vw;
-    font-family:'Cinzel', serif;
-    font-size:0.7rem;
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-    background: transparent;
-    border-bottom: 1px solid transparent;
-    transition: background .3s var(--ease), border-color .3s var(--ease);
-  }
-  /* Flat solid bar once there's page content scrolling underneath —
-     plain background-color transition, nothing translucent or blurred. */
-  nav.scrolled{
-    background: var(--ink);
-    border-bottom: 1px solid var(--border-gold);
-  }
-  nav .brand{color:var(--gold-soft); letter-spacing:0.3em; font-weight: 600;}
-  nav ul{list-style:none; display:flex; gap:32px; align-items:center;}
-  nav a{opacity:0.75; transition:opacity .3s var(--ease-spring), color .3s var(--ease-spring); text-decoration:none;}
-  nav a:hover{opacity:1; color:var(--gold-soft);}
-  nav a.active{ opacity:1; color:var(--gold-soft); }
-  .lang-toggle{
-    font-family:'Cinzel', serif;
-    font-size:0.65rem;
-    letter-spacing:0.2em;
-    color:var(--gold-soft);
-    background:transparent;
-    border:1px solid var(--border-gold);
-    padding:8px 14px;
+  /* Only the chosen language is rendered. Scoped under body so the
+     selector never matches the <html lang> element itself. */
+  html[data-lang="en"] body [lang="bg"],
+  html[data-lang="bg"] body [lang="en"]{ display:none !important; }
+
+  .wrap{ max-width:var(--measure); margin:0 auto; padding:0 var(--space-6); }
+
+  /* HEADER */
+  header{ padding:var(--space-6) 0; }
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:var(--space-4); }
+  .mark{ font-family:var(--mono); font-size:.875rem; font-weight:500; text-decoration:none; display:inline-flex; align-items:center; min-height:44px; }
+  .lang-btn{
+    font-family:var(--mono); font-size:.8125rem; font-weight:500;
+    color:var(--fg); background:transparent;
+    border:1px solid var(--border); border-radius:6px;
+    min-width:44px; min-height:44px; padding:0 var(--space-3);
     cursor:pointer;
-    text-transform:uppercase;
-    transition:border-color .3s, background .3s;
+    transition:border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
   }
-  .lang-toggle:hover{ border-color:var(--gold); background:var(--gold-10); }
+  .lang-btn:hover{ border-color:var(--fg); }
 
-  /* HAMBURGER (mobile nav trigger) */
-  .nav-toggle{
-    display:none;
-    width:34px; height:26px;
-    background:transparent; border:none; cursor:pointer;
-    padding:0; position:relative;
-    z-index:60;
+  /* INTRO */
+  .intro{ padding:var(--space-16) 0 var(--space-16); }
+  h1{ font-size:clamp(2.25rem, 7vw, 3.25rem); font-weight:600; letter-spacing:-0.03em; line-height:1.1; }
+  .lead{ margin-top:var(--space-6); font-size:1.1875rem; line-height:1.55; color:var(--muted); max-width:36em; }
+  .lead strong{ color:var(--fg); font-weight:500; }
+  .status{
+    margin-top:var(--space-6);
+    display:inline-flex; align-items:center; gap:var(--space-2);
+    font-family:var(--mono); font-size:.8125rem; color:var(--muted);
   }
-  .nav-toggle span{
-    position:absolute; left:0; right:0; height:1px;
-    background:var(--gold-soft);
-    transition:transform .3s ease, opacity .3s ease, background .3s ease;
-  }
-  .nav-toggle span:nth-child(1){ top:2px; }
-  .nav-toggle span:nth-child(2){ top:12px; }
-  .nav-toggle span:nth-child(3){ top:22px; }
-  .nav-toggle[aria-expanded="true"] span:nth-child(1){ top:12px; transform:rotate(45deg); }
-  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-  .nav-toggle[aria-expanded="true"] span:nth-child(3){ top:12px; transform:rotate(-45deg); }
-
-  @media (max-width:760px){
-    nav ul{
-      display:flex; flex-direction:column; align-items:center; gap:0;
-      position:fixed; top:0; right:0; bottom:0;
-      width:min(78vw, 320px);
-      margin:0; padding:110px 0 40px;
-      background:var(--bottle-deep);
-      border-left:1px solid var(--border-gold);
-      box-shadow:-24px 0 48px var(--black-45);
-      transform:translateX(100%);
-      transition:transform .4s cubic-bezier(.2,.9,.25,1);
-      z-index:55;
-    }
-    nav ul.open{ transform:translateX(0); }
-    nav ul li{ width:100%; text-align:center; }
-    nav ul a{
-      display:block; padding:18px 24px;
-      font-size:0.78rem;
-      border-bottom:1px solid var(--border-gold);
-    }
-    nav ul li:last-child a{ border-bottom:none; }
-    nav .lang-toggle{ margin-top:28px; }
-    .nav-toggle{ display:block; }
-    .nav-scrim{
-      content:""; position:fixed; inset:0;
-      background:var(--ink-70);
-      opacity:0; pointer-events:none;
-      transition:opacity .35s ease;
-      z-index:54;
-    }
-    .nav-scrim.open{ opacity:1; pointer-events:auto; }
-    body.nav-open{ overflow:hidden; }
-  }
-  body.modal-open{ overflow:hidden; }
-
-  /* HERO */
-  .hero{
-    min-height:100svh;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center;
-    position:relative;
-    padding:120px 6vw 80px;
-    background: var(--bottle-deep);
-    border-bottom: 1px solid var(--border-gold);
-  }
-  .seal{
-    width:96px; height:96px;
-    border-radius:50%;
-    border:1px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    position:relative;
-    transform:scale(2.4);
-    animation: stamp 0.7s cubic-bezier(.2,.9,.25,1) forwards;
-  }
-  .seal::before{
-    content:"";
-    position:absolute; inset:6px;
-    border-radius:50%;
-    border:1px solid var(--gold);
-    opacity:0.5;
-  }
-  .seal span{
-    font-family:'Cinzel', serif;
-    font-size:1.6rem;
-    letter-spacing:0.05em;
-    color:var(--gold-soft);
-  }
-  @keyframes stamp{
-    0%{transform:scale(2.6);}
-    55%{transform:scale(0.94);}
-    75%{transform:scale(1.05);}
-    100%{transform:scale(1);}
-  }
-  /* Hero content is never opacity:0 — it paints immediately (real content,
-     real LCP/FCP) and only its position animates. A scanner (or a real
-     user on a slow connection) should see the words right away. */
-  .hero h1{
-    margin-top:34px;
-    font-size:clamp(2.6rem, 7.5vw, 5.4rem);
-    color:var(--parchment);
-    animation: rise 0.7s ease-out forwards;
-  }
-  .hero h1 em{ font-style:normal; color:var(--gold-soft); }
-  .hero-role{
-    display:block;
-    font-family:'Cormorant Garamond', serif;
-    font-weight:500;
-    font-size:clamp(1.1rem, 2.4vw, 1.6rem);
-    color:var(--gold-soft);
-    margin-top:10px;
-    letter-spacing:0.02em;
-  }
-  .hero p.sub{
-    max-width: 620px;
-    margin:20px auto 0;
-    font-size:1.1rem;
-    color:var(--parchment-85);
-    animation: rise 0.7s ease-out 0.1s backwards;
-  }
-  .hero-context {
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-    margin-top: 24px;
-    animation: rise 0.7s ease-out 0.2s backwards;
-    text-transform: uppercase;
-  }
-  @keyframes rise{
-    from{transform:translateY(14px);}
-    to{transform:translateY(0);}
-  }
-  .hero .cta{ margin-top:40px; animation: rise 0.7s ease-out 0.3s backwards; display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
-  
-  /* BUTTONS */
+  .status::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; }
+  .actions{ margin-top:var(--space-8); display:flex; flex-wrap:wrap; gap:var(--space-3); }
   .btn{
-    display:inline-flex; align-items:center; justify-content:center;
-    padding:15px 34px;
-    border:1px solid var(--gold);
-    color:var(--gold-soft);
-    font-family:'Cinzel', serif;
-    font-size:0.7rem;
-    letter-spacing:0.26em;
-    text-transform:uppercase;
-    text-decoration:none;
-    background: transparent;
-    cursor: pointer;
-    transition:background .35s var(--ease-spring), color .35s var(--ease-spring),
-               border-color .35s var(--ease-spring), opacity .3s var(--ease-spring),
-               transform .35s var(--ease-spring);
+    display:inline-flex; align-items:center; gap:var(--space-2);
+    min-height:44px; padding:0 var(--space-6);
+    border-radius:8px; border:1px solid var(--border);
+    font-size:.9375rem; font-weight:500; text-decoration:none;
+    color:var(--fg); background:var(--surface);
+    transition:border-color var(--dur) var(--ease), background-color var(--dur) var(--ease), color var(--dur) var(--ease);
   }
-  .btn:hover{ background:var(--gold); color:var(--ink); transform:scale(1.02); }
-  .btn:active{ transform:scale(0.98); }
-  .btn.ghost{ border-color:var(--gold-40); color:var(--parchment-70); }
-  .btn.ghost:hover{ background:var(--gold-10); color:var(--gold-soft); border-color:var(--gold); }
-  .btn.disabled{ cursor: not-allowed; opacity: 0.4; border-style: dashed; }
-  .btn.disabled:hover{ background: transparent; color: var(--parchment-70); border-color: var(--gold-40); transform:none; }
-
-  /* METRICS STRIP */
-  .metrics-strip{
-    width: 100%;
-    background: var(--bottle-deep);
-    border-top: 1px solid var(--border-gold);
-    border-bottom: 1px solid var(--border-gold);
-    padding: 24px 6vw;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  .metric-item{ text-align: center; }
-  .metric-value{
-    font-family: 'Cinzel', serif;
-    font-size: 1.1rem;
-    color: var(--gold-soft);
-    letter-spacing: 0.1em;
-  }
-  .metric-label{
-    font-family: 'Cinzel', serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    color: var(--parchment-78);
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
+  .btn:hover{ border-color:var(--fg); }
+  .btn.primary{ background:var(--accent); border-color:var(--accent); color:var(--accent-fg); }
+  .btn.primary:hover{ background:var(--fg); border-color:var(--fg); color:var(--bg); }
+  .btn svg{ width:16px; height:16px; flex:none; }
 
   /* SECTIONS */
-  section{ padding:120px 6vw; position:relative; }
-  .section-inner{ max-width:920px; margin:0 auto; }
-
-  /* ABOUT & FOCUS */
-  .about{ text-align:center; }
-  .about h2{ font-size:clamp(2rem, 4vw, 2.8rem); margin:14px 0 26px; }
-  .about p{ max-width:720px; margin:0 auto 24px; color:var(--parchment-85); text-align: left; }
-  
-  .current-focus {
-    margin-top: 50px;
-    padding: 35px;
-    background: var(--bottle-tint);
-    border: 1px solid var(--border-gold);
-    text-align: left;
-  }
-  .current-focus h3 {
-    font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
-    color: var(--gold-soft);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-  .current-focus p {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--parchment-80);
+  section{ padding:var(--space-12) 0; border-top:1px solid var(--border); }
+  h2{
+    font-family:var(--mono); font-size:.8125rem; font-weight:500;
+    color:var(--muted); text-transform:uppercase; letter-spacing:.08em;
+    margin-bottom:var(--space-8);
   }
 
-  /* DOSSIER */
-  .dossier{ background:var(--bottle-deep); border-top:1px solid var(--border-gold); border-bottom:1px solid var(--border-gold); }
-  .dossier .section-inner{ text-align:center; }
-  .entries{ margin-top:56px; display:flex; flex-direction:column; }
-  .entry{
-    display:grid;
-    grid-template-columns:180px 1fr;
-    gap:32px;
-    text-align:left;
-    padding:45px 20px;
-    margin:0 -20px;
-    border-bottom:1px solid var(--border-gold);
-    transition: background .4s var(--ease-spring), padding-left .4s var(--ease-spring);
+  /* WORK */
+  .work{ list-style:none; display:grid; gap:var(--space-12); }
+  .item{ display:grid; gap:var(--space-2); }
+  @media (min-width:640px){
+    .item{ grid-template-columns:120px 1fr; gap:var(--space-6); }
   }
-  .entry:first-child{ border-top:1px solid var(--border-gold); }
-  .entry:hover{ background:var(--gold-10); padding-left:32px; }
-  .entry:hover .when{ color:var(--gold-soft); }
-  @media (hover:none){ .entry:hover{ background:none; padding-left:20px; } }
-  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
-  .reveal.is-visible{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){
-    .reveal{ opacity:1; transform:none; transition:none; }
-  }
-  .entry .when{ font-family:'Cinzel', serif; font-weight:700; font-size:0.85rem; letter-spacing:0.16em; color:var(--gold); padding-top:6px; line-height:1.4; }
-  .entry h3{ font-size:1.7rem; color:var(--parchment); }
-  .entry .role{ font-family:'Cinzel', serif; font-weight:700; font-size:0.68rem; letter-spacing:0.14em; color:var(--gold-85); margin:4px 0 14px; text-transform:uppercase; }
-  .entry .hook{ font-size:1.05rem; color:var(--gold-soft); font-weight:500; margin-bottom:8px; }
-  .entry p{ font-size:1rem; color:var(--parchment-80); margin-bottom: 20px; }
-  .entry-action{
-    display: inline-block;
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    text-transform: uppercase;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color .3s, color .3s;
-    background: none; border: none; cursor: pointer; padding: 0;
-  }
-  .entry-action:hover{ border-color: var(--gold); color: var(--gold-soft); }
-  @media (max-width:640px){ .entry{ grid-template-columns:1fr; gap:12px; padding: 35px 20px; } .entry:hover{ padding-left:20px; } }
+  .when{ font-family:var(--mono); font-size:.8125rem; color:var(--muted); padding-top:3px; font-variant-numeric:tabular-nums; }
+  .item h3{ font-size:1.125rem; font-weight:600; letter-spacing:-0.01em; line-height:1.4; }
+  .item h3 a{ text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
+  .item h3 a:hover{ color:var(--accent); }
+  .item h3 svg{ width:14px; height:14px; color:var(--muted); }
+  .role{ font-size:.9375rem; color:var(--muted); margin-top:2px; }
+  .item p.desc{ margin-top:var(--space-3); }
+  .stat{ font-family:var(--mono); font-size:.875rem; color:var(--accent); margin-top:var(--space-3); display:block; }
 
-  /* CAPABILITIES */
-  .capabilities .section-inner{ text-align: center; }
-  .capabilities h2{ font-size:clamp(2rem, 4vw, 2.8rem); margin:14px 0 40px; }
-  .spec-grid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    text-align: left;
+  details{ margin-top:var(--space-4); }
+  summary{
+    display:inline-flex; align-items:center; gap:var(--space-2);
+    min-height:44px; cursor:pointer; list-style:none;
+    font-size:.9375rem; font-weight:500; color:var(--fg);
   }
-  .spec-card{
-    background: var(--bottle-tint);
-    border: 1px solid var(--border-gold);
-    padding: 35px;
-    transition: transform .4s var(--ease-spring), border-color .4s var(--ease-spring), box-shadow .4s var(--ease-spring);
+  summary::-webkit-details-marker{ display:none; }
+  summary svg{ width:14px; height:14px; transition:transform var(--dur) var(--ease); }
+  details[open] summary svg{ transform:rotate(90deg); }
+  summary:hover{ color:var(--accent); }
+  .case{
+    padding:var(--space-4) 0 var(--space-2) var(--space-4);
+    border-left:2px solid var(--border);
+    color:var(--muted); font-size:.9375rem;
   }
-  .spec-card:hover{
-    transform: translateY(-6px);
-    border-color: var(--gold-40);
-    box-shadow: 0 20px 40px var(--black-45);
-  }
-  @media (hover:none){ .spec-card:hover{ transform:none; box-shadow:none; } }
-  .spec-card h3{
-    font-family: 'Cinzel', serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.15em;
-    color: var(--gold-soft);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-gold);
-    padding-bottom: 12px;
-  }
-  .spec-card ul{ list-style: none; }
-  .spec-card li{
-    font-size: 0.98rem;
-    color: var(--parchment-80);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .spec-card li::before{
-    content: "—";
-    color: var(--gold);
-    font-weight: bold;
-  }
+  .case h4{ color:var(--fg); font-size:.9375rem; font-weight:600; margin:var(--space-6) 0 var(--space-2); }
+  .case h4:first-child{ margin-top:0; }
+  .case p + p{ margin-top:var(--space-3); }
+  .case ul{ padding-left:1.1em; display:grid; gap:var(--space-2); }
+  .case strong{ color:var(--fg); font-weight:500; }
+  .case .links{ margin-top:var(--space-6); display:flex; flex-wrap:wrap; gap:var(--space-2) var(--space-6); }
+  .case .links a{ color:var(--fg); }
+  .case img{ margin-top:var(--space-4); border:1px solid var(--border); border-radius:8px; max-height:560px; width:auto; }
+
+  .also{ margin-top:var(--space-12); display:grid; gap:var(--space-6); list-style:none; }
+  .also li{ display:grid; gap:var(--space-1); }
+  @media (min-width:640px){ .also li{ grid-template-columns:120px 1fr; gap:var(--space-6); } }
+  .also .t{ font-weight:500; }
+  .also .d{ color:var(--muted); font-size:.9375rem; }
+  .also a{ font-size:.9375rem; display:inline-flex; align-items:center; min-height:44px; justify-self:start; }
+
+  /* SKILLS */
+  .skills{ display:grid; gap:var(--space-8); }
+  @media (min-width:640px){ .skills{ grid-template-columns:repeat(3, 1fr); gap:var(--space-6); } }
+  .skills h3{ font-size:.9375rem; font-weight:600; margin-bottom:var(--space-3); }
+  .skills ul{ list-style:none; display:grid; gap:var(--space-2); color:var(--muted); font-size:.9375rem; }
 
   /* CONTACT */
-  .contact{
-    text-align:center;
-    background: var(--bottle-deep);
-    border-top: 1px solid var(--border-gold);
-  }
-  .contact h2{ font-size:clamp(2rem,4.5vw,3rem); margin:14px 0 20px; }
-  .contact p{ max-width:520px; margin:0 auto 36px; color:var(--parchment-78); }
-  .contact-actions{ display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .contact p{ font-size:1.1875rem; line-height:1.55; max-width:32em; }
+  .contact .email{ display:inline-block; margin-top:var(--space-4); font-size:1.1875rem; font-weight:500; color:var(--accent); }
+  .socials{ margin-top:var(--space-8); display:flex; flex-wrap:wrap; gap:var(--space-3); }
 
-  /* FOOTER */
-  footer{
-    text-align:center;
-    padding:50px 6vw 60px;
-    font-family:'Cinzel', serif;
-    font-weight:700;
-    font-size:0.65rem;
-    letter-spacing:0.2em;
-    color:var(--gold-85);
-    text-transform:uppercase;
-    border-top: 1px solid var(--border-gold);
-  }
-  .location-badge{
-    margin-top: 10px;
-    color: var(--parchment-65);
-    font-size: 0.6rem;
-  }
-
-  /* BACK TO TOP BUTTON */
-  .back-to-top {
-    position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 48px;
-    height: 48px;
-    background: var(--bottle-deep);
-    border: 1px solid var(--gold);
-    box-shadow: 0 8px 24px var(--black-45);
-    color: var(--gold-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    text-decoration: none;
-    font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(10px) scale(1);
-    transition: opacity .4s var(--ease-spring), transform .4s var(--ease-spring),
-                background .3s var(--ease-spring), border-color .3s var(--ease-spring);
-    z-index: 99;
-  }
-  .back-to-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
-  }
-  .back-to-top:hover {
-    background: var(--gold);
-    border-color: var(--gold-soft);
-    color: var(--ink);
-    transform: translateY(0) scale(1.08);
-  }
-
-  /* MODAL DRAWER */
-  .modal-overlay{
-    position: fixed; inset: 0; z-index: 100;
-    background: var(--modal-scrim);
-    display: flex; align-items: center; justify-content: center;
-    padding: 20px;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.4s var(--ease-spring);
-  }
-  .modal-overlay.active{ opacity: 1; pointer-events: auto; }
-  .modal-box{
-    background: var(--ink);
-    border: 1px solid var(--gold);
-    max-width: 850px; width: 100%;
-    max-height: 90vh; overflow-y: auto;
-    padding: 50px;
-    position: relative;
-    box-shadow: 0 20px 50px var(--black-80);
-    transform: scale(0.97);
-    transition: transform 0.4s var(--ease-spring);
-  }
-  .modal-overlay.active .modal-box{ transform: scale(1); }
-  .modal-close{
-    position: absolute; top: 20px; right: 25px;
-    background: none; border: none; color: var(--gold);
-    font-size: 2rem; cursor: pointer; transition: color 0.3s;
-  }
-  .modal-close:hover { color: var(--gold-soft); }
-  .modal-title{ font-size: 2.4rem; color: var(--gold-soft); margin-bottom: 6px; }
-  .modal-subtitle{ font-family: 'Cinzel', serif; font-weight: 700; font-size: 0.75rem; color: var(--gold); letter-spacing: 0.2em; margin-bottom: 30px; text-transform: uppercase; border-bottom: 1px solid var(--border-gold); padding-bottom: 20px; }
-  
-  .modal-body{ font-size: 1rem; color: var(--parchment-85); line-height: 1.7; }
-  .modal-body h4 { font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.1em; color: var(--gold-soft); text-transform: uppercase; margin: 30px 0 12px; }
-  .modal-body p { margin-bottom: 16px; }
-  .modal-body ul { list-style: none; margin-bottom: 20px; padding-left: 5px; }
-  .modal-body ul li { margin-bottom: 8px; display: flex; gap: 10px; }
-  .modal-body ul li::before { content: "—"; color: var(--gold); }
-  .modal-body a { color: var(--gold-soft); text-decoration: underline; text-decoration-color: var(--border-gold); text-underline-offset: 4px; transition: color 0.3s; }
-  .modal-body a:hover { color: var(--gold); }
-  .modal-body .case-links { margin-top: 40px; padding-top: 20px; border-top: 1px dashed var(--border-gold); }
-  
-  @media (max-width: 640px) {
-    .modal-box { padding: 30px 20px; }
-  }
+  footer{ padding:var(--space-12) 0 var(--space-16); border-top:1px solid var(--border); }
+  footer p{ font-family:var(--mono); font-size:.8125rem; color:var(--muted); }
 
   @media (prefers-reduced-motion: reduce){
-    .seal, .hero h1, .hero p.sub, .hero .cta, .hero-context { animation:none !important; opacity:1 !important; transform:none !important; }
+    *,*::before,*::after{ transition:none !important; animation:none !important; }
   }
-  a:focus-visible, .btn:focus-visible{ outline:2px solid var(--gold-soft); outline-offset:3px; }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="brand">G. Panev</div>
-  <ul id="navList">
-    <li><a href="#about" data-bg="Преглед">Overview</a></li>
-    <li><a href="#dossier" data-bg="Досие">Dossier</a></li>
-    <li><a href="#capabilities" data-bg="Умения">Capabilities</a></li>
-    <li><a href="#contact" data-bg="Контакти">Contact</a></li>
-  </ul>
-  <button class="lang-toggle" id="langToggle" onclick="toggleLang()">BG</button>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navList">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="nav-scrim" id="navScrim"></div>
+<header>
+  <div class="wrap">
+    <a class="mark" href="/">georgepanev.com</a>
+    <button class="lang-btn" id="langBtn" type="button">
+      <span lang="en" aria-hidden="true">BG</span><span lang="bg" aria-hidden="true">EN</span>
+    </button>
+  </div>
+</header>
 
 <main>
-<section class="hero">
-  <div class="seal"><span>GP</span></div>
-  <h1>George <em>Panev</em> <span class="hero-role" data-bg="Строител и Технически Ръководител">Builder &amp; Technical Lead</span></h1>
-  <div class="hero-context" data-bg="18 години &bull; София, България">18 Years Old &bull; Sofia, Bulgaria</div>
-  <p class="sub" data-bg="Изграждам неща. Разбирам технологиите, дигиталния растеж и стратегическото изпълнение. Съчетавам практическа продуктова разработка с предприемачески начин на мислене, за да превръщам идеите в реално работещи резултати.">I build things. I understand technology, digital growth, and strategic execution. Combining hands-on product development with an entrepreneurial mindset to turn ideas into functional reality.</p>
-  <div class="cta">
-    <a class="btn" href="#dossier" data-bg="Разгледай Досието">Explore Dossier</a>
-    <a class="btn ghost" href="#contact" data-bg="Свържи се">Connect</a>
-  </div>
-</section>
+  <div class="wrap">
 
-<div class="metrics-strip">
-  <div class="metric-item">
-    <div class="metric-value">676K+</div>
-    <div class="metric-label" data-bg="Вирусни Гледания за 5 Дни (2025)">5-Day Viral Views (2025)</div>
-  </div>
-  <div class="metric-item">
-    <div class="metric-value">2025&ndash;2026</div>
-    <div class="metric-label" data-bg="Ангажимент с Invest Sofia">Invest Sofia Engagement</div>
-  </div>
-  <div class="metric-item">
-    <div class="metric-value" data-bg="Национален Финалист">National Qualifier</div>
-    <div class="metric-label" data-bg="Финали на JA по Предприемачество">JA Entrepreneurship Finals</div>
-  </div>
-  <div class="metric-item">
-    <div class="metric-value">30K+</div>
-    <div class="metric-label" data-bg="Средно Гледания / Гейминг Видео">Avg. Views / Gaming Video</div>
-  </div>
-</div>
-
-<section class="about" id="about" aria-labelledby="about-heading">
-  <div class="section-inner">
-    <span class="eyebrow" data-bg="Преглед">Overview</span>
-    <h2 id="about-heading" data-bg="Изпълнение и Технологии">Execution &amp; Technology</h2>
-    <p data-bg="Работя на пресечната точка между техническо експериментиране и изграждане на продукти. Независимо дали става въпрос за проектиране на функционални приложни прототипи под напрежение, работа в Linux среди или изграждане на целенасочени кампании за дигитален растеж, фокусът ми винаги е върху практическото изпълнение.">I operate at the intersection of technical experimentation and product building. Whether it involves designing functional application prototypes under pressure, navigating Linux environments, or engineering deliberate digital growth campaigns, my focus is always on practical execution.</p>
-    <p data-bg="Разчитам сериозно на работни процеси с изкуствен интелект, за да ускоря разработката и да превръщам технически концепции в работещ софтуер бързо и ефективно.">I rely heavily on AI-assisted workflows to accelerate development, allowing me to translate technical concepts into demonstrable software efficiently.</p>
-    
-    <div class="current-focus">
-      <h3 data-bg="Текущ Фокус">Current Focus</h3>
-      <p data-bg="В момента завършвам последната година от гимназията (12-ти клас) и се подготвям за прехода към университет и професионална реализация. Продължавам да изграждам технически проекти и оставам отворен за стратегически партньорства и стойностни възможности, докато определям дългосрочната си академична и професионална посока.">I am currently completing my final year of high school (12th grade) and preparing for the transition into university and professional work. I continue to build technical projects and remain open to strategic collaborations and high-value opportunities as I determine my long-term academic and professional direction.</p>
+    <div class="intro">
+      <h1><span lang="en">George Panev</span><span lang="bg">Георги Панев</span></h1>
+      <p class="lead" lang="en">I build software prototypes, lead small technical teams, and grow audiences online. <strong>Based in Sofia, in my final year of high school.</strong></p>
+      <p class="lead" lang="bg">Изграждам софтуерни прототипи, ръководя малки технически екипи и развивам аудитории онлайн. <strong>От София, последна година в гимназията.</strong></p>
+      <p class="status"><span lang="en">Open to internships &amp; collaborations</span><span lang="bg">Отворен за стажове и сътрудничество</span></p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:iamgeorgepanev@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span lang="en">Email me</span><span lang="bg">Пиши ми</span>
+        </a>
+        <a class="btn" href="george_panev_cv.pdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          <span lang="en">Download CV</span><span lang="bg">Изтегли CV</span>
+        </a>
+      </div>
     </div>
+
+    <section aria-labelledby="work-h">
+      <h2 id="work-h"><span lang="en">Selected work</span><span lang="bg">Избрани проекти</span></h2>
+      <ol class="work" reversed>
+
+        <li class="item">
+          <div class="when">2025</div>
+          <div>
+            <h3><a href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">AnimalSync <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></h3>
+            <p class="role" lang="en">Technical lead &amp; developer · Junior Achievement</p>
+            <p class="role" lang="bg">Технически ръководител и разработчик · Junior Achievement</p>
+            <p class="desc" lang="en">A student-built pet-monitoring concept: smart-collar tracking, vet access, and a lost-pet SOS network. I shipped the working prototype under a tight deadline.</p>
+            <p class="desc" lang="bg">Ученическа концепция за проследяване на домашни любимци: умен нашийник, достъп до ветеринари и SOS мрежа за изгубени животни. Изградих работещия прототип в кратък срок.</p>
+            <span class="stat" lang="en">Qualified for the JA National Finals</span>
+            <span class="stat" lang="bg">Класиран за Националния финал на JA</span>
+            <details>
+              <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span lang="en">Case study</span><span lang="bg">Казус</span></summary>
+              <div class="case" lang="en">
+                <h4>Origin</h4>
+                <p>The idea came out of a workshop run by EUIPO and the Bulgarian Patent Office on intellectual property and sustainable business. Our class 11G team at 2 SU "Acad. Emiliyan Stanev" had about 90 minutes to invent a company.</p>
+                <h4>My role</h4>
+                <p>I wasn't the founder of the concept. I was the technical lead and main developer. The plan was a native Android app in Kotlin, but there wasn't time to do that well, so I switched to an HTML prototype that showed the whole product and was ready to present.</p>
+                <h4>The product</h4>
+                <ul>
+                  <li><strong>Health tracking</strong> from an ESP32 collar: sleep, steps, temperature, stress, heart rate.</li>
+                  <li><strong>Weather-aware tips</strong> for dressing a pet in harsh conditions.</li>
+                  <li><strong>Vet map</strong> of nearby clinics for emergencies.</li>
+                  <li><strong>SOS network</strong> that alerts nearby users and vets when a pet goes missing.</li>
+                  <li><strong>Shared access</strong> so a walker or sitter can trigger SOS too.</li>
+                </ul>
+                <h4>Outcome</h4>
+                <p>We qualified for the JA National Finals but didn't compete. The date clashed with our Erasmus+ trip to Croatia.</p>
+                <div class="links">
+                  <a href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">Live prototype</a>
+                  <a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank" rel="noopener">School announcement</a>
+                </div>
+              </div>
+              <div class="case" lang="bg">
+                <h4>Произход</h4>
+                <p>Идеята се роди на уъркшоп на EUIPO и Патентното ведомство на България за интелектуална собственост и устойчив бизнес. Нашият екип от 11Г клас в 2 СУ „Акад. Емилиян Станев“ имаше около 90 минути да измисли компания.</p>
+                <h4>Моята роля</h4>
+                <p>Не бях автор на концепцията. Бях технически ръководител и основен разработчик. Планът беше нативно Android приложение на Kotlin, но нямаше време да се направи добре, затова преминах към HTML прототип, който показваше целия продукт и беше готов за представяне.</p>
+                <h4>Продуктът</h4>
+                <ul>
+                  <li><strong>Здравни показатели</strong> от нашийник с ESP32: сън, стъпки, температура, стрес, пулс.</li>
+                  <li><strong>Съвети според времето</strong> за обличане на любимеца при тежки условия.</li>
+                  <li><strong>Карта на ветеринари</strong> наблизо за спешни случаи.</li>
+                  <li><strong>SOS мрежа</strong>, която известява потребители и ветеринари наоколо при изгубен любимец.</li>
+                  <li><strong>Споделен достъп</strong>, за да може гледач да задейства SOS.</li>
+                </ul>
+                <h4>Резултат</h4>
+                <p>Класирахме се за Националния финал на JA, но не участвахме. Датата съвпадна с пътуването ни по Erasmus+ в Хърватия.</p>
+                <div class="links">
+                  <a href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">Работещ прототип</a>
+                  <a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank" rel="noopener">Публикация на училището</a>
+                </div>
+              </div>
+            </details>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="when">2025–26</div>
+          <div>
+            <h3><a href="https://investsofia.com/" target="_blank" rel="noopener">Invest Sofia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></h3>
+            <p class="role" lang="en">Intern → marketing contributor</p>
+            <p class="role" lang="bg">Стажант → сътрудник в маркетинга</p>
+            <p class="desc" lang="en">Started with a 64-hour internship at Sofia's municipal investment agency and came back in 2026 to work on digital communications and outreach that helps bring investment to the city.</p>
+            <p class="desc" lang="bg">Започнах с 64-часов стаж в Столичната агенция за инвестиции и се върнах през 2026 г. да работя по дигитални комуникации и кампании за привличане на инвестиции в града.</p>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="when">2025</div>
+          <div>
+            <h3><a href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener"><span lang="en">TikTok account revival</span><span lang="bg">Съживяване на TikTok профил</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></h3>
+            <p class="role" lang="en">Content strategy experiment</p>
+            <p class="role" lang="bg">Експеримент със стратегия за съдържание</p>
+            <p class="desc" lang="en">Took a 3-year-old account that had gone quiet, switched it to a completely different niche, and grew it on content strategy alone, with no paid promotion.</p>
+            <p class="desc" lang="bg">Взех неактивен 3-годишен профил, смених нишата му изцяло и го развих само със стратегия за съдържание, без платена реклама.</p>
+            <span class="stat" lang="en">676,000+ organic views in 5 days</span>
+            <span class="stat" lang="bg">676 000+ органични гледания за 5 дни</span>
+            <details>
+              <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span lang="en">See analytics</span><span lang="bg">Виж статистиката</span></summary>
+              <div class="case">
+                <img src="TikTok.jpg" width="1440" height="3261" loading="lazy" decoding="async" alt="TikTok analytics showing over 676,000 views across 5 days">
+              </div>
+            </details>
+          </div>
+        </li>
+
+      </ol>
+
+      <ul class="also">
+        <li>
+          <div class="when"><span lang="en">Jun 2026</span><span lang="bg">юни 2026</span></div>
+          <div>
+            <div class="t"><span lang="en">Erasmus+ STEM exchange, Croatia</span><span lang="bg">Erasmus+ STEM обмен, Хърватия</span></div>
+            <div class="d" lang="en">Represented my school on a 5-day ICT/STEM mobility at Gimnazija Metković.</div>
+            <div class="d" lang="bg">Представих училището си на 5-дневна ИКТ/STEM мобилност в Gimnazija Metković.</div>
+            <a href="https://www.facebook.com/VtoroSU/posts/pfbid0C8pX2mKYQu8opEUxCApTGvdwf5f5fkQmewtzVb3ddGrz6xMa4nJpJRcNxyv8XpFCl" target="_blank" rel="noopener"><span lang="en">School announcement</span><span lang="bg">Публикация на училището</span></a>
+          </div>
+        </li>
+        <li>
+          <div class="when"><span lang="en">Oct 2025</span><span lang="bg">окт. 2025</span></div>
+          <div>
+            <div class="t"><span lang="en">IP training, EUIPO &amp; BG Patent Office</span><span lang="bg">Обучение по ИС, EUIPO и Патентно ведомство</span></div>
+            <div class="d" lang="en">Trademarks, industrial design, and IP in sustainable business. This is where AnimalSync started.</div>
+            <div class="d" lang="bg">Търговски марки, промишлен дизайн и ИС в устойчивия бизнес. Оттук започна AnimalSync.</div>
+            <a href="https://www.facebook.com/VtoroSU/posts/pfbid09Rmw86NXaXVeHx3wZxfrrJbHE8y49vnAN8jobmFsFaQdQ1HA8Jf4bv3FU7K1GCnnl" target="_blank" rel="noopener"><span lang="en">School announcement</span><span lang="bg">Публикация на училището</span></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="skills-h">
+      <h2 id="skills-h"><span lang="en">Skills</span><span lang="bg">Умения</span></h2>
+      <div class="skills">
+        <div>
+          <h3 lang="en">Building with AI</h3>
+          <h3 lang="bg">Разработка с ИИ</h3>
+          <ul lang="en">
+            <li>LLM workflows &amp; prompting</li>
+            <li>Rapid prototyping</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>AI-assisted debugging</li>
+          </ul>
+          <ul lang="bg">
+            <li>LLM процеси и промптиране</li>
+            <li>Бързо прототипиране</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Дебъгване с ИИ</li>
+          </ul>
+        </div>
+        <div>
+          <h3 lang="en">Systems &amp; Android</h3>
+          <h3 lang="bg">Системи и Android</h3>
+          <ul lang="en">
+            <li>Linux (Ubuntu, CachyOS)</li>
+            <li>Tails, Kali Linux</li>
+            <li>Custom ROMs, KernelSU, Magisk</li>
+            <li>Performance &amp; thermal tuning</li>
+          </ul>
+          <ul lang="bg">
+            <li>Linux (Ubuntu, CachyOS)</li>
+            <li>Tails, Kali Linux</li>
+            <li>Custom ROM, KernelSU, Magisk</li>
+            <li>Настройка на производителност</li>
+          </ul>
+        </div>
+        <div>
+          <h3 lang="en">Growth &amp; content</h3>
+          <h3 lang="bg">Растеж и съдържание</h3>
+          <ul lang="en">
+            <li>Account revival strategy</li>
+            <li>Retention analytics</li>
+            <li>Cross-platform content</li>
+            <li>OBS &amp; streaming setup</li>
+          </ul>
+          <ul lang="bg">
+            <li>Стратегия за съживяване на профили</li>
+            <li>Анализ на задържането</li>
+            <li>Кросплатформено съдържание</li>
+            <li>OBS и стрийминг</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h"><span lang="en">Contact</span><span lang="bg">Контакт</span></h2>
+      <p lang="en">Have a project, an internship, or something you want built? Email is the fastest way to reach me.</p>
+      <p lang="bg">Имате проект, стаж или нещо, което искате да бъде изградено? Най-бързо ще ме намерите по имейл.</p>
+      <a class="email" href="mailto:iamgeorgepanev@gmail.com">iamgeorgepanev@gmail.com</a>
+      <div class="socials">
+        <a class="btn" href="https://www.instagram.com/panevx/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn" href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener">TikTok</a>
+        <a class="btn" href="george_panev_cv.pdf">CV (PDF)</a>
+      </div>
+    </section>
+
   </div>
-</section>
-
-<section class="dossier" id="dossier" aria-labelledby="dossier-heading">
-  <div class="section-inner">
-    <span class="eyebrow" data-bg="Досие">Dossier</span>
-    <h2 id="dossier-heading" style="margin-top:14px;" data-bg="Избрани Проекти и Опит">Selected Projects &amp; Experience</h2>
-    <div class="entries">
-      
-      <article class="entry reveal">
-        <time class="when" datetime="2025">2025</time>
-        <div>
-          <h3>AnimalSync</h3>
-          <div class="role" data-bg="Технически Ръководител и Разработчик — Национален Финалист на JA">Technical Lead &amp; Developer &mdash; JA National Qualifier</div>
-          <p class="hook" data-bg="Класира се за Националния финал на Junior Achievement.">Advanced to the Junior Achievement National Finals.</p>
-          <p data-bg="Ръководех техническото изпълнение на концепция за проследяване на домашни любимци, разработена от ученици — проследяване чрез умен нашийник, достъп до ветеринари и SOS мрежа — реализирана като работещ HTML интерфейс при сериозен недостиг на време.">Directed technical execution for a student-built pet-monitoring concept — smart-collar tracking, vet access, and an SOS network — delivered as a working HTML interface under severe time constraints.</p>
-          <button class="entry-action" data-bg="[ Пълен Казус &rarr; ]" onclick="openModal('animalsync')">[ Read Full Case Study &rarr; ]</button>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <time class="when" datetime="2025" data-bg="2025 &mdash; 2026">2025 &mdash; 2026</time>
-        <div>
-          <h3>Invest Sofia (SOAPI)</h3>
-          <div class="role" data-bg="Стаж (2025) &bull; Маркетинг Сътрудник (2026)">Internship (2025) &bull; Marketing Contributor (2026)</div>
-          <p class="hook" data-bg="64-часов стаж → продължаваща роля в маркетинга.">64-hour internship → ongoing marketing role.</p>
-          <p data-bg="Допринесох за дигиталния маркетинг и инициативите за изграждане на аудитория на официалната общинска инвестиционна агенция на София.">Contributed to digital marketing and audience-building initiatives for Sofia's official municipal investment body.</p>
-          <button class="entry-action" data-bg="[ Виж Детайли &rarr; ]" onclick="openModal('soapi')">[ View Details &rarr; ]</button>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <time class="when" datetime="2017" data-bg="2017 &mdash; 2025">2017 &mdash; 2025</time>
-        <div>
-          <h3 data-bg="Придобиване и Разпространение на Аудитория">Audience Acquisition &amp; Distribution</h3>
-          <div class="role" data-bg="Експерименти с Дигитален Растеж">Digital Growth Experimentation</div>
-          <p class="hook" data-bg="676 000+ органични гледания за 5 дни.">676,000+ organic views generated in 5 days.</p>
-          <p data-bg="Съживих неактивен 3-годишен TikTok профил, преминах към напълно различна ниша и преодолях алгоритмичното съпротивление единствено чрез стратегия за съдържание.">Revived a dormant 3-year-old TikTok account, pivoted to a completely unaligned niche, and overrode algorithmic friction with pure content strategy.</p>
-          <button class="entry-action" data-bg="[ Виж Доказателства &rarr; ]" onclick="openModal('tiktok')">[ View Proof &rarr; ]</button>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <time class="when" datetime="2026-06" data-bg="Юни 2026">June 2026</time>
-        <div>
-          <h3 data-bg="Erasmus+ STEM Делегация">Erasmus+ STEM Delegation</h3>
-          <div class="role" data-bg="Проект за Мобилност на ЕС — Хърватия">EU Mobility Project &mdash; Croatia</div>
-          <p class="hook" data-bg="Представих училището в програма за мобилност на ЕС.">Represented the school on an EU mobility program.</p>
-          <p data-bg="5-дневна ИКТ/STEM делегация в Gimnazija Metković, Хърватия — с приоритет пред Националния финал на JA.">5-day ICT/STEM delegation hosted at Gimnazija Metković in Croatia — took precedence over the JA National Finals.</p>
-          <button class="entry-action" data-bg="[ Виж Детайли &rarr; ]" onclick="openModal('erasmus')">[ View Details &rarr; ]</button>
-        </div>
-      </article>
-
-      <article class="entry reveal">
-        <time class="when" datetime="2025-10" data-bg="Октомври 2025">October 2025</time>
-        <div>
-          <h3 data-bg="Обучение по Интелектуална Собственост">Intellectual Property Training</h3>
-          <div class="role" data-bg="EUIPO и Патентно Ведомство на България">EUIPO &amp; BG Patent Office</div>
-          <p class="hook" data-bg="Обучение по търговски марки и промишлен дизайн, София.">Trademark &amp; industrial design training, Sofia.</p>
-          <p data-bg="Тези основни знания пряко доведоха до концепцията за AnimalSync.">This foundational knowledge directly catalyzed the conceptualization of AnimalSync.</p>
-          <button class="entry-action" data-bg="[ Виж Сертификат &rarr; ]" onclick="openModal('euipo')">[ View Certification &rarr; ]</button>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="capabilities" id="capabilities" aria-labelledby="capabilities-heading">
-  <div class="section-inner">
-    <span class="eyebrow" data-bg="Спецификация">Specification</span>
-    <h2 id="capabilities-heading" data-bg="Технически Умения">Technical Capabilities</h2>
-    <div class="spec-grid">
-      
-      <article class="spec-card reveal">
-        <h3 data-bg="Системи, Поверителност и Android">Systems, Privacy &amp; Android</h3>
-        <ul>
-          <li data-bg="Администриране и Експериментиране с Linux (Ubuntu, Zorin, CachyOS)">Linux Administration &amp; Experimentation (Ubuntu, Zorin, CachyOS)</li>
-          <li data-bg="Среди с Фокус върху Поверителността (Tails, Kali Linux)">Privacy-Focused Environments (Tails, Kali Linux)</li>
-          <li data-bg="Персонализирани Android ROM-ове и Скриптове за Debloating">Android Custom ROMs &amp; Debloating Scripts</li>
-          <li data-bg="Достъп на Системно Ниво (KernelSU, Magisk)">System-Level Access (KernelSU, Magisk)</li>
-          <li data-bg="Хардуерна Производителност и Термична Настройка">Hardware Performance &amp; Thermal Tuning</li>
-        </ul>
-      </article>
-
-      <article class="spec-card reveal">
-        <h3 data-bg="Разработка с Помощта на ИИ">AI-Assisted Development</h3>
-        <ul>
-          <li data-bg="Напреднало Промптиране и LLM Работни Процеси">Advanced Prompting &amp; LLM Workflows</li>
-          <li data-bg="Итеративно Прототипиране и „Vibe Coding“">Iterative Prototyping &amp; "Vibe Coding"</li>
-          <li data-bg="Превръщане на Концепции във Функционални Интерфейси">Translating Concepts into Functional Interfaces</li>
-          <li data-bg="Интеграция на HTML, CSS и JavaScript">HTML, CSS, and JavaScript Integration</li>
-          <li data-bg="Debug-ване с Помощта на ИИ">Debugging with AI Assistance</li>
-        </ul>
-      </article>
-
-      <article class="spec-card reveal">
-        <h3 data-bg="Дигитално Разпространение">Digital Distribution</h3>
-        <ul>
-          <li data-bg="Алгоритмичен Обхват и Стратегия за Съживяване на Профили">Algorithmic Reach &amp; Account Revival Strategy</li>
-          <li data-bg="Анализ на Задържането на Аудитория">Audience Retention Analytics</li>
-          <li data-bg="Кросплатформена Архитектура на Съдържанието">Cross-Platform Content Architecture</li>
-          <li data-bg="Настройка за Излъчване (OBS Studio, Хардуерно Кодиране)">Broadcast Setup (OBS Studio, Hardware Encoding)</li>
-        </ul>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="contact" aria-labelledby="contact-heading">
-  <div class="section-inner">
-    <span class="eyebrow" data-bg="Контакти">Contact</span>
-    <h2 id="contact-heading" data-bg="Директни Запитвания">Direct Inquiries</h2>
-    <p data-bg="Отворен съм за разговори относно технически проекти, професионални възможности и стратегически партньорства.">Open to discussions regarding technical projects, professional opportunities, and strategic collaborations.</p>
-    <div class="contact-actions">
-      <a class="btn" href="george_panev_cv.pdf" target="_blank" data-bg="Изтегли CV">Download CV</a>
-      <a class="btn ghost" href="mailto:iamgeorgepanev@gmail.com" data-bg="Имейл">Email Me</a>
-      <a class="btn ghost" href="https://www.instagram.com/panevx/" target="_blank">Instagram</a>
-      <a class="btn ghost" href="https://www.tiktok.com/@panevx" target="_blank">TikTok</a>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer>
-  <span data-bg="George Panev &mdash; Портфолио">George Panev &mdash; Portfolio</span>
-  <div class="location-badge" data-bg="Координати: 42.6977° С, 23.3219° И | София, България">Coordinates: 42.6977° N, 23.3219° E | Sofia, Bulgaria</div>
+  <div class="wrap">
+    <p><span lang="en">George Panev · Sofia, Bulgaria</span><span lang="bg">Георги Панев · София, България</span></p>
+  </div>
 </footer>
 
-<!-- BACK TO TOP BUTTON -->
-<a href="#top" class="back-to-top" id="backToTop">&#8593;</a>
-
-<!-- MODAL DRAWER -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalBody">
-    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
-    <h2 class="modal-title" id="modalTitle">Title</h2>
-    <div class="modal-subtitle" id="modalSubtitle">Subtitle</div>
-    <div class="modal-body" id="modalBody">Body text placeholder...</div>
-  </div>
-</div>
-
 <script>
-  // Scroll to Top Logic + solid nav bar on scroll
-  var navEl = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    const btn = document.getElementById('backToTop');
-    if (window.scrollY > 400) {
-      btn.classList.add('visible');
-    } else {
-      btn.classList.remove('visible');
-    }
-    navEl.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  // Mobile hamburger nav
   (function(){
-    var toggle = document.getElementById('navToggle');
-    var list = document.getElementById('navList');
-    var scrim = document.getElementById('navScrim');
-
-    function setOpen(open){
-      list.classList.toggle('open', open);
-      scrim.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      document.body.classList.toggle('nav-open', open);
+    var root = document.documentElement;
+    var btn = document.getElementById('langBtn');
+    function label(){
+      btn.setAttribute('aria-label', root.getAttribute('data-lang') === 'bg' ? 'Switch to English' : 'Превключи на български');
     }
-    toggle.addEventListener('click', function(){
-      setOpen(!list.classList.contains('open'));
+    label();
+    btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-lang') === 'bg' ? 'en' : 'bg';
+      root.setAttribute('data-lang', next);
+      root.lang = next;
+      try { localStorage.setItem('siteLang', next); } catch(e) {}
+      label();
     });
-    scrim.addEventListener('click', function(){ setOpen(false); });
-    list.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ setOpen(false); });
-    });
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') setOpen(false);
-    });
-    window.addEventListener('resize', function(){
-      if(window.innerWidth > 760) setOpen(false);
-    });
-  })();
-
-  // Modal Logic Data
-  const modalData = {
-    animalsync: {
-      title: "AnimalSync",
-      subtitle: "Product Prototype & Junior Achievement Qualifier",
-      body: `
-        <p>AnimalSync is a pet-monitoring product concept developed by a team of students from class 11G at 2 SU "Acad. Emiliyan Stanev". The project successfully qualified for the Junior Achievement National Finals.</p>
-        
-        <h4>The Origin</h4>
-        <p>The concept was born during an educational workshop led by the EUIPO and the Patent Office of the Republic of Bulgaria, which focused on intellectual property, trademarks, and sustainable business development. Given approximately 1.5 hours to conceptualize a company, our initial group formulated the foundation for AnimalSync.</p>
-        
-        <h4>My Role &amp; Technical Implementation</h4>
-        <p>While I was not the original founder of the concept, I served as the technical lead and primary developer. The initial goal was to build a native Android application in Kotlin. However, recognizing the severe time constraints, I made the practical engineering decision to pivot. I developed a functional, HTML-based interface prototype that successfully demonstrated the product's vision, ensuring we had a tangible asset for presentation.</p>
-
-        <h4>The Product Concept</h4>
-        <p>AnimalSync was designed around an ESP32-based smart collar that communicated with our application. The intended feature set included:</p>
-        <ul>
-          <li><strong>Pet Monitoring:</strong> Tracking sleep, steps, calories, body temperature, stress levels, and heart rate.</li>
-          <li><strong>Contextual Weather:</strong> Localized weather data to provide recommendations for pet clothing in harsh conditions.</li>
-          <li><strong>Veterinary Access:</strong> An integrated map displaying nearby clinics to streamline emergency contact.</li>
-          <li><strong>SOS &amp; Lost Pet Network:</strong> A core feature allowing owners to flag a missing pet. The system would notify other AnimalSync users and nearby veterinarians to create a community-assisted recovery net.</li>
-          <li><strong>Shared Responsibility:</strong> Functionality to temporarily link a pet's profile to a dog walker or caretaker, who could trigger the SOS mode if necessary.</li>
-        </ul>
-
-        <h4>Execution &amp; Challenges</h4>
-        <p>The development process was not frictionless. It involved strict deadlines, conflicting opinions on product direction, and substantial disagreements within the team. We navigated this friction through repeated iteration, eventually refining the concept into a clear, demonstrable product.</p>
-
-        <h4>The Outcome</h4>
-        <p>The execution of the prototype and our presentation earned AnimalSync a spot as a qualifier for the Junior Achievement National Finals. Although we were invited to the finals stage, we ultimately did not attend due to a schedule conflict with our Erasmus+ mobility project in Croatia.</p>
-
-        <div class="case-links">
-          <p><a href="https://project-animalsync.2su.bg/" target="_blank">View the Live Prototype</a></p>
-          <p><a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank">View Official Academic Recognition</a></p>
-        </div>
-      `
-    },
-    soapi: {
-      title: "Invest Sofia (SOAPI)",
-      subtitle: "Municipal Investment Agency (2025–2026)",
-      body: `
-        <p>Began with a 64-hour internship in 2025 at Sofia Investment Agency (Invest Sofia), gaining insight into public-sector economic workflows. Returned in 2026 in a marketing-focused role, contributing to digital communications, audience engagement, and institutional outreach initiatives designed to attract capital to the city.</p>
-        <div class="case-links">
-          <p><a href="https://investsofia.com/" target="_blank">View Invest Sofia Official Portal</a></p>
-        </div>
-      `
-    },
-    erasmus: {
-      title: "Erasmus+ Delegation",
-      subtitle: "ICT and STEM Mobility Project (June 2026)",
-      body: `
-        <p>Participated in an Erasmus+ group mobility program focused on ICT and STEM objectives. Represented 2 SU 'Acad. Emiliyan Stanev' during a rigorous 5-day educational exchange hosted at Gimnazija Metković in Metković, Croatia.</p>
-        <div class="case-links">
-          <p><a href="https://www.facebook.com/VtoroSU/posts/pfbid0C8pX2mKYQu8opEUxCApTGvdwf5f5fkQmewtzVb3ddGrz6xMa4nJpJRcNxyv8XpFCl" target="_blank">View Official Academic Recognition</a></p>
-          <p><em>Certificate available upon request.</em></p>
-        </div>
-      `
-    },
-    euipo: {
-      title: "Intellectual Property Training",
-      subtitle: "Sustainable Business Development (Oct 2025)",
-      body: `
-        <p>Completed educational training in Sofia hosted by the European Union Intellectual Property Office (EUIPO) and the Patent Office of the Republic of Bulgaria. The session covered trademark availability, industrial design, and the application of intellectual property within sustainable business models.</p>
-        <div class="case-links">
-          <p><a href="https://www.facebook.com/VtoroSU/posts/pfbid09Rmw86NXaXVeHx3wZxfrrJbHE8y49vnAN8jobmFsFaQdQ1HA8Jf4bv3FU7K1GCnnl" target="_blank">View Official Academic Recognition</a></p>
-          <p><em>Certificate available upon request.</em></p>
-        </div>
-      `
-    },
-    tiktok: {
-      title: "Audience Acquisition Experiment",
-      subtitle: "TikTok Account Revival (2025)",
-      body: `
-        <p>Analytics screenshot showing the 5-day view spike after reviving a dormant account and pivoting content niche.</p>
-        <img src="TikTok.jpg" alt="TikTok analytics dashboard showing 676,000+ organic views over 5 days after reviving a dormant account" style="max-width:100%; border:1px solid var(--border-gold); margin-top:10px;">
-        <div class="case-links">
-          <p><a href="https://www.tiktok.com/@panevx" target="_blank">View TikTok Profile</a></p>
-        </div>
-      `
-    }
-  };
-
-  const modalDataBG = {
-    animalsync: {
-      title: "AnimalSync",
-      subtitle: "Продуктов Прототип и Финалист на Junior Achievement",
-      body: `
-        <p>AnimalSync е концепция за продукт за проследяване на домашни любимци, разработена от екип ученици от клас 11Г в 2 СУ „Акад. Емилиян Станев“. Проектът успешно се класира за Националния финал на Junior Achievement.</p>
-
-        <h4>Произход</h4>
-        <p>Концепцията се роди по време на образователен уъркшоп, воден от EUIPO и Патентното ведомство на Република България, фокусиран върху интелектуалната собственост, търговските марки и устойчивото развитие на бизнеса. С около 1,5 часа за замисляне на компания, първоначалният ни екип формулира основата на AnimalSync.</p>
-
-        <h4>Моята Роля и Техническо Изпълнение</h4>
-        <p>Въпреки че не бях първоначалният автор на концепцията, изпълнявах ролята на технически ръководител и основен разработчик. Първоначалната цел беше изграждане на нативно Android приложение на Kotlin. Осъзнавайки сериозните времеви ограничения обаче, взех практическото инженерно решение да сменя подхода. Разработих функционален прототип на интерфейс на база HTML, който успешно демонстрира визията на продукта, осигурявайки ни осезаем актив за представянето.</p>
-
-        <h4>Концепцията на Продукта</h4>
-        <p>AnimalSync беше проектиран около умен нашийник на база ESP32, комуникиращ с нашето приложение. Планираният набор от функции включваше:</p>
-        <ul>
-          <li><strong>Проследяване на Любимеца:</strong> Проследяване на сън, стъпки, калории, телесна температура, ниво на стрес и сърдечен ритъм.</li>
-          <li><strong>Контекстуално Време:</strong> Локализирани метеорологични данни за препоръки за облекло на любимеца при тежки условия.</li>
-          <li><strong>Достъп до Ветеринари:</strong> Вградена карта, показваща близки клиники за по-бърз контакт при спешност.</li>
-          <li><strong>SOS и Мрежа за Изгубени Любимци:</strong> Основна функция, позволяваща на собствениците да сигнализират за изгубен любимец. Системата уведомява други потребители на AnimalSync и близки ветеринари, създавайки мрежа за възстановяване с помощта на общността.</li>
-          <li><strong>Споделена Отговорност:</strong> Функционалност за временно свързване на профила на любимеца с разхождач на кучета или гледач, който може да задейства SOS режима при нужда.</li>
-        </ul>
-
-        <h4>Изпълнение и Предизвикателства</h4>
-        <p>Процесът на разработка не беше безпроблемен. Включваше стриктни срокове, противоречиви мнения за посоката на продукта и сериозни разногласия в екипа. Преодоляхме тези трудности чрез повторна итерация, като в крайна сметка изчистихме концепцията до ясен, демонстрируем продукт.</p>
-
-        <h4>Резултат</h4>
-        <p>Изпълнението на прототипа и нашето представяне спечелиха на AnimalSync място като финалист за Националния финал на Junior Achievement. Въпреки че бяхме поканени на финалния етап, в крайна сметка не присъствахме поради конфликт в графика с нашия проект по мобилност Erasmus+ в Хърватия.</p>
-
-        <div class="case-links">
-          <p><a href="https://project-animalsync.2su.bg/" target="_blank">Виж Живия Прототип</a></p>
-          <p><a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank">Виж Официалното Академично Признание</a></p>
-        </div>
-      `
-    },
-    soapi: {
-      title: "Invest Sofia (SOAPI)",
-      subtitle: "Общинска Инвестиционна Агенция (2025–2026)",
-      body: `
-        <p>Започнах с 64-часов стаж през 2025 г. в Столична агенция за инвестиции (Invest Sofia), придобивайки представа за икономическите процеси в публичния сектор. Върнах се през 2026 г. в роля, фокусирана върху маркетинга, допринасяйки за дигиталните комуникации, ангажираността на аудиторията и инициативите за институционална информираност, насочени към привличане на капитал в града.</p>
-        <div class="case-links">
-          <p><a href="https://investsofia.com/" target="_blank">Виж Официалния Портал на Invest Sofia</a></p>
-        </div>
-      `
-    },
-    erasmus: {
-      title: "Делегация Erasmus+",
-      subtitle: "Проект за Мобилност по ИКТ и STEM (Юни 2026)",
-      body: `
-        <p>Участвах в групова програма за мобилност Erasmus+, фокусирана върху цели в областта на ИКТ и STEM. Представих 2 СУ „Акад. Емилиян Станев“ по време на интензивен 5-дневен образователен обмен, приет от Gimnazija Metković в Метковичи, Хърватия.</p>
-        <div class="case-links">
-          <p><a href="https://www.facebook.com/VtoroSU/posts/pfbid0C8pX2mKYQu8opEUxCApTGvdwf5f5fkQmewtzVb3ddGrz6xMa4nJpJRcNxyv8XpFCl" target="_blank">Виж Официалното Академично Признание</a></p>
-          <p><em>Сертификат при запитване.</em></p>
-        </div>
-      `
-    },
-    euipo: {
-      title: "Обучение по Интелектуална Собственост",
-      subtitle: "Устойчиво Развитие на Бизнеса (Окт. 2025)",
-      body: `
-        <p>Завърших образователно обучение в София, организирано от Службата на Европейския съюз за интелектуална собственост (EUIPO) и Патентното ведомство на Република България. Сесията обхвана наличността на търговски марки, промишления дизайн и приложението на интелектуалната собственост в устойчивите бизнес модели.</p>
-        <div class="case-links">
-          <p><a href="https://www.facebook.com/VtoroSU/posts/pfbid09Rmw86NXaXVeHx3wZxfrrJbHE8y49vnAN8jobmFsFaQdQ1HA8Jf4bv3FU7K1GCnnl" target="_blank">Виж Официалното Академично Признание</a></p>
-          <p><em>Сертификат при запитване.</em></p>
-        </div>
-      `
-    },
-    tiktok: {
-      title: "Експеримент за Придобиване на Аудитория",
-      subtitle: "Съживяване на TikTok Профил (2025)",
-      body: `
-        <p>Скрийншот от анализа, показващ скока в гледанията за 5 дни след съживяване на неактивен профил и смяна на нишата на съдържанието.</p>
-        <img src="TikTok.jpg" alt="TikTok анализ, показващ над 676 000 органични гледания за 5 дни след съживяване на неактивен профил" style="max-width:100%; border:1px solid var(--border-gold); margin-top:10px;">
-        <div class="case-links">
-          <p><a href="https://www.tiktok.com/@panevx" target="_blank">Виж TikTok Профила</a></p>
-        </div>
-      `
-    }
-  };
-
-  let lastFocusedEl = null;
-
-  function openModal(key) {
-    const data = (currentLang === 'bg' ? modalDataBG : modalData)[key];
-    if(!data) return;
-    lastFocusedEl = document.activeElement;
-    document.getElementById('modalTitle').innerHTML = data.title;
-    document.getElementById('modalSubtitle').innerHTML = data.subtitle;
-    document.getElementById('modalBody').innerHTML = data.body;
-    document.getElementById('modalOverlay').classList.add('active');
-    document.body.classList.add('modal-open');
-    document.querySelector('.modal-close').focus();
-  }
-
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('active');
-    document.body.classList.remove('modal-open');
-    if(lastFocusedEl) lastFocusedEl.focus();
-  }
-
-  document.addEventListener('keydown', function(e){
-    if(e.key !== 'Escape') return;
-    if(document.getElementById('modalOverlay').classList.contains('active')) closeModal();
-  });
-
-  document.getElementById('modalOverlay').addEventListener('keydown', function(e){
-    if(e.key !== 'Tab') return;
-    const focusables = this.querySelectorAll('button, a[href]');
-    if(!focusables.length) return;
-    const first = focusables[0], last = focusables[focusables.length - 1];
-    if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
-    else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
-  });
-
-  // Language toggle — swaps innerHTML on every [data-bg] element and caches
-  // the original English markup on first switch so it can be restored.
-  let currentLang = localStorage.getItem('siteLang') || (navigator.language && navigator.language.toLowerCase().startsWith('bg') ? 'bg' : 'en');
-
-  function applyLang(lang) {
-    document.querySelectorAll('[data-bg]').forEach(function(el){
-      if(!el.hasAttribute('data-en-cache')){
-        el.setAttribute('data-en-cache', el.innerHTML);
-      }
-      el.innerHTML = lang === 'bg' ? el.getAttribute('data-bg') : el.getAttribute('data-en-cache');
-    });
-    document.documentElement.lang = lang;
-    var btn = document.getElementById('langToggle');
-    if(btn) btn.textContent = lang === 'bg' ? 'EN' : 'BG';
-    currentLang = lang;
-    localStorage.setItem('siteLang', lang);
-  }
-
-  function toggleLang(){
-    applyLang(currentLang === 'bg' ? 'en' : 'bg');
-  }
-
-  applyLang(currentLang);
-
-  document.getElementById('modalOverlay').addEventListener('click', function(e) {
-    if(e.target === this) closeModal();
-  });
-
-  // Scroll reveal — fades elements in once as they enter the viewport.
-  // IntersectionObserver reports intersection state natively without
-  // forcing synchronous layout, so no manual position scan is needed.
-  (function(){
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){
-      els.forEach(function(el){ el.classList.add('is-visible'); });
-      return;
-    }
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    els.forEach(function(el){ observer.observe(el); });
-  })();
-
-  // Scroll-spy — highlights the nav link for whichever section's top has
-  // most recently passed a fixed reference line below the nav. Section
-  // offsets are cached up front (and on resize) instead of read with
-  // getBoundingClientRect() inside the scroll handler: querying layout
-  // geometry on every scroll frame, while other scroll listeners on this
-  // page write classList changes in the same tick, was a measured forced
-  // synchronous reflow (flagged by PageSpeed Insights). Caching turns the
-  // hot path into a plain number comparison against window.scrollY, no
-  // layout read at all.
-  (function(){
-    var links = document.querySelectorAll('#navList a[href^="#"]');
-    var sections = Array.prototype.map.call(links, function(a){
-      return { link: a, el: document.querySelector(a.getAttribute('href')), top: 0 };
-    }).filter(function(s){ return s.el; });
-    if(!sections.length) return;
-
-    function cacheOffsets(){
-      sections.forEach(function(s){ s.top = s.el.getBoundingClientRect().top + window.scrollY; });
-    }
-
-    var ticking = false;
-    function updateActive(){
-      ticking = false;
-      var line = window.scrollY + window.innerHeight * 0.3;
-      var current = sections[0];
-      sections.forEach(function(s){
-        if(s.top <= line) current = s;
-      });
-      sections.forEach(function(s){ s.link.classList.toggle('active', s === current); });
-    }
-    cacheOffsets();
-    window.addEventListener('resize', cacheOffsets);
-    if(document.fonts && document.fonts.ready){
-      document.fonts.ready.then(cacheOffsets);
-    }
-    window.addEventListener('scroll', function(){
-      if(ticking) return;
-      ticking = true;
-      requestAnimationFrame(updateActive);
-    });
-    updateActive();
   })();
 </script>
-
 </body>
 </html>

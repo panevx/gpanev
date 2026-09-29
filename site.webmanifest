@@ -1,10 +1,10 @@
 {
-  "name": "George Panev — Portfolio",
+  "name": "George Panev",
   "short_name": "G. Panev",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0A1912",
-  "theme_color": "#123A2B",
+  "background_color": "#FAFAFA",
+  "theme_color": "#1E5B45",
   "icons": [
     {
       "src": "android-chrome-192x192.png",
