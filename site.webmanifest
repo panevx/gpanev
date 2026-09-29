@@ -3,8 +3,8 @@
   "short_name": "G. Panev",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FAFAFA",
-  "theme_color": "#1E5B45",
+  "background_color": "#FFFFFF",
+  "theme_color": "#171717",
   "icons": [
     {
       "src": "android-chrome-192x192.png",

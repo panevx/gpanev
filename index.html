@@ -4,20 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>George Panev</title>
-<meta name="description" content="George Panev — student builder from Sofia, Bulgaria. Software prototypes, technical leadership, and digital growth.">
+<meta name="description" content="George Panev — builder and technical lead from Sofia, Bulgaria. Software prototypes, AI-assisted development, and digital growth.">
 <meta name="author" content="George Panev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://georgepanev.com/">
 
-<meta property="og:title" content="George Panev">
-<meta property="og:description" content="Student builder from Sofia, Bulgaria. Software prototypes, technical leadership, and digital growth.">
+<meta property="og:title" content="George Panev — Builder &amp; Technical Lead">
+<meta property="og:description" content="Software prototypes, AI-assisted development, and digital growth. Sofia, Bulgaria.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://georgepanev.com/">
-<meta property="og:image" content="https://georgepanev.com/android-chrome-512x512.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="George Panev">
-<meta name="twitter:description" content="Student builder from Sofia, Bulgaria. Software prototypes, technical leadership, and digital growth.">
-<meta name="twitter:image" content="https://georgepanev.com/android-chrome-512x512.png">
+<meta property="og:image" content="https://georgepanev.com/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="George Panev — Builder &amp; Technical Lead">
+<meta name="twitter:description" content="Software prototypes, AI-assisted development, and digital growth. Sofia, Bulgaria.">
+<meta name="twitter:image" content="https://georgepanev.com/img/og.jpg">
 
 <script type="application/ld+json">
 {
@@ -26,6 +28,7 @@
   "name": "George Panev",
   "alternateName": ["Georgi Panev", "Георги Панев"],
   "url": "https://georgepanev.com/",
+  "image": "https://georgepanev.com/img/george.webp",
   "email": "mailto:iamgeorgepanev@gmail.com",
   "sameAs": ["https://www.tiktok.com/@panevx", "https://www.instagram.com/panevx/"],
   "address": { "@type": "PostalAddress", "addressLocality": "Sofia", "addressCountry": "BG" }
@@ -36,9 +39,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0D0C" media="(prefers-color-scheme: dark)">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#171717">
+<meta name="color-scheme" content="light">
 
 <!-- Pick the language before first paint so there's no flash of the wrong one. -->
 <script>
@@ -53,412 +55,677 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preload" as="image" href="img/george.webp" fetchpriority="high">
 
 <style>
   :root{
-    --bg:#FAFAFA;
-    --surface:#FFFFFF;
-    --fg:#09090B;
-    --muted:#52525B;
-    --border:#E4E4E7;
-    --accent:#1E5B45;
-    --accent-fg:#FFFFFF;
-    --ring:#1E5B45;
+    --orange:#F97316;          /* fills, with --on-orange text */
+    --orange-text:#EA580C;     /* orange words in large headings on light */
+    --orange-soft:#FB923C;     /* orange text on dark */
+    --on-orange:#111111;
+    --ink:#1D2939;
+    --body:#475467;
+    --line:#E4E7EC;
+    --paper:#FFFFFF;
+    --grey:#F2F4F7;
+    --dark:#171717;
+    --dark-2:#232323;
+    --dark-line:#333333;
+    --on-dark:#F5F5F5;
+    --on-dark-muted:#A3A3A3;
 
-    --sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --mono:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-
-    --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
-    --space-6:24px; --space-8:32px; --space-12:48px; --space-16:64px; --space-24:96px;
-    --measure:680px;
-    --dur:200ms;
-    --ease:cubic-bezier(.2,.8,.2,1);
+    --r-lg:32px; --r-md:20px; --r-pill:999px;
+    --dur:200ms; --ease:cubic-bezier(.2,.8,.2,1);
+    --max:1160px;
   }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#0B0D0C;
-      --surface:#131614;
-      --fg:#F4F4F5;
-      --muted:#A1A1AA;
-      --border:#27272A;
-      --accent:#7FD1A8;
-      --accent-fg:#0B0D0C;
-      --ring:#7FD1A8;
-    }
-  }
-
   *,*::before,*::after{ box-sizing:border-box; }
   *{ margin:0; padding:0; }
-  html{ -webkit-text-size-adjust:100%; }
+  html{ scroll-behavior:smooth; scroll-padding-top:96px; -webkit-text-size-adjust:100%; }
   body{
-    background:var(--bg);
-    color:var(--fg);
-    font-family:var(--sans);
-    font-size:1rem;
-    line-height:1.6;
+    font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size:1rem; line-height:1.6;
+    color:var(--body); background:var(--paper);
     -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+    overflow-x:clip;
   }
-  a{ color:inherit; text-decoration-color:var(--border); text-underline-offset:3px; text-decoration-thickness:1px; transition:text-decoration-color var(--dur) var(--ease), color var(--dur) var(--ease); }
-  a:hover{ text-decoration-color:currentColor; }
-  :focus-visible{ outline:2px solid var(--ring); outline-offset:3px; border-radius:2px; }
   img{ max-width:100%; height:auto; display:block; }
+  a{ color:inherit; }
+  :focus-visible{ outline:3px solid var(--orange); outline-offset:3px; border-radius:6px; }
+  h1,h2,h3{ color:var(--ink); font-weight:600; letter-spacing:-0.02em; line-height:1.15; }
+  .hl{ color:var(--orange-text); }
+  .dark .hl{ color:var(--orange-soft); }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+  .section-title{ font-size:clamp(2rem, 5vw, 3rem); }
 
-  /* Only the chosen language is rendered. Scoped under body so the
-     selector never matches the <html lang> element itself. */
   html[data-lang="en"] body [lang="bg"],
   html[data-lang="bg"] body [lang="en"]{ display:none !important; }
 
-  .wrap{ max-width:var(--measure); margin:0 auto; padding:0 var(--space-6); }
+  .skip{ position:absolute; left:-9999px; top:16px; z-index:99; background:#fff; color:var(--ink); padding:12px 16px; border-radius:8px; font-weight:600; }
+  .skip:focus{ left:16px; }
 
-  /* HEADER */
-  header{ padding:var(--space-6) 0; }
-  header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:var(--space-4); }
-  .mark{ font-family:var(--mono); font-size:.875rem; font-weight:500; text-decoration:none; display:inline-flex; align-items:center; min-height:44px; }
-  .lang-btn{
-    font-family:var(--mono); font-size:.8125rem; font-weight:500;
-    color:var(--fg); background:transparent;
-    border:1px solid var(--border); border-radius:6px;
-    min-width:44px; min-height:44px; padding:0 var(--space-3);
-    cursor:pointer;
-    transition:border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
-  }
-  .lang-btn:hover{ border-color:var(--fg); }
-
-  /* INTRO */
-  .intro{ padding:var(--space-16) 0 var(--space-16); }
-  h1{ font-size:clamp(2.25rem, 7vw, 3.25rem); font-weight:600; letter-spacing:-0.03em; line-height:1.1; }
-  .lead{ margin-top:var(--space-6); font-size:1.1875rem; line-height:1.55; color:var(--muted); max-width:36em; }
-  .lead strong{ color:var(--fg); font-weight:500; }
-  .status{
-    margin-top:var(--space-6);
-    display:inline-flex; align-items:center; gap:var(--space-2);
-    font-family:var(--mono); font-size:.8125rem; color:var(--muted);
-  }
-  .status::before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; }
-  .actions{ margin-top:var(--space-8); display:flex; flex-wrap:wrap; gap:var(--space-3); }
+  /* BUTTONS */
   .btn{
-    display:inline-flex; align-items:center; gap:var(--space-2);
-    min-height:44px; padding:0 var(--space-6);
-    border-radius:8px; border:1px solid var(--border);
-    font-size:.9375rem; font-weight:500; text-decoration:none;
-    color:var(--fg); background:var(--surface);
-    transition:border-color var(--dur) var(--ease), background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    min-height:48px; padding:0 26px; border-radius:var(--r-pill);
+    font-weight:600; font-size:1rem; text-decoration:none; cursor:pointer;
+    border:1.5px solid transparent;
+    transition:background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
   }
-  .btn:hover{ border-color:var(--fg); }
-  .btn.primary{ background:var(--accent); border-color:var(--accent); color:var(--accent-fg); }
-  .btn.primary:hover{ background:var(--fg); border-color:var(--fg); color:var(--bg); }
-  .btn svg{ width:16px; height:16px; flex:none; }
+  .btn svg{ width:18px; height:18px; flex:none; }
+  .btn-orange{ background:var(--orange); color:var(--on-orange); }
+  .btn-orange:hover{ background:var(--ink); color:#fff; }
+  .dark .btn-orange:hover, footer .btn-orange:hover{ background:#fff; color:var(--on-orange); }
+  .btn-outline{ border-color:var(--ink); color:var(--ink); background:transparent; }
+  .btn-outline:hover{ background:var(--ink); color:#fff; }
 
-  /* SECTIONS */
-  section{ padding:var(--space-12) 0; border-top:1px solid var(--border); }
-  h2{
-    font-family:var(--mono); font-size:.8125rem; font-weight:500;
-    color:var(--muted); text-transform:uppercase; letter-spacing:.08em;
-    margin-bottom:var(--space-8);
+  /* NAV */
+  .nav{ position:sticky; top:12px; z-index:50; padding:0 20px; margin-top:12px; }
+  .nav-pill{
+    max-width:var(--max); margin:0 auto;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+    background:var(--dark); border-radius:var(--r-pill);
+    padding:6px; min-height:64px;
+  }
+  .nav ul{ list-style:none; display:flex; gap:4px; }
+  .nav ul.right{ justify-content:flex-end; }
+  .nav ul a{
+    display:inline-flex; align-items:center; min-height:48px; padding:0 20px;
+    border-radius:var(--r-pill); color:var(--on-dark); text-decoration:none; font-size:.9375rem; font-weight:500;
+    transition:background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .nav ul a:hover{ background:var(--dark-2); }
+  .nav ul a.active{ background:var(--orange); color:var(--on-orange); }
+  .brand{ display:flex; flex-direction:column; align-items:center; gap:2px; text-decoration:none; color:#fff; padding:0 12px; }
+  .brand .dot{ width:30px; height:30px; border-radius:50%; background:var(--orange); color:var(--on-orange); display:grid; place-items:center; font-size:.6875rem; font-weight:700; }
+  .brand .word{ font-size:.8125rem; font-weight:700; letter-spacing:.12em; }
+  .lang-btn{
+    min-width:48px; min-height:48px; border-radius:var(--r-pill);
+    background:transparent; color:var(--on-dark); border:1px solid var(--dark-line);
+    font:600 .8125rem/1 inherit; font-family:inherit; cursor:pointer; margin-left:4px;
+    transition:border-color var(--dur) var(--ease);
+  }
+  .lang-btn:hover{ border-color:var(--on-dark); }
+  .nav .mobile-cta{ display:none; }
+  @media (max-width:900px){
+    .nav-pill{ grid-template-columns:auto 1fr; padding:6px 6px 6px 14px; }
+    .nav ul{ display:none; }
+    .brand{ flex-direction:row; gap:10px; padding:0; justify-self:start; }
+    .nav .mobile-cta{ display:flex; justify-content:flex-end; gap:6px; align-items:center; }
+    .nav .mobile-cta .btn{ min-height:48px; padding:0 18px; font-size:.9375rem; }
   }
 
-  /* WORK */
-  .work{ list-style:none; display:grid; gap:var(--space-12); }
-  .item{ display:grid; gap:var(--space-2); }
-  @media (min-width:640px){
-    .item{ grid-template-columns:120px 1fr; gap:var(--space-6); }
-  }
-  .when{ font-family:var(--mono); font-size:.8125rem; color:var(--muted); padding-top:3px; font-variant-numeric:tabular-nums; }
-  .item h3{ font-size:1.125rem; font-weight:600; letter-spacing:-0.01em; line-height:1.4; }
-  .item h3 a{ text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
-  .item h3 a:hover{ color:var(--accent); }
-  .item h3 svg{ width:14px; height:14px; color:var(--muted); }
-  .role{ font-size:.9375rem; color:var(--muted); margin-top:2px; }
-  .item p.desc{ margin-top:var(--space-3); }
-  .stat{ font-family:var(--mono); font-size:.875rem; color:var(--accent); margin-top:var(--space-3); display:block; }
+  /* HERO */
+  .hero{ padding:56px 0 0; text-align:center; }
+  .hero h1{ font-size:clamp(2.5rem, 7vw, 4.25rem); letter-spacing:-0.035em; }
+  .hero .role{ margin-top:12px; font-size:clamp(1.125rem, 2.4vw, 1.375rem); color:var(--ink); font-weight:500; }
+  .hero-grid{ margin-top:32px; display:grid; grid-template-columns:1fr minmax(0, 560px) 1fr; align-items:center; gap:24px; text-align:left; }
+  .hero-note{ max-width:260px; font-size:.9375rem; color:var(--ink); }
+  .hero-note .q{ display:block; font-size:2.5rem; line-height:.6; color:var(--orange-text); margin-bottom:10px; font-weight:700; }
+  .hero-stat{ justify-self:end; text-align:right; }
+  .hero-stat .big{ display:block; font-size:2.25rem; font-weight:700; color:var(--ink); letter-spacing:-0.02em; line-height:1.1; }
+  .hero-stat .small{ font-size:.9375rem; }
+  .hero-stat .mark{ display:flex; justify-content:flex-end; gap:6px; margin-bottom:8px; color:var(--orange); }
+  .hero-stat .mark svg{ width:22px; height:22px; }
+  .hero-stat + .hero-stat{ margin-top:28px; }
 
-  details{ margin-top:var(--space-4); }
+  .stage{ position:relative; }
+  .arc{ position:absolute; left:0; right:0; bottom:0; aspect-ratio:2/1; background:var(--orange); border-radius:999px 999px 0 0; }
+  .stage img{ position:relative; width:88%; margin:0 auto; }
+  .doodle{ position:absolute; color:var(--ink); pointer-events:none; }
+  .doodle svg{ width:100%; height:100%; }
+  .d1{ width:46px; top:22%; left:0; }
+  .d2{ width:54px; top:6%; right:4%; color:var(--orange-text); }
+  .d3{ width:58px; bottom:30%; right:-6%; }
+  .d4{ width:40px; bottom:8%; left:2%; color:var(--orange-text); }
+  .hero-ctas{
+    position:absolute; left:50%; bottom:22px; transform:translateX(-50%);
+    display:flex; gap:6px; padding:6px; border-radius:var(--r-pill);
+    background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.55);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    white-space:nowrap;
+  }
+  .hero-ctas .ghost{ color:#fff; background:rgba(17,17,17,.55); }
+  .hero-ctas .ghost:hover{ background:var(--dark); }
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-note{ order:2; max-width:none; text-align:center; margin:0 auto; }
+    .hero-note .q{ display:none; }
+    .hero-side{ display:none; }
+    .stage{ order:1; max-width:460px; width:100%; margin:0 auto; }
+    .d4{ display:none; }
+  }
+  @media (max-width:420px){
+    .hero-ctas .btn{ padding:0 18px; }
+  }
+
+  /* DARK BLOCKS */
+  .dark{ background:var(--dark); color:var(--on-dark-muted); border-radius:var(--r-lg); }
+  .dark h2, .dark h3{ color:var(--on-dark); }
+  .panel{ padding:88px 0; }
+  .panel-head{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:20px 48px; margin-bottom:48px; }
+  .panel-head p{ max-width:440px; }
+
+  .services{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
+  .svc{ background:var(--dark-2); border:1px solid var(--dark-line); border-radius:var(--r-md); overflow:hidden; }
+  .svc h3{ font-size:1.375rem; padding:22px 24px; border-bottom:1px solid var(--dark-line); display:flex; align-items:center; gap:12px; }
+  .svc h3 .ic{ width:40px; height:40px; border-radius:50%; background:var(--orange); color:var(--on-orange); display:grid; place-items:center; flex:none; }
+  .svc h3 .ic svg{ width:20px; height:20px; }
+  .svc ul{ list-style:none; padding:20px 24px 26px; display:grid; gap:12px; }
+  .svc li{ display:flex; gap:10px; align-items:flex-start; color:var(--on-dark); }
+  .svc li::before{ content:""; width:6px; height:6px; margin-top:.6em; border-radius:50%; background:var(--orange-soft); flex:none; }
+
+  /* EXPERIENCE */
+  .exp{ padding:104px 0 88px; }
+  .exp .section-title{ text-align:center; margin-bottom:64px; }
+  .timeline{ list-style:none; max-width:920px; margin:0 auto; position:relative; }
+  .timeline::before{ content:""; position:absolute; top:12px; bottom:12px; left:50%; border-left:2px dashed #98A2B3; transform:translateX(-1px); }
+  .tl{ display:grid; grid-template-columns:1fr 64px 1fr; padding-bottom:48px; }
+  .tl:last-child{ padding-bottom:0; }
+  .tl .org h3{ font-size:1.5rem; }
+  .tl .when{ margin-top:6px; font-size:1rem; font-variant-numeric:tabular-nums; }
+  .tl .node{ position:relative; justify-self:center; width:28px; height:28px; margin-top:2px; border-radius:50%; background:var(--orange); outline:2px dashed var(--ink); outline-offset:3px; }
+  .tl:nth-child(even) .node{ background:var(--ink); }
+  .tl .what h3{ font-size:1.5rem; }
+  .tl .what p{ margin-top:8px; }
+  .tl .what a{ display:inline-flex; align-items:center; gap:6px; min-height:44px; font-weight:600; color:var(--ink); }
+  @media (max-width:760px){
+    .timeline::before{ left:13px; }
+    .tl{ grid-template-columns:28px 1fr; column-gap:20px; }
+    .tl .node{ grid-row:1 / span 2; justify-self:start; }
+    .tl .org{ grid-column:2; }
+    .tl .what{ grid-column:2; margin-top:12px; }
+    .tl .what h3{ font-size:1.125rem; color:var(--orange-text); }
+    .tl .org h3{ font-size:1.375rem; }
+  }
+
+  /* WHY HIRE ME */
+  .why{ background:var(--grey); border-radius:var(--r-lg); padding:80px 0; }
+  .why-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .proof{ position:relative; max-width:420px; margin:0 auto; }
+  .proof .tile{ position:absolute; left:0; right:14%; top:12%; bottom:0; background:var(--orange); border-radius:200px 200px var(--r-md) var(--r-md); }
+  .proof img{ position:relative; width:62%; margin-left:22%; border-radius:18px; border:6px solid var(--dark); box-shadow:0 24px 48px rgba(16,24,40,.22); }
+  .proof .tag{
+    position:absolute; left:-8px; bottom:24px; background:var(--paper); color:var(--ink);
+    border-radius:14px; padding:12px 16px; box-shadow:0 12px 32px rgba(16,24,40,.14);
+    font-size:.875rem; line-height:1.35; max-width:190px;
+  }
+  .proof .tag strong{ display:block; font-size:1.375rem; color:var(--orange-text); }
+  .why p.lead{ margin-top:20px; font-size:1.0625rem; max-width:480px; }
+  .stats{ margin-top:32px; display:flex; flex-wrap:wrap; gap:28px 40px; }
+  .stats .n{ display:block; font-size:2rem; font-weight:700; color:var(--ink); letter-spacing:-0.02em; line-height:1.1; }
+  .stats .l{ font-size:.9375rem; }
+  .why .btn{ margin-top:36px; }
+  @media (max-width:860px){
+    .why-grid{ grid-template-columns:1fr; }
+    .proof{ max-width:340px; }
+  }
+
+  /* PORTFOLIO */
+  .work{ padding:104px 0; }
+  .work .panel-head{ margin-bottom:40px; }
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px; }
+  .card{ display:flex; flex-direction:column; }
+  .shot{
+    position:relative; display:block; aspect-ratio:16/10; border-radius:var(--r-md); overflow:hidden;
+    background:var(--dark); text-decoration:none; isolation:isolate;
+  }
+  .shot img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top; opacity:.55; transition:transform .4s var(--ease), opacity .4s var(--ease); }
+  .shot:hover img{ transform:scale(1.03); opacity:.7; }
+  .shot .title{ position:absolute; left:24px; bottom:18px; right:24px; color:#fff; font-size:clamp(2rem, 4.2vw, 3rem); font-weight:700; letter-spacing:-0.03em; line-height:1; }
+  .shot .go{
+    position:absolute; top:18px; right:18px; width:48px; height:48px; border-radius:50%;
+    border:1.5px solid var(--orange-soft); color:var(--orange-soft); display:grid; place-items:center;
+    transition:background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .shot:hover .go{ background:var(--orange); color:var(--on-orange); border-color:var(--orange); }
+  .shot .go svg{ width:20px; height:20px; }
+  .shot.as{ background:var(--dark); }
+  .as-art{ position:absolute; inset:0; }
+  .as-art svg{ position:absolute; right:-6%; top:10%; width:62%; height:auto; color:var(--orange); opacity:.9; }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .chip{ background:var(--grey); color:var(--ink); border-radius:var(--r-pill); padding:6px 14px; font-size:.875rem; font-weight:500; }
+  .card h3{ margin-top:14px; font-size:1.375rem; }
+  .card p{ margin-top:8px; }
+
+  details{ margin-top:12px; }
   summary{
-    display:inline-flex; align-items:center; gap:var(--space-2);
-    min-height:44px; cursor:pointer; list-style:none;
-    font-size:.9375rem; font-weight:500; color:var(--fg);
+    display:inline-flex; align-items:center; gap:8px; min-height:44px; cursor:pointer; list-style:none;
+    font-weight:600; color:var(--ink);
   }
   summary::-webkit-details-marker{ display:none; }
-  summary svg{ width:14px; height:14px; transition:transform var(--dur) var(--ease); }
-  details[open] summary svg{ transform:rotate(90deg); }
-  summary:hover{ color:var(--accent); }
-  .case{
-    padding:var(--space-4) 0 var(--space-2) var(--space-4);
-    border-left:2px solid var(--border);
-    color:var(--muted); font-size:.9375rem;
+  summary .pl{ width:24px; height:24px; border-radius:50%; background:var(--orange); color:var(--on-orange); display:grid; place-items:center; transition:transform var(--dur) var(--ease); }
+  summary .pl svg{ width:14px; height:14px; }
+  details[open] summary .pl{ transform:rotate(45deg); }
+  .case{ padding:8px 0 0 16px; border-left:3px solid var(--orange); }
+  .case h4{ color:var(--ink); font-size:1rem; margin:18px 0 6px; }
+  .case h4:first-child{ margin-top:4px; }
+  .case ul{ padding-left:1.1em; display:grid; gap:6px; }
+  .case strong{ color:var(--ink); font-weight:600; }
+  .case .links{ margin-top:16px; display:flex; flex-wrap:wrap; gap:4px 24px; }
+  .case .links a{ font-weight:600; color:var(--ink); display:inline-flex; align-items:center; min-height:44px; }
+
+  /* MARQUEE */
+  .band-wrap{ overflow:hidden; padding:28px 0 20px; }
+  .band{ margin:0 -40px; background:var(--orange); transform:rotate(-2deg); padding:14px 0; }
+  .band-inner{ background:var(--paper); transform:rotate(2deg); margin:0 -20px; overflow:hidden; }
+  .track{ display:flex; width:max-content; animation:scroll 38s linear infinite; }
+  .track ul{ list-style:none; display:flex; align-items:center; }
+  .track li{ display:flex; align-items:center; gap:28px; padding:16px 14px; font-size:clamp(1.25rem, 3vw, 2rem); font-weight:500; color:var(--ink); white-space:nowrap; }
+  .track li::after{ content:""; width:18px; height:18px; background:var(--orange); clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%); }
+  @keyframes scroll{ to{ transform:translateX(-50%); } }
+
+  /* CTA */
+  .cta{ padding:96px 0 104px; text-align:center; }
+  .cta .section-title{ max-width:720px; margin:0 auto; line-height:1.25; }
+  .mailbar{
+    margin:36px auto 0; max-width:580px; display:flex; align-items:center; gap:12px;
+    border:1px solid var(--line); border-radius:var(--r-pill); padding:8px 8px 8px 12px;
   }
-  .case h4{ color:var(--fg); font-size:.9375rem; font-weight:600; margin:var(--space-6) 0 var(--space-2); }
-  .case h4:first-child{ margin-top:0; }
-  .case p + p{ margin-top:var(--space-3); }
-  .case ul{ padding-left:1.1em; display:grid; gap:var(--space-2); }
-  .case strong{ color:var(--fg); font-weight:500; }
-  .case .links{ margin-top:var(--space-6); display:flex; flex-wrap:wrap; gap:var(--space-2) var(--space-6); }
-  .case .links a{ color:var(--fg); }
-  .case img{ margin-top:var(--space-4); border:1px solid var(--border); border-radius:8px; max-height:560px; width:auto; }
+  .mailbar .av{ width:40px; height:40px; border-radius:50%; background:#FFEDD5; color:var(--orange-text); display:grid; place-items:center; flex:none; }
+  .mailbar .av svg{ width:18px; height:18px; }
+  .mailbar .addr{ flex:1; text-align:left; color:var(--ink); font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .trust{ margin-top:22px; display:flex; flex-wrap:wrap; justify-content:center; gap:10px 28px; font-size:.9375rem; color:var(--ink); }
+  .trust span{ display:inline-flex; align-items:center; gap:8px; }
+  .trust svg{ width:18px; height:18px; color:var(--orange-text); }
+  @media (max-width:520px){
+    .mailbar{ flex-direction:column; border-radius:var(--r-md); padding:16px; }
+    .mailbar .av{ display:none; }
+    .mailbar .addr{ text-align:center; white-space:normal; word-break:break-all; }
+    .mailbar .btn{ width:100%; }
+  }
 
-  .also{ margin-top:var(--space-12); display:grid; gap:var(--space-6); list-style:none; }
-  .also li{ display:grid; gap:var(--space-1); }
-  @media (min-width:640px){ .also li{ grid-template-columns:120px 1fr; gap:var(--space-6); } }
-  .also .t{ font-weight:500; }
-  .also .d{ color:var(--muted); font-size:.9375rem; }
-  .also a{ font-size:.9375rem; display:inline-flex; align-items:center; min-height:44px; justify-self:start; }
+  /* FOOTER */
+  footer{ background:var(--dark); color:var(--on-dark-muted); border-radius:var(--r-lg) var(--r-lg) 0 0; padding:56px 0 32px; }
+  .f-top{ display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; align-items:center; padding-bottom:36px; border-bottom:1px solid var(--dark-line); }
+  .f-top h2{ color:#fff; font-size:clamp(2rem, 5vw, 3.25rem); }
+  .f-grid{ display:grid; grid-template-columns:1.6fr 1fr 1.2fr; gap:40px; padding:40px 0; border-bottom:1px solid var(--dark-line); }
+  .f-brand{ display:flex; align-items:center; gap:12px; color:#fff; font-weight:700; letter-spacing:.1em; font-size:.875rem; }
+  .f-brand .dot{ width:40px; height:40px; border-radius:50%; background:var(--orange); color:var(--on-orange); display:grid; place-items:center; font-size:.8125rem; }
+  .f-about{ margin-top:20px; max-width:420px; color:#D4D4D4; }
+  .socials{ margin-top:20px; display:flex; gap:10px; }
+  .socials a{ width:44px; height:44px; border-radius:50%; background:var(--dark-2); color:var(--orange-soft); display:grid; place-items:center; transition:background-color var(--dur) var(--ease), color var(--dur) var(--ease); }
+  .socials a:hover{ background:var(--orange); color:var(--on-orange); }
+  .socials svg{ width:18px; height:18px; }
+  footer h3{ color:var(--orange-soft); font-size:1rem; font-weight:600; letter-spacing:0; margin-bottom:12px; }
+  footer ul{ list-style:none; }
+  footer ul a{ display:inline-flex; align-items:center; min-height:40px; color:#E5E5E5; text-decoration:none; font-size:.9375rem; }
+  footer ul a:hover{ color:var(--orange-soft); }
+  .f-bottom{ padding-top:24px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; font-size:.9375rem; }
+  @media (max-width:760px){ .f-grid{ grid-template-columns:1fr 1fr; } .f-grid > :first-child{ grid-column:1 / -1; } }
 
-  /* SKILLS */
-  .skills{ display:grid; gap:var(--space-8); }
-  @media (min-width:640px){ .skills{ grid-template-columns:repeat(3, 1fr); gap:var(--space-6); } }
-  .skills h3{ font-size:.9375rem; font-weight:600; margin-bottom:var(--space-3); }
-  .skills ul{ list-style:none; display:grid; gap:var(--space-2); color:var(--muted); font-size:.9375rem; }
-
-  /* CONTACT */
-  .contact p{ font-size:1.1875rem; line-height:1.55; max-width:32em; }
-  .contact .email{ display:inline-block; margin-top:var(--space-4); font-size:1.1875rem; font-weight:500; color:var(--accent); }
-  .socials{ margin-top:var(--space-8); display:flex; flex-wrap:wrap; gap:var(--space-3); }
-
-  footer{ padding:var(--space-12) 0 var(--space-16); border-top:1px solid var(--border); }
-  footer p{ font-family:var(--mono); font-size:.8125rem; color:var(--muted); }
+  main > .dark, main > .why{ margin:0 12px; }
+  @media (min-width:1300px){ main > .dark, main > .why{ margin:0 24px; } }
 
   @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
     *,*::before,*::after{ transition:none !important; animation:none !important; }
+    .track{ flex-wrap:wrap; width:auto; justify-content:center; }
+    .track ul[aria-hidden]{ display:none; }
+    .track ul{ flex-wrap:wrap; justify-content:center; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <a class="mark" href="/">georgepanev.com</a>
-    <button class="lang-btn" id="langBtn" type="button">
-      <span lang="en" aria-hidden="true">BG</span><span lang="bg" aria-hidden="true">EN</span>
-    </button>
-  </div>
+<a href="#main" class="skip"><span lang="en">Skip to content</span><span lang="bg">Към съдържанието</span></a>
+
+<header class="nav">
+  <nav class="nav-pill" aria-label="Main">
+    <ul>
+      <li><a href="#top" class="active"><span lang="en">Home</span><span lang="bg">Начало</span></a></li>
+      <li><a href="#services"><span lang="en">What I do</span><span lang="bg">Какво правя</span></a></li>
+      <li><a href="#experience"><span lang="en">Experience</span><span lang="bg">Опит</span></a></li>
+    </ul>
+    <a class="brand" href="#top" aria-label="George Panev, home">
+      <span class="dot" aria-hidden="true">GP</span>
+      <span class="word" aria-hidden="true">PANEV</span>
+    </a>
+    <ul class="right">
+      <li><a href="#portfolio"><span lang="en">Portfolio</span><span lang="bg">Портфолио</span></a></li>
+      <li><a href="#contact"><span lang="en">Contact</span><span lang="bg">Контакт</span></a></li>
+      <li><button class="lang-btn" type="button" data-lang-toggle><span lang="en">BG</span><span lang="bg">EN</span></button></li>
+    </ul>
+    <div class="mobile-cta">
+      <button class="lang-btn" type="button" data-lang-toggle><span lang="en">BG</span><span lang="bg">EN</span></button>
+      <a class="btn btn-orange" href="#contact"><span lang="en">Hire me</span><span lang="bg">Свържи се</span></a>
+    </div>
+  </nav>
 </header>
 
-<main>
-  <div class="wrap">
+<main id="main">
 
-    <div class="intro">
-      <h1><span lang="en">George Panev</span><span lang="bg">Георги Панев</span></h1>
-      <p class="lead" lang="en">I build software prototypes, lead small technical teams, and grow audiences online. <strong>Based in Sofia, in my final year of high school.</strong></p>
-      <p class="lead" lang="bg">Изграждам софтуерни прототипи, ръководя малки технически екипи и развивам аудитории онлайн. <strong>От София, последна година в гимназията.</strong></p>
-      <p class="status"><span lang="en">Open to internships &amp; collaborations</span><span lang="bg">Отворен за стажове и сътрудничество</span></p>
-      <div class="actions">
-        <a class="btn primary" href="mailto:iamgeorgepanev@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-          <span lang="en">Email me</span><span lang="bg">Пиши ми</span>
-        </a>
-        <a class="btn" href="george_panev_cv.pdf">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-          <span lang="en">Download CV</span><span lang="bg">Изтегли CV</span>
-        </a>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <h1><span lang="en">Hi, I'm <span class="hl">George Panev</span></span><span lang="bg">Здравей, аз съм <span class="hl">Георги Панев</span></span></h1>
+      <p class="role" lang="en">Builder &amp; Technical Lead · Sofia, Bulgaria</p>
+      <p class="role" lang="bg">Създател и технически ръководител · София</p>
+
+      <div class="hero-grid">
+        <p class="hero-note">
+          <span class="q" aria-hidden="true">“</span>
+          <span lang="en">I turn ideas into working prototypes fast, using AI-assisted development, and I know how to get them in front of people.</span>
+          <span lang="bg">Превръщам идеи в работещи прототипи бързо, с разработка с ИИ, и знам как да ги покажа на хората.</span>
+        </p>
+
+        <div class="stage">
+          <div class="arc" aria-hidden="true"></div>
+          <span class="doodle d1" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12 4 24l12 12"/><path d="M32 12l12 12-12 12"/><path d="M28 6 20 42"/></svg></span>
+          <span class="doodle d2" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c1.5 9 5 12.5 14 14-9 1.5-12.5 5-14 14-1.5-9-5-12.5-14-14 9-1.5 12.5-5 14-14Z"/><path d="M40 32c.6 3.5 2 5 5.5 5.5-3.5.6-4.9 2-5.5 5.5-.6-3.5-2-4.9-5.5-5.5 3.5-.5 4.9-2 5.5-5.5Z"/></svg></span>
+          <span class="doodle d3" aria-hidden="true"><svg viewBox="0 0 56 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M52 4 4 22l18 6 6 16 24-40Z"/><path d="M22 28 52 4"/></svg></span>
+          <span class="doodle d4" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 30c6-10 10 6 16-4s10 6 16-4"/><path d="M4 18c6-10 10 6 16-4s10 6 16-4"/></svg></span>
+          <img src="img/george.webp" width="820" height="772" fetchpriority="high" alt="George Panev holding a laptop">
+          <div class="hero-ctas">
+            <a class="btn btn-orange" href="#portfolio"><span lang="en">Portfolio</span><span lang="bg">Портфолио</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+            <a class="btn ghost" href="#contact"><span lang="en">Hire me</span><span lang="bg">Свържи се</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="hero-stat">
+            <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 9.8l-5.4 4.8L18.2 22 12 18.3 5.8 22l1.6-7.4L2 9.8l7.1-.9L12 2z"/></svg></span>
+            <span class="big">676K+</span>
+            <span class="small" lang="en">organic views in 5 days</span>
+            <span class="small" lang="bg">органични гледания за 5 дни</span>
+          </div>
+          <div class="hero-stat">
+            <span class="big">JA</span>
+            <span class="small" lang="en">National Finals qualifier</span>
+            <span class="small" lang="bg">Класиран за Националния финал</span>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <section aria-labelledby="work-h">
-      <h2 id="work-h"><span lang="en">Selected work</span><span lang="bg">Избрани проекти</span></h2>
-      <ol class="work" reversed>
+  <!-- SERVICES -->
+  <section class="dark panel" id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="panel-head">
+        <h2 id="svc-h" class="section-title"><span lang="en">What I <span class="hl">Do</span></span><span lang="bg">Какво <span class="hl">правя</span></span></h2>
+        <p lang="en">Three things I'm good at, and I keep using them together: building, keeping systems running, and getting the result seen.</p>
+        <p lang="bg">Три неща, в които съм добър и които използвам заедно: изграждане, поддръжка на системи и това резултатът да бъде видян.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg></span><span lang="en">Building with AI</span><span lang="bg">Разработка с ИИ</span></h3>
+          <ul lang="en"><li>LLM workflows &amp; prompting</li><li>Rapid prototyping under deadline</li><li>HTML, CSS, JavaScript</li><li>AI-assisted debugging</li></ul>
+          <ul lang="bg"><li>LLM процеси и промптиране</li><li>Бързо прототипиране в срок</li><li>HTML, CSS, JavaScript</li><li>Дебъгване с ИИ</li></ul>
+        </article>
+        <article class="svc">
+          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg></span><span lang="en">Systems &amp; Android</span><span lang="bg">Системи и Android</span></h3>
+          <ul lang="en"><li>Linux: Ubuntu, CachyOS, Zorin</li><li>Privacy setups: Tails, Kali</li><li>Custom ROMs, KernelSU, Magisk</li><li>Performance &amp; thermal tuning</li></ul>
+          <ul lang="bg"><li>Linux: Ubuntu, CachyOS, Zorin</li><li>Поверителност: Tails, Kali</li><li>Custom ROM, KernelSU, Magisk</li><li>Настройка на производителност</li></ul>
+        </article>
+        <article class="svc">
+          <h3><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg></span><span lang="en">Growth &amp; Content</span><span lang="bg">Растеж и съдържание</span></h3>
+          <ul lang="en"><li>Account revival strategy</li><li>Retention analytics</li><li>Cross-platform content</li><li>OBS &amp; streaming setup</li></ul>
+          <ul lang="bg"><li>Съживяване на профили</li><li>Анализ на задържането</li><li>Кросплатформено съдържание</li><li>OBS и стрийминг</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        <li class="item">
-          <div class="when">2025</div>
-          <div>
-            <h3><a href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">AnimalSync <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></h3>
-            <p class="role" lang="en">Technical lead &amp; developer · Junior Achievement</p>
-            <p class="role" lang="bg">Технически ръководител и разработчик · Junior Achievement</p>
-            <p class="desc" lang="en">A student-built pet-monitoring concept: smart-collar tracking, vet access, and a lost-pet SOS network. I shipped the working prototype under a tight deadline.</p>
-            <p class="desc" lang="bg">Ученическа концепция за проследяване на домашни любимци: умен нашийник, достъп до ветеринари и SOS мрежа за изгубени животни. Изградих работещия прототип в кратък срок.</p>
-            <span class="stat" lang="en">Qualified for the JA National Finals</span>
-            <span class="stat" lang="bg">Класиран за Националния финал на JA</span>
-            <details>
-              <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span lang="en">Case study</span><span lang="bg">Казус</span></summary>
-              <div class="case" lang="en">
-                <h4>Origin</h4>
-                <p>The idea came out of a workshop run by EUIPO and the Bulgarian Patent Office on intellectual property and sustainable business. Our class 11G team at 2 SU "Acad. Emiliyan Stanev" had about 90 minutes to invent a company.</p>
-                <h4>My role</h4>
-                <p>I wasn't the founder of the concept. I was the technical lead and main developer. The plan was a native Android app in Kotlin, but there wasn't time to do that well, so I switched to an HTML prototype that showed the whole product and was ready to present.</p>
-                <h4>The product</h4>
-                <ul>
-                  <li><strong>Health tracking</strong> from an ESP32 collar: sleep, steps, temperature, stress, heart rate.</li>
-                  <li><strong>Weather-aware tips</strong> for dressing a pet in harsh conditions.</li>
-                  <li><strong>Vet map</strong> of nearby clinics for emergencies.</li>
-                  <li><strong>SOS network</strong> that alerts nearby users and vets when a pet goes missing.</li>
-                  <li><strong>Shared access</strong> so a walker or sitter can trigger SOS too.</li>
-                </ul>
-                <h4>Outcome</h4>
-                <p>We qualified for the JA National Finals but didn't compete. The date clashed with our Erasmus+ trip to Croatia.</p>
-                <div class="links">
-                  <a href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">Live prototype</a>
-                  <a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank" rel="noopener">School announcement</a>
-                </div>
-              </div>
-              <div class="case" lang="bg">
-                <h4>Произход</h4>
-                <p>Идеята се роди на уъркшоп на EUIPO и Патентното ведомство на България за интелектуална собственост и устойчив бизнес. Нашият екип от 11Г клас в 2 СУ „Акад. Емилиян Станев“ имаше около 90 минути да измисли компания.</p>
-                <h4>Моята роля</h4>
-                <p>Не бях автор на концепцията. Бях технически ръководител и основен разработчик. Планът беше нативно Android приложение на Kotlin, но нямаше време да се направи добре, затова преминах към HTML прототип, който показваше целия продукт и беше готов за представяне.</p>
-                <h4>Продуктът</h4>
-                <ul>
-                  <li><strong>Здравни показатели</strong> от нашийник с ESP32: сън, стъпки, температура, стрес, пулс.</li>
-                  <li><strong>Съвети според времето</strong> за обличане на любимеца при тежки условия.</li>
-                  <li><strong>Карта на ветеринари</strong> наблизо за спешни случаи.</li>
-                  <li><strong>SOS мрежа</strong>, която известява потребители и ветеринари наоколо при изгубен любимец.</li>
-                  <li><strong>Споделен достъп</strong>, за да може гледач да задейства SOS.</li>
-                </ul>
-                <h4>Резултат</h4>
-                <p>Класирахме се за Националния финал на JA, но не участвахме. Датата съвпадна с пътуването ни по Erasmus+ в Хърватия.</p>
-                <div class="links">
-                  <a href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">Работещ прототип</a>
-                  <a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank" rel="noopener">Публикация на училището</a>
-                </div>
-              </div>
-            </details>
+  <!-- EXPERIENCE -->
+  <section class="exp" id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <h2 id="exp-h" class="section-title"><span lang="en">My <span class="hl">Experience</span></span><span lang="bg">Моят <span class="hl">опит</span></span></h2>
+      <ol class="timeline">
+        <li class="tl">
+          <div class="org"><h3>Erasmus+ · <span lang="en">Croatia</span><span lang="bg">Хърватия</span></h3><p class="when"><span lang="en">June 2026</span><span lang="bg">юни 2026</span></p></div>
+          <span class="node" aria-hidden="true"></span>
+          <div class="what">
+            <h3 lang="en">STEM Delegate</h3><h3 lang="bg">STEM делегат</h3>
+            <p lang="en">Represented my school on a 5-day ICT/STEM exchange at Gimnazija Metković.</p>
+            <p lang="bg">Представих училището си на 5-дневен ИКТ/STEM обмен в Gimnazija Metković.</p>
+            <a href="https://www.facebook.com/VtoroSU/posts/pfbid0C8pX2mKYQu8opEUxCApTGvdwf5f5fkQmewtzVb3ddGrz6xMa4nJpJRcNxyv8XpFCl" target="_blank" rel="noopener"><span lang="en">School announcement</span><span lang="bg">Публикация на училището</span> ↗</a>
           </div>
         </li>
-
-        <li class="item">
-          <div class="when">2025–26</div>
-          <div>
-            <h3><a href="https://investsofia.com/" target="_blank" rel="noopener">Invest Sofia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></h3>
-            <p class="role" lang="en">Intern → marketing contributor</p>
-            <p class="role" lang="bg">Стажант → сътрудник в маркетинга</p>
-            <p class="desc" lang="en">Started with a 64-hour internship at Sofia's municipal investment agency and came back in 2026 to work on digital communications and outreach that helps bring investment to the city.</p>
-            <p class="desc" lang="bg">Започнах с 64-часов стаж в Столичната агенция за инвестиции и се върнах през 2026 г. да работя по дигитални комуникации и кампании за привличане на инвестиции в града.</p>
+        <li class="tl">
+          <div class="org"><h3>Invest Sofia</h3><p class="when">2025 – 2026</p></div>
+          <span class="node" aria-hidden="true"></span>
+          <div class="what">
+            <h3 lang="en">Intern → Marketing Contributor</h3><h3 lang="bg">Стажант → Маркетинг сътрудник</h3>
+            <p lang="en">Started with a 64-hour internship at Sofia's municipal investment agency, then came back in 2026 to work on digital communications and outreach.</p>
+            <p lang="bg">Започнах с 64-часов стаж в Столичната агенция за инвестиции и се върнах през 2026 г. да работя по дигитални комуникации.</p>
+            <a href="https://investsofia.com/" target="_blank" rel="noopener">investsofia.com ↗</a>
           </div>
         </li>
-
-        <li class="item">
-          <div class="when">2025</div>
-          <div>
-            <h3><a href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener"><span lang="en">TikTok account revival</span><span lang="bg">Съживяване на TikTok профил</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a></h3>
-            <p class="role" lang="en">Content strategy experiment</p>
-            <p class="role" lang="bg">Експеримент със стратегия за съдържание</p>
-            <p class="desc" lang="en">Took a 3-year-old account that had gone quiet, switched it to a completely different niche, and grew it on content strategy alone, with no paid promotion.</p>
-            <p class="desc" lang="bg">Взех неактивен 3-годишен профил, смених нишата му изцяло и го развих само със стратегия за съдържание, без платена реклама.</p>
-            <span class="stat" lang="en">676,000+ organic views in 5 days</span>
-            <span class="stat" lang="bg">676 000+ органични гледания за 5 дни</span>
-            <details>
-              <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span lang="en">See analytics</span><span lang="bg">Виж статистиката</span></summary>
-              <div class="case">
-                <img src="TikTok.jpg" width="1440" height="3261" loading="lazy" decoding="async" alt="TikTok analytics showing over 676,000 views across 5 days">
-              </div>
-            </details>
+        <li class="tl">
+          <div class="org"><h3>EUIPO &amp; <span lang="en">BG Patent Office</span><span lang="bg">Патентно ведомство</span></h3><p class="when"><span lang="en">Oct 2025</span><span lang="bg">окт. 2025</span></p></div>
+          <span class="node" aria-hidden="true"></span>
+          <div class="what">
+            <h3 lang="en">IP Training</h3><h3 lang="bg">Обучение по ИС</h3>
+            <p lang="en">Trademarks, industrial design, and IP in sustainable business. This is where AnimalSync started.</p>
+            <p lang="bg">Търговски марки, промишлен дизайн и ИС в устойчивия бизнес. Оттук започна AnimalSync.</p>
           </div>
         </li>
-
+        <li class="tl">
+          <div class="org"><h3>Junior Achievement</h3><p class="when">2025</p></div>
+          <span class="node" aria-hidden="true"></span>
+          <div class="what">
+            <h3 lang="en">Technical Lead · AnimalSync</h3><h3 lang="bg">Технически ръководител · AnimalSync</h3>
+            <p lang="en">Led the build of a pet-monitoring prototype that qualified for the JA National Finals.</p>
+            <p lang="bg">Ръководих изграждането на прототип за проследяване на любимци, класиран за Националния финал на JA.</p>
+          </div>
+        </li>
       </ol>
+    </div>
+  </section>
 
-      <ul class="also">
-        <li>
-          <div class="when"><span lang="en">Jun 2026</span><span lang="bg">юни 2026</span></div>
-          <div>
-            <div class="t"><span lang="en">Erasmus+ STEM exchange, Croatia</span><span lang="bg">Erasmus+ STEM обмен, Хърватия</span></div>
-            <div class="d" lang="en">Represented my school on a 5-day ICT/STEM mobility at Gimnazija Metković.</div>
-            <div class="d" lang="bg">Представих училището си на 5-дневна ИКТ/STEM мобилност в Gimnazija Metković.</div>
-            <a href="https://www.facebook.com/VtoroSU/posts/pfbid0C8pX2mKYQu8opEUxCApTGvdwf5f5fkQmewtzVb3ddGrz6xMa4nJpJRcNxyv8XpFCl" target="_blank" rel="noopener"><span lang="en">School announcement</span><span lang="bg">Публикация на училището</span></a>
-          </div>
-        </li>
-        <li>
-          <div class="when"><span lang="en">Oct 2025</span><span lang="bg">окт. 2025</span></div>
-          <div>
-            <div class="t"><span lang="en">IP training, EUIPO &amp; BG Patent Office</span><span lang="bg">Обучение по ИС, EUIPO и Патентно ведомство</span></div>
-            <div class="d" lang="en">Trademarks, industrial design, and IP in sustainable business. This is where AnimalSync started.</div>
-            <div class="d" lang="bg">Търговски марки, промишлен дизайн и ИС в устойчивия бизнес. Оттук започна AnimalSync.</div>
-            <a href="https://www.facebook.com/VtoroSU/posts/pfbid09Rmw86NXaXVeHx3wZxfrrJbHE8y49vnAN8jobmFsFaQdQ1HA8Jf4bv3FU7K1GCnnl" target="_blank" rel="noopener"><span lang="en">School announcement</span><span lang="bg">Публикация на училището</span></a>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="skills-h">
-      <h2 id="skills-h"><span lang="en">Skills</span><span lang="bg">Умения</span></h2>
-      <div class="skills">
-        <div>
-          <h3 lang="en">Building with AI</h3>
-          <h3 lang="bg">Разработка с ИИ</h3>
-          <ul lang="en">
-            <li>LLM workflows &amp; prompting</li>
-            <li>Rapid prototyping</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>AI-assisted debugging</li>
-          </ul>
-          <ul lang="bg">
-            <li>LLM процеси и промптиране</li>
-            <li>Бързо прототипиране</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Дебъгване с ИИ</li>
-          </ul>
-        </div>
-        <div>
-          <h3 lang="en">Systems &amp; Android</h3>
-          <h3 lang="bg">Системи и Android</h3>
-          <ul lang="en">
-            <li>Linux (Ubuntu, CachyOS)</li>
-            <li>Tails, Kali Linux</li>
-            <li>Custom ROMs, KernelSU, Magisk</li>
-            <li>Performance &amp; thermal tuning</li>
-          </ul>
-          <ul lang="bg">
-            <li>Linux (Ubuntu, CachyOS)</li>
-            <li>Tails, Kali Linux</li>
-            <li>Custom ROM, KernelSU, Magisk</li>
-            <li>Настройка на производителност</li>
-          </ul>
-        </div>
-        <div>
-          <h3 lang="en">Growth &amp; content</h3>
-          <h3 lang="bg">Растеж и съдържание</h3>
-          <ul lang="en">
-            <li>Account revival strategy</li>
-            <li>Retention analytics</li>
-            <li>Cross-platform content</li>
-            <li>OBS &amp; streaming setup</li>
-          </ul>
-          <ul lang="bg">
-            <li>Стратегия за съживяване на профили</li>
-            <li>Анализ на задържането</li>
-            <li>Кросплатформено съдържание</li>
-            <li>OBS и стрийминг</li>
-          </ul>
-        </div>
+  <!-- WHY HIRE ME -->
+  <section class="why" aria-labelledby="why-h">
+    <div class="wrap why-grid">
+      <div class="proof">
+        <div class="tile" aria-hidden="true"></div>
+        <img src="img/tiktok-profile.webp" width="720" height="1630" loading="lazy" decoding="async" alt="TikTok profile @panevx with recent videos and their view counts">
+        <p class="tag"><strong>676K+</strong><span lang="en">views, zero ad spend</span><span lang="bg">гледания, без реклама</span></p>
       </div>
-    </section>
-
-    <section class="contact" aria-labelledby="contact-h">
-      <h2 id="contact-h"><span lang="en">Contact</span><span lang="bg">Контакт</span></h2>
-      <p lang="en">Have a project, an internship, or something you want built? Email is the fastest way to reach me.</p>
-      <p lang="bg">Имате проект, стаж или нещо, което искате да бъде изградено? Най-бързо ще ме намерите по имейл.</p>
-      <a class="email" href="mailto:iamgeorgepanev@gmail.com">iamgeorgepanev@gmail.com</a>
-      <div class="socials">
-        <a class="btn" href="https://www.instagram.com/panevx/" target="_blank" rel="noopener">Instagram</a>
-        <a class="btn" href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener">TikTok</a>
-        <a class="btn" href="george_panev_cv.pdf">CV (PDF)</a>
+      <div>
+        <h2 id="why-h" class="section-title"><span lang="en">Why <span class="hl">Hire me</span>?</span><span lang="bg">Защо <span class="hl">мен</span>?</span></h2>
+        <p class="lead" lang="en">I ship. When the AnimalSync plan was too big for the deadline, I cut it down to something that worked on the day. When an account had gone quiet, I grew it back with strategy, not ad money. I'm in my final year of high school and looking for internships and projects where I can do more of that.</p>
+        <p class="lead" lang="bg">Довършвам нещата. Когато планът за AnimalSync беше твърде голям за срока, го намалих до нещо, което работеше в деня на представянето. Когато профил беше заглъхнал, го съживих със стратегия, не с пари за реклама. В последната година на гимназията съм и търся стажове и проекти, в които да правя още от това.</p>
+        <div class="stats">
+          <div><span class="n">676K+</span><span class="l" lang="en">Organic views in 5 days</span><span class="l" lang="bg">Органични гледания за 5 дни</span></div>
+          <div><span class="n">64h</span><span class="l" lang="en">Internship → ongoing role</span><span class="l" lang="bg">Стаж → постоянна роля</span></div>
+          <div><span class="n">JA</span><span class="l" lang="en">JA National Finals qualifier</span><span class="l" lang="bg">Класиран за финала на JA</span></div>
+        </div>
+        <a class="btn btn-outline" href="#contact"><span lang="en">Hire me</span><span lang="bg">Свържи се</span></a>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div>
+  <!-- PORTFOLIO -->
+  <section class="work" id="portfolio" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="panel-head">
+        <h2 id="work-h" class="section-title"><span lang="en">Let's look at<br>my <span class="hl">Portfolio</span></span><span lang="bg">Разгледай<br>моето <span class="hl">портфолио</span></span></h2>
+        <a class="btn btn-orange" href="george_panev_cv.pdf"><span lang="en">Full CV</span><span lang="bg">Цялото CV</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></a>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <a class="shot as" href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">
+            <span class="as-art" aria-hidden="true"><svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="100" r="44"/><circle cx="100" cy="100" r="62" stroke-dasharray="4 10"/><path d="M78 96h10l6-14 10 30 6-16h12"/><circle cx="52" cy="40" r="10"/><circle cx="80" cy="22" r="10"/><circle cx="120" cy="22" r="10"/><circle cx="148" cy="40" r="10"/></svg></span>
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+            <span class="title">AnimalSync</span>
+          </a>
+          <div class="chips"><span class="chip">Prototype</span><span class="chip">Tech lead</span><span class="chip">ESP32</span><span class="chip">JA 2025</span></div>
+          <h3 lang="en">AnimalSync: Smart Pet Collar</h3>
+          <h3 lang="bg">AnimalSync: умен нашийник</h3>
+          <p lang="en">Health tracking, a vet map, and a lost-pet SOS network. I led the build and shipped a working prototype under a tight deadline.</p>
+          <p lang="bg">Здравни показатели, карта на ветеринари и SOS мрежа за изгубени любимци. Ръководих изграждането и предадох работещ прототип в кратък срок.</p>
+          <details>
+            <summary><span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><span lang="en">Read the case study</span><span lang="bg">Прочети казуса</span></summary>
+            <div class="case" lang="en">
+              <h4>Origin</h4>
+              <p>The idea came out of a workshop run by EUIPO and the Bulgarian Patent Office. Our class 11G team at 2 SU "Acad. Emiliyan Stanev" had about 90 minutes to invent a company.</p>
+              <h4>My role</h4>
+              <p>I wasn't the founder of the concept. I was the technical lead and main developer. The plan was a native Android app in Kotlin, but there wasn't time to do that well, so I switched to an HTML prototype that showed the whole product and was ready to present.</p>
+              <h4>The product</h4>
+              <ul>
+                <li><strong>Health tracking</strong> from an ESP32 collar: sleep, steps, temperature, stress, heart rate.</li>
+                <li><strong>Weather-aware tips</strong> for dressing a pet in harsh conditions.</li>
+                <li><strong>Vet map</strong> of nearby clinics for emergencies.</li>
+                <li><strong>SOS network</strong> that alerts nearby users and vets when a pet goes missing.</li>
+                <li><strong>Shared access</strong> so a walker or sitter can trigger SOS too.</li>
+              </ul>
+              <h4>Outcome</h4>
+              <p>We qualified for the JA National Finals but didn't compete. The date clashed with our Erasmus+ trip to Croatia.</p>
+              <div class="links">
+                <a href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">Live prototype ↗</a>
+                <a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank" rel="noopener">School announcement ↗</a>
+              </div>
+            </div>
+            <div class="case" lang="bg">
+              <h4>Произход</h4>
+              <p>Идеята се роди на уъркшоп на EUIPO и Патентното ведомство на България. Нашият екип от 11Г клас в 2 СУ „Акад. Емилиян Станев“ имаше около 90 минути да измисли компания.</p>
+              <h4>Моята роля</h4>
+              <p>Не бях автор на концепцията. Бях технически ръководител и основен разработчик. Планът беше нативно Android приложение на Kotlin, но нямаше време да се направи добре, затова преминах към HTML прототип, който показваше целия продукт и беше готов за представяне.</p>
+              <h4>Продуктът</h4>
+              <ul>
+                <li><strong>Здравни показатели</strong> от нашийник с ESP32: сън, стъпки, температура, стрес, пулс.</li>
+                <li><strong>Съвети според времето</strong> за обличане на любимеца при тежки условия.</li>
+                <li><strong>Карта на ветеринари</strong> наблизо за спешни случаи.</li>
+                <li><strong>SOS мрежа</strong>, която известява потребители и ветеринари наоколо при изгубен любимец.</li>
+                <li><strong>Споделен достъп</strong>, за да може гледач да задейства SOS.</li>
+              </ul>
+              <h4>Резултат</h4>
+              <p>Класирахме се за Националния финал на JA, но не участвахме. Датата съвпадна с пътуването ни по Erasmus+ в Хърватия.</p>
+              <div class="links">
+                <a href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">Работещ прототип ↗</a>
+                <a href="https://www.facebook.com/VtoroSU/posts/%D1%81-%D0%B3%D0%BE%D1%80%D0%B4%D0%BE%D1%81%D1%82-%D1%81%D0%BF%D0%BE%D0%B4%D0%B5%D0%BB%D1%8F%D0%BC%D0%B5-%D0%B5%D0%B4%D0%B8%D0%BD-%D0%B8%D0%B7%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%BD-%D1%83%D1%81%D0%BF%D0%B5%D1%85-%D0%B7%D0%B0-2-%D1%81%D1%83-%D0%B0%D0%BA%D0%B0%D0%B4-%D0%B5%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F%D0%BD-%D1%81%D1%82%D0%B0%D0%BD%D0%B5%D0%B2-%D1%83%D1%87%D0%B5%D0%B1%D0%BD%D0%B0-%D0%BA/1472261058024808/" target="_blank" rel="noopener">Публикация на училището ↗</a>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="card">
+          <a class="shot" href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener">
+            <img src="img/tiktok-profile.webp" width="720" height="1630" loading="lazy" decoding="async" alt="">
+            <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+            <span class="title">@panevx</span>
+          </a>
+          <div class="chips"><span class="chip">Content strategy</span><span class="chip">Analytics</span><span class="chip">2025</span></div>
+          <h3 lang="en">TikTok Account Revival</h3>
+          <h3 lang="bg">Съживяване на TikTok профил</h3>
+          <p lang="en">Took a 3-year-old account that had gone quiet, switched it to a completely different niche, and grew it to 676,000+ views in 5 days with no paid promotion.</p>
+          <p lang="bg">Взех неактивен 3-годишен профил, смених нишата му изцяло и го развих до 676 000+ гледания за 5 дни без платена реклама.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS BAND -->
+  <div class="band-wrap" role="region" aria-label="Tools and skills"><div class="band">
+    <div class="band-inner">
+      <div class="track">
+        <ul>
+          <li>JavaScript</li><li>HTML &amp; CSS</li><li>LLM Workflows</li><li>Linux</li><li>Android ROMs</li><li>KernelSU</li><li>ESP32</li><li>OBS Studio</li><li>Content Strategy</li><li>Analytics</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>JavaScript</li><li>HTML &amp; CSS</li><li>LLM Workflows</li><li>Linux</li><li>Android ROMs</li><li>KernelSU</li><li>ESP32</li><li>OBS Studio</li><li>Content Strategy</li><li>Analytics</li>
+        </ul>
+      </div>
+    </div>
+  </div></div>
+
+  <!-- CTA -->
+  <section class="cta" id="contact" aria-labelledby="cta-h">
+    <div class="wrap">
+      <h2 id="cta-h" class="section-title"><span lang="en">Have a Project Idea? <span class="hl">Let's Discuss</span></span><span lang="bg">Имаш идея за проект? <span class="hl">Да поговорим</span></span></h2>
+      <div class="mailbar">
+        <span class="av" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+        <span class="addr">iamgeorgepanev@gmail.com</span>
+        <a class="btn btn-orange" href="mailto:iamgeorgepanev@gmail.com"><span lang="en">Email me</span><span lang="bg">Пиши ми</span></a>
+      </div>
+      <div class="trust">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg><span lang="en">JA National Finals qualifier</span><span lang="bg">Финалист на JA</span></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>Invest Sofia</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span lang="en">EUIPO IP training</span><span lang="bg">Обучение на EUIPO</span></span>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
   <div class="wrap">
-    <p><span lang="en">George Panev · Sofia, Bulgaria</span><span lang="bg">Георги Панев · София, България</span></p>
+    <div class="f-top">
+      <h2><span lang="en">Let's Connect</span><span lang="bg">Да се свържем</span></h2>
+      <a class="btn btn-orange" href="mailto:iamgeorgepanev@gmail.com"><span lang="en">Hire me</span><span lang="bg">Свържи се</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+    </div>
+    <div class="f-grid">
+      <div>
+        <div class="f-brand"><span class="dot" aria-hidden="true">GP</span>GEORGE PANEV</div>
+        <p class="f-about" lang="en">Builder and technical lead from Sofia, Bulgaria. Final year of high school, open to internships and collaborations.</p>
+        <p class="f-about" lang="bg">Създател и технически ръководител от София. Последна година в гимназията, отворен за стажове и сътрудничество.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/panevx/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+          <a href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg></a>
+          <a href="mailto:iamgeorgepanev@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3><span lang="en">Navigation</span><span lang="bg">Навигация</span></h3>
+        <ul>
+          <li><a href="#services"><span lang="en">What I do</span><span lang="bg">Какво правя</span></a></li>
+          <li><a href="#experience"><span lang="en">Experience</span><span lang="bg">Опит</span></a></li>
+          <li><a href="#portfolio"><span lang="en">Portfolio</span><span lang="bg">Портфолио</span></a></li>
+          <li><a href="george_panev_cv.pdf">CV (PDF)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span lang="en">Contact</span><span lang="bg">Контакт</span></h3>
+        <ul>
+          <li><a href="mailto:iamgeorgepanev@gmail.com">iamgeorgepanev@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/panevx/" target="_blank" rel="noopener">Instagram · @panevx</a></li>
+          <li><a href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener">TikTok · @panevx</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p><span lang="en">George Panev · Sofia, Bulgaria</span><span lang="bg">Георги Панев · София, България</span></p>
+      <a href="#top"><span lang="en">Back to top ↑</span><span lang="bg">Нагоре ↑</span></a>
+    </div>
   </div>
 </footer>
 
 <script>
   (function(){
     var root = document.documentElement;
-    var btn = document.getElementById('langBtn');
-    function label(){
-      btn.setAttribute('aria-label', root.getAttribute('data-lang') === 'bg' ? 'Switch to English' : 'Превключи на български');
+    var btns = document.querySelectorAll('[data-lang-toggle]');
+    function sync(){
+      var bg = root.getAttribute('data-lang') === 'bg';
+      btns.forEach(function(b){ b.setAttribute('aria-label', bg ? 'Switch to English' : 'Превключи на български'); });
     }
-    label();
-    btn.addEventListener('click', function(){
-      var next = root.getAttribute('data-lang') === 'bg' ? 'en' : 'bg';
-      root.setAttribute('data-lang', next);
-      root.lang = next;
-      try { localStorage.setItem('siteLang', next); } catch(e) {}
-      label();
+    sync();
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        var next = root.getAttribute('data-lang') === 'bg' ? 'en' : 'bg';
+        root.setAttribute('data-lang', next);
+        root.lang = next;
+        try { localStorage.setItem('siteLang', next); } catch(e) {}
+        sync();
+      });
     });
+
+    // Highlight the nav pill for the section in view. IntersectionObserver
+    // avoids reading layout on every scroll frame.
+    var links = document.querySelectorAll('.nav ul a[href^="#"]');
+    if (!('IntersectionObserver' in window)) return;
+    var map = {};
+    links.forEach(function(a){ var el = document.querySelector(a.getAttribute('href')); if (el) map[el.id] = a; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting || !map[e.target.id]) return;
+        links.forEach(function(a){ a.classList.remove('active'); a.removeAttribute('aria-current'); });
+        map[e.target.id].classList.add('active');
+        map[e.target.id].setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function(id){ io.observe(document.getElementById(id)); });
   })();
 </script>
 </body>
