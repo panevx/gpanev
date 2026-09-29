@@ -53,12 +53,19 @@
   })();
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="preload" as="image" href="img/george.webp" fetchpriority="high">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/george.webp" imagesrcset="img/george-420.webp 420w, img/george-600.webp 600w, img/george.webp 820w" imagesizes="(max-width: 900px) min(405px, calc(88vw - 36px)), 493px" fetchpriority="high">
 
 <style>
+  /* Self-hosted Inter, split by script so each page only fetches what it renders.
+     latin-ext is trimmed to the few accented letters the page uses (e.g. Metković). */
+  @font-face{ font-family:'Inter'; font-style:normal; font-weight:400 700; font-display:swap; src:url(fonts/inter-cyrillic-ext.woff2) format('woff2'); unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+  @font-face{ font-family:'Inter'; font-style:normal; font-weight:400 700; font-display:swap; src:url(fonts/inter-cyrillic.woff2) format('woff2'); unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+  @font-face{ font-family:'Inter'; font-style:normal; font-weight:400 700; font-display:swap; src:url(fonts/inter-latin-ext.woff2) format('woff2'); unicode-range:U+0106-0107, U+010C-010D, U+0110-0111, U+0160-0161, U+017D-017E; }
+  @font-face{ font-family:'Inter'; font-style:normal; font-weight:400 700; font-display:swap; src:url(fonts/inter-latin.woff2) format('woff2'); unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  /* Arial resized to Inter's metrics, so swapping in the webfont doesn't shift layout. */
+  @font-face{ font-family:'Inter Fallback'; src:local('Arial'), local('Helvetica Neue'), local('Helvetica'); ascent-override:90.49%; descent-override:22.56%; line-gap-override:0%; size-adjust:107.06%; }
+
   :root{
     --orange:#F97316;          /* fills, with --on-orange text */
     --orange-text:#EA580C;     /* orange words in large headings on light */
@@ -83,7 +90,7 @@
   *{ margin:0; padding:0; }
   html{ scroll-behavior:smooth; scroll-padding-top:96px; -webkit-text-size-adjust:100%; }
   body{
-    font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-family:'Inter', 'Inter Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     font-size:1rem; line-height:1.6;
     color:var(--body); background:var(--paper);
     -webkit-font-smoothing:antialiased;
@@ -235,7 +242,7 @@
     .tl .node{ grid-row:1 / span 2; justify-self:start; }
     .tl .org{ grid-column:2; }
     .tl .what{ grid-column:2; margin-top:12px; }
-    .tl .what h3{ font-size:1.125rem; color:var(--orange-text); }
+    .tl .what h3{ font-size:1.125rem; color:#C2410C; }
     .tl .org h3{ font-size:1.375rem; }
   }
 
@@ -377,7 +384,7 @@
       <li><a href="#services"><span lang="en">What I do</span><span lang="bg">Какво правя</span></a></li>
       <li><a href="#experience"><span lang="en">Experience</span><span lang="bg">Опит</span></a></li>
     </ul>
-    <a class="brand" href="#top" aria-label="George Panev, home">
+    <a class="brand" href="#top" aria-label="GP Panev, home">
       <span class="dot" aria-hidden="true">GP</span>
       <span class="word" aria-hidden="true">PANEV</span>
     </a>
@@ -415,7 +422,7 @@
           <span class="doodle d2" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c1.5 9 5 12.5 14 14-9 1.5-12.5 5-14 14-1.5-9-5-12.5-14-14 9-1.5 12.5-5 14-14Z"/><path d="M40 32c.6 3.5 2 5 5.5 5.5-3.5.6-4.9 2-5.5 5.5-.6-3.5-2-4.9-5.5-5.5 3.5-.5 4.9-2 5.5-5.5Z"/></svg></span>
           <span class="doodle d3" aria-hidden="true"><svg viewBox="0 0 56 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M52 4 4 22l18 6 6 16 24-40Z"/><path d="M22 28 52 4"/></svg></span>
           <span class="doodle d4" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 30c6-10 10 6 16-4s10 6 16-4"/><path d="M4 18c6-10 10 6 16-4s10 6 16-4"/></svg></span>
-          <img src="img/george.webp" width="820" height="772" fetchpriority="high" alt="George Panev holding a laptop">
+          <img src="img/george.webp" srcset="img/george-420.webp 420w, img/george-600.webp 600w, img/george.webp 820w" sizes="(max-width: 900px) min(405px, calc(88vw - 36px)), 493px" width="820" height="772" fetchpriority="high" alt="George Panev holding a laptop">
           <div class="hero-ctas">
             <a class="btn btn-orange" href="#portfolio"><span lang="en">Portfolio</span><span lang="bg">Портфолио</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
             <a class="btn ghost" href="#contact"><span lang="en">Hire me</span><span lang="bg">Свържи се</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
@@ -698,7 +705,7 @@
     var btns = document.querySelectorAll('[data-lang-toggle]');
     function sync(){
       var bg = root.getAttribute('data-lang') === 'bg';
-      btns.forEach(function(b){ b.setAttribute('aria-label', bg ? 'Switch to English' : 'Превключи на български'); });
+      btns.forEach(function(b){ b.setAttribute('aria-label', bg ? 'EN, switch to English' : 'BG, превключи на български'); });
     }
     sync();
     btns.forEach(function(b){
