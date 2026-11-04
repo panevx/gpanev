@@ -51,7 +51,6 @@
     if (lang !== 'en' && lang !== 'bg') lang = (navigator.language || '').toLowerCase().indexOf('bg') === 0 ? 'bg' : 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.lang = lang;
-    document.documentElement.classList.add('js');
   })();
 </script>
 
@@ -119,9 +118,8 @@
     min-height:48px; padding:0 26px; border-radius:var(--r-pill);
     font-weight:600; font-size:1rem; text-decoration:none; cursor:pointer;
     border:1.5px solid transparent;
-    transition:background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease), translate var(--dur) var(--ease);
+    transition:background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
   }
-  .btn:hover{ translate:0 -2px; }
   .btn svg{ width:18px; height:18px; flex:none; }
   .btn-orange{ background:var(--orange); color:var(--on-orange); }
   .btn-orange:hover{ background:var(--ink); color:#fff; }
@@ -366,33 +364,6 @@
 
   main > .dark, main > .why{ margin:0 12px; }
   @media (min-width:1300px){ main > .dark, main > .why{ margin:0 24px; } }
-
-  /* MOTION — only opacity and translate, so everything runs on the compositor.
-     The hero photo and h1 are never hidden, so LCP isn't delayed. Uses the
-     `translate` property so it doesn't clash with existing transforms. */
-  @media (prefers-reduced-motion: no-preference){
-    @keyframes rise{ from{ opacity:0; translate:0 14px; } }
-    @keyframes bob{ 50%{ translate:0 -6px; } }
-    .hero .role, .hero-note, .hero-side, .hero-ctas, .doodle{ animation:rise .7s var(--ease) both; }
-    .hero .role{ animation-delay:.05s; }
-    .hero-note, .hero-side{ animation-delay:.15s; }
-    .hero-ctas{ animation-delay:.25s; }
-    .doodle{ animation:rise .7s var(--ease) .3s both, bob 5s ease-in-out 1s infinite; }
-    .d2{ animation-delay:.4s, 2s; }
-    .d3{ animation-delay:.5s, 1.5s; }
-    .d4{ animation-delay:.6s, 2.5s; }
-
-    .js .reveal{ opacity:0; translate:0 24px; transition:opacity .6s var(--ease), translate .6s var(--ease); transition-delay:var(--d, 0s); }
-    .js .reveal.in{ opacity:1; translate:none; }
-
-    .svc, .card .shot{ transition:translate var(--dur) var(--ease), border-color var(--dur) var(--ease); }
-    .svc:hover{ translate:0 -4px; border-color:#4a4a4a; }
-    .card .shot:hover{ translate:0 -4px; }
-    .tl .node{ transition:scale var(--dur) var(--ease); }
-    .tl:hover .node{ scale:1.15; }
-    .socials a:hover{ translate:0 -2px; }
-    .socials a{ transition:background-color var(--dur) var(--ease), color var(--dur) var(--ease), translate var(--dur) var(--ease); }
-  }
 
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
@@ -747,25 +718,6 @@
         sync();
       });
     });
-
-    // Fade sections in as they scroll into view. Elements in a row get a small
-    // stagger. Skipped when reduced motion is on (CSS doesn't hide them then).
-    if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-      var items = document.querySelectorAll('.panel-head, .exp .section-title, .svc, .tl, .why-grid > *, .card, .cta .wrap > *, .f-top, .f-grid > *');
-      var rio = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (!e.isIntersecting) return;
-          e.target.classList.add('in');
-          rio.unobserve(e.target);
-        });
-      }, { rootMargin: '0px 0px -8% 0px' });
-      items.forEach(function(el){
-        var i = Array.prototype.indexOf.call(el.parentNode.children, el);
-        if (i > 0) el.style.setProperty('--d', Math.min(i, 3) * 0.08 + 's');
-        el.classList.add('reveal');
-        rio.observe(el);
-      });
-    }
 
     // Highlight the nav pill for the section in view. IntersectionObserver
     // avoids reading layout on every scroll frame.
