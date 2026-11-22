@@ -269,7 +269,8 @@
   .shot:hover .go{ background:var(--orange); color:var(--on-orange); border-color:var(--orange); }
   .shot .go svg{ width:20px; height:20px; }
   .shot.as{ background:var(--dark); }
-  .shot.koren{ background:#174236; }
+  .shot.koren{ aspect-ratio:1200/630; background:#174236; }
+  .shot.koren img{ opacity:1; }
   .card .project-links{ display:flex; flex-wrap:wrap; gap:8px 24px; }
   .project-links a{ display:inline-flex; align-items:center; min-height:44px; color:var(--ink); font-weight:600; }
   .as-art{ position:absolute; inset:0; }
@@ -419,7 +420,7 @@
       <div class="cards">
         <article class="card" id="koren">
           <a class="shot koren" href="https://panevx.github.io/Koren/" target="_blank" rel="noopener">
-            <span class="title"><span lang="en">Koren</span><span lang="bg">Корен</span> ↗</span>
+            <img src="img/koren-og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="KOREN">
           </a>
           <div class="chips">
             <span class="chip"><span lang="en">In development</span><span lang="bg">В разработка</span></span>
