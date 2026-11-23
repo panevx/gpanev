@@ -278,7 +278,9 @@
   .shot.tt{ aspect-ratio:auto; overflow:visible; background:transparent; isolation:auto; }
   .shot.tt img{ position:relative; inset:auto; aspect-ratio:16/10; height:auto; border-radius:var(--r-md); opacity:1; background:var(--dark); }
   .shot.tt:hover img{ transform:none; opacity:.85; }
-  .shot.tt .title{ position:static; display:block; margin-top:12px; color:var(--ink); font-size:1.5rem; }
+  .shot.tt .title{ position:static; display:flex; align-items:center; min-height:48px; margin-top:12px; padding-right:60px; color:var(--ink); font-size:1.5rem; }
+  /* ↗ sits beside the handle, below the screenshot, clear of its menu icon */
+  .shot.tt .go{ top:auto; bottom:0; right:0; border-color:var(--orange); color:var(--orange-text); }
   .card .project-links{ display:flex; flex-wrap:wrap; gap:8px 24px; }
   .project-links a{ display:inline-flex; align-items:center; min-height:44px; color:var(--ink); font-weight:600; }
   .as-art{ position:absolute; inset:0; }
