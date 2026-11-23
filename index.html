@@ -269,8 +269,16 @@
   .shot:hover .go{ background:var(--orange); color:var(--on-orange); border-color:var(--orange); }
   .shot .go svg{ width:20px; height:20px; }
   .shot.as{ background:var(--dark); }
-  .shot.koren{ aspect-ratio:1200/630; background:#174236; }
-  .shot.koren img{ opacity:1; }
+  .shot.koren{ background:#174236; }
+  .shot.koren img{ opacity:1; object-position:28% center; }
+  /* Portfolio card: same look as AnimalSync */
+  .shot.pf .as-art svg{ right:auto; left:34%; top:12%; width:44%; }
+  .shot.pf .pf-arrow{ display:none; }
+  /* TikTok: handle sits under the screenshot, not over the follower count */
+  .shot.tt{ aspect-ratio:auto; overflow:visible; background:transparent; isolation:auto; }
+  .shot.tt img{ position:relative; inset:auto; aspect-ratio:16/10; height:auto; border-radius:var(--r-md); opacity:1; background:var(--dark); }
+  .shot.tt:hover img{ transform:none; opacity:.85; }
+  .shot.tt .title{ position:static; display:block; margin-top:12px; color:var(--ink); font-size:1.5rem; }
   .card .project-links{ display:flex; flex-wrap:wrap; gap:8px 24px; }
   .project-links a{ display:inline-flex; align-items:center; min-height:44px; color:var(--ink); font-weight:600; }
   .as-art{ position:absolute; inset:0; }
@@ -339,11 +347,10 @@
   @media (min-width:1300px){ main > .dark{ margin:0 24px; } }
 
   /* Desktop keeps the original plain "Portfolio website" card. */
-  @media (min-width:769px){ .shot .pf-art, .shot .pf-go{ display:none; } }
 
   /* ===== MOBILE (≤768px) ===== */
   @media (max-width:768px){
-    :root{ --section-gap:56px; --nav-h:42px; }
+    :root{ --section-gap:56px; --nav-h:52px; }
     html{ scroll-padding-top:calc(var(--nav-h) + 12px); }
 
     /* 4. Nav: ~35% shorter, flush to the top, solid full-width bar, hides on scroll down */
@@ -352,10 +359,10 @@
       transition:transform var(--dur) var(--ease); will-change:transform;
     }
     .nav.nav-hidden{ transform:translateY(-100%); }
-    .nav-pill{ min-height:var(--nav-h); padding:3px 8px 3px 16px; border-radius:0; }
+    .nav-pill{ min-height:var(--nav-h); padding:4px 8px 4px 16px; border-radius:0; }
     .brand .dot{ width:26px; height:26px; }
-    .nav .lang-btn{ min-width:40px; min-height:36px; }
-    .nav .mobile-cta .btn{ min-height:36px; padding:0 16px; font-size:.875rem; }
+    .nav .lang-btn{ min-width:44px; min-height:44px; }
+    .nav .mobile-cta .btn{ min-height:44px; padding:0 16px; font-size:.875rem; }
 
     /* 5. Hero: buttons below the photo, solid + outline, only the </> doodle */
     .hero{ padding-top:32px; }
@@ -391,18 +398,6 @@
     .tl .what summary.link-summary{ text-decoration:underline; text-underline-offset:2px; }
     .tl .what summary.link-summary::after{ content:"↗"; margin-left:-2px; text-decoration:none; }
 
-    /* 9. Project cards: same 16:10 frame, cover, radius */
-    .shot, .shot.koren{ aspect-ratio:16/10; border-radius:var(--r-md); }
-    .shot img{ object-fit:cover; }
-    .shot.koren img{ object-position:28% center; }
-    .shot.pf .as-art svg{ right:auto; left:34%; top:12%; width:44%; }
-    .shot.pf .pf-arrow{ display:none; }
-
-    /* 1. TikTok: handle sits under the screenshot, not over the follower count */
-    .shot.tt{ aspect-ratio:auto; overflow:visible; background:transparent; isolation:auto; }
-    .shot.tt img{ position:relative; inset:auto; aspect-ratio:16/10; height:auto; border-radius:var(--r-md); opacity:1; background:var(--dark); }
-    .shot.tt:hover img{ transform:none; opacity:.85; }
-    .shot.tt .title{ position:static; display:block; margin-top:12px; color:var(--ink); font-size:1.5rem; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -452,8 +447,8 @@
       <div class="hero-grid">
         <p class="hero-note">
           <span class="q" aria-hidden="true">“</span>
-          <span lang="en">Web developer and student from Sofia. Looking for a software development internship.</span>
-          <span lang="bg">Уеб разработчик и ученик от София. Търся стаж по софтуерна разработка.</span>
+          <span lang="en">Looking for a software development internship.</span>
+          <span lang="bg">Търся стаж по софтуерна разработка.</span>
         </p>
 
         <div class="stage">
@@ -716,9 +711,11 @@
       <div>
         <h3><span lang="en">Navigation</span><span lang="bg">Навигация</span></h3>
         <ul>
+          <li><a href="#portfolio"><span lang="en">Portfolio</span><span lang="bg">Портфолио</span></a></li>
           <li><a href="#services"><span lang="en">What I do</span><span lang="bg">Какво правя</span></a></li>
           <li><a href="#experience"><span lang="en">Experience</span><span lang="bg">Опит</span></a></li>
           <li><a href="#activities"><span lang="en">Activities</span><span lang="bg">Дейности</span></a></li>
+          <li><a href="#contact"><span lang="en">Contact</span><span lang="bg">Контакт</span></a></li>
           <li><a href="george_panev_cv.pdf">CV (PDF)</a></li>
         </ul>
       </div>
