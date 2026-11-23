@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>George Panev — Developer &amp; Product Builder, Sofia</title>
+<title>George Panev — Web Developer</title>
 <meta name="description" content="George Panev is a student web developer in Sofia, Bulgaria. Explore Koren, AnimalSync, and the source for this portfolio.">
 <meta name="author" content="George Panev">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://georgepanev.com/">
 
-<meta property="og:title" content="George Panev — Developer &amp; Product Builder, Sofia">
+<meta property="og:title" content="George Panev — Web Developer">
 <meta property="og:description" content="George Panev is a student web developer in Sofia, Bulgaria. Explore Koren, AnimalSync, and the source for this portfolio.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://georgepanev.com/">
@@ -17,7 +17,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="George Panev — Developer &amp; Product Builder, Sofia">
+<meta name="twitter:title" content="George Panev — Web Developer">
 <meta name="twitter:description" content="George Panev is a student web developer in Sofia, Bulgaria. Explore Koren, AnimalSync, and the source for this portfolio.">
 <meta name="twitter:image" content="https://georgepanev.com/img/og.jpg">
 
@@ -338,7 +338,75 @@
   main > .dark{ margin:0 12px; }
   @media (min-width:1300px){ main > .dark{ margin:0 24px; } }
 
+  /* Desktop keeps the original plain "Portfolio website" card. */
+  @media (min-width:769px){ .shot .pf-art, .shot .pf-go{ display:none; } }
+
+  /* ===== MOBILE (≤768px) ===== */
+  @media (max-width:768px){
+    :root{ --section-gap:56px; --nav-h:42px; }
+    html{ scroll-padding-top:calc(var(--nav-h) + 12px); }
+
+    /* 4. Nav: ~35% shorter, flush to the top, solid full-width bar, hides on scroll down */
+    .nav{
+      top:0; margin-top:0; padding:0; background:var(--dark);
+      transition:transform var(--dur) var(--ease); will-change:transform;
+    }
+    .nav.nav-hidden{ transform:translateY(-100%); }
+    .nav-pill{ min-height:var(--nav-h); padding:3px 8px 3px 16px; border-radius:0; }
+    .brand .dot{ width:26px; height:26px; }
+    .nav .lang-btn{ min-width:40px; min-height:36px; }
+    .nav .mobile-cta .btn{ min-height:36px; padding:0 16px; font-size:.875rem; }
+
+    /* 5. Hero: buttons below the photo, solid + outline, only the </> doodle */
+    .hero{ padding-top:32px; }
+    .hero-grid{ margin-top:24px; gap:20px; }
+    .d2, .d3, .d4{ display:none; }
+    .stage{ display:grid; }
+    .arc{ position:relative; grid-area:1 / 1; align-self:end; width:100%; }
+    .stage img{ grid-area:1 / 1; }
+    .hero-ctas{ grid-area:2 / 1; }
+    .hero-ctas{
+      position:static; transform:none; margin-top:16px;
+      display:flex; flex-wrap:wrap; justify-content:center; gap:12px;
+      padding:0; background:none; border:0; border-radius:0;
+      -webkit-backdrop-filter:none; backdrop-filter:none; white-space:normal;
+    }
+    .hero-ctas .btn{ padding:0 22px; }
+    .hero-ctas .ghost{ background:transparent; color:var(--ink); border-color:var(--ink); }
+    .hero-ctas .ghost:hover{ background:var(--ink); color:#fff; }
+
+    /* 6. Multi-line paragraphs read left-aligned */
+    .hero-note{ text-align:left; }
+
+    /* 7. One vertical rhythm between sections */
+    .work, .exp, .cta{ padding:var(--section-gap) 0 0; }
+    .cta{ padding-bottom:var(--section-gap); }
+    .panel{ padding:var(--section-gap) 0; }
+    main > .panel{ margin-top:var(--section-gap); }
+    .panel-head, .work .panel-head{ margin-bottom:28px; }
+    .exp .section-title{ margin-bottom:32px; }
+    .tl{ padding-bottom:32px; }
+
+    /* 8. Facebook photos toggle reads like the other links */
+    .tl .what summary.link-summary{ text-decoration:underline; text-underline-offset:2px; }
+    .tl .what summary.link-summary::after{ content:"↗"; margin-left:-2px; text-decoration:none; }
+
+    /* 9. Project cards: same 16:10 frame, cover, radius */
+    .shot, .shot.koren{ aspect-ratio:16/10; border-radius:var(--r-md); }
+    .shot img{ object-fit:cover; }
+    .shot.koren img{ object-position:28% center; }
+    .shot.pf .as-art svg{ right:auto; left:34%; top:12%; width:44%; }
+    .shot.pf .pf-arrow{ display:none; }
+
+    /* 1. TikTok: handle sits under the screenshot, not over the follower count */
+    .shot.tt{ aspect-ratio:auto; overflow:visible; background:transparent; isolation:auto; }
+    .shot.tt img{ position:relative; inset:auto; aspect-ratio:16/10; height:auto; border-radius:var(--r-md); opacity:1; background:var(--dark); }
+    .shot.tt:hover img{ transform:none; opacity:.85; }
+    .shot.tt .title{ position:static; display:block; margin-top:12px; color:var(--ink); font-size:1.5rem; }
+  }
+
   @media (prefers-reduced-motion: reduce){
+    .nav.nav-hidden{ transform:none; }
     html{ scroll-behavior:auto; }
     *,*::before,*::after{ transition:none !important; animation:none !important; }
     .track ul{ flex-wrap:wrap; justify-content:center; }
@@ -384,8 +452,8 @@
       <div class="hero-grid">
         <p class="hero-note">
           <span class="q" aria-hidden="true">“</span>
-          <span lang="en">I’m building Koren, a bilingual learning app for Bulgarian children abroad. I also built the HTML demo for AnimalSync, a JA National Finals qualifier. I’m looking for a software development internship.</span>
-          <span lang="bg">Разработвам „Корен“, двуезично образователно приложение за български деца в чужбина. Създадох и HTML демото на AnimalSync, проект, класиран за националния финал на JA. Търся стаж по софтуерна разработка.</span>
+          <span lang="en">Web developer and student from Sofia. Looking for a software development internship.</span>
+          <span lang="bg">Уеб разработчик и ученик от София. Търся стаж по софтуерна разработка.</span>
         </p>
 
         <div class="stage">
@@ -394,7 +462,7 @@
           <span class="doodle d2" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c1.5 9 5 12.5 14 14-9 1.5-12.5 5-14 14-1.5-9-5-12.5-14-14 9-1.5 12.5-5 14-14Z"/><path d="M40 32c.6 3.5 2 5 5.5 5.5-3.5.6-4.9 2-5.5 5.5-.6-3.5-2-4.9-5.5-5.5 3.5-.5 4.9-2 5.5-5.5Z"/></svg></span>
           <span class="doodle d3" aria-hidden="true"><svg viewBox="0 0 56 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M52 4 4 22l18 6 6 16 24-40Z"/><path d="M22 28 52 4"/></svg></span>
           <span class="doodle d4" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 30c6-10 10 6 16-4s10 6 16-4"/><path d="M4 18c6-10 10 6 16-4s10 6 16-4"/></svg></span>
-          <img src="img/george.webp" srcset="img/george-420.webp 420w, img/george-600.webp 600w, img/george.webp 820w" sizes="(max-width: 900px) min(405px, calc(88vw - 36px)), 493px" width="820" height="772" fetchpriority="high" alt="George Panev holding a laptop">
+          <img src="img/george.webp" srcset="img/george-420.webp 420w, img/george-600.webp 600w, img/george.webp 820w" sizes="(max-width: 900px) min(405px, calc(88vw - 36px)), 493px" width="820" height="772" fetchpriority="high" alt="George Panev holding a laptop" data-alt-en="George Panev holding a laptop" data-alt-bg="Георги Панев с лаптоп в ръка">
           <div class="hero-ctas">
             <a class="btn btn-orange" href="#portfolio"><span lang="en">Portfolio</span><span lang="bg">Портфолио</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
             <a class="btn ghost" href="#contact"><span lang="en">Contact me</span><span lang="bg">Свържи се</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
@@ -419,8 +487,9 @@
 
       <div class="cards">
         <article class="card" id="koren">
+          <!-- TODO(George): add a real screenshot img/koren-shot.webp (16:10) and swap it in for koren-og.jpg. -->
           <a class="shot koren" href="https://panevx.github.io/Koren/" target="_blank" rel="noopener">
-            <img src="img/koren-og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="KOREN">
+            <img src="img/koren-og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="KOREN: Far from Bulgaria. Close to your roots. Two cartoon children in Bulgarian folk costumes" data-alt-en="KOREN: Far from Bulgaria. Close to your roots. Two cartoon children in Bulgarian folk costumes" data-alt-bg="KOREN: Далеч от България. Близо до корените си. Две анимирани деца в български народни носии">
           </a>
           <div class="chips">
             <span class="chip"><span lang="en">In development</span><span lang="bg">В разработка</span></span>
@@ -437,6 +506,7 @@
         </article>
 
         <article class="card" id="animalsync">
+          <!-- TODO(George): add a real screenshot img/animalsync-shot.webp (16:10) and use it in place of the SVG art. -->
           <a class="shot as" href="https://project-animalsync.2su.bg/" target="_blank" rel="noopener">
             <span class="as-art" aria-hidden="true"><svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="100" cy="100" r="44"/><circle cx="100" cy="100" r="62" stroke-dasharray="4 10"/><path d="M78 96h10l6-14 10 30 6-16h12"/><circle cx="52" cy="40" r="10"/><circle cx="80" cy="22" r="10"/><circle cx="120" cy="22" r="10"/><circle cx="148" cy="40" r="10"/></svg></span>
             <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
@@ -493,8 +563,11 @@
         </article>
 
         <article class="card">
-          <a class="shot" href="https://github.com/panevx/gpanev" target="_blank" rel="noopener">
-            <span class="title"><span lang="en">Portfolio website</span><span lang="bg">Лично портфолио</span> ↗</span>
+          <!-- TODO(George): add a real screenshot img/portfolio-shot.webp (16:10) and use it in place of the SVG art. -->
+          <a class="shot pf" href="https://github.com/panevx/gpanev" target="_blank" rel="noopener">
+            <span class="as-art pf-art" aria-hidden="true"><svg viewBox="0 0 200 160" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="30" width="150" height="104" rx="10"/><path d="M30 54h150"/><circle cx="46" cy="42" r="3"/><circle cx="58" cy="42" r="3"/><circle cx="70" cy="42" r="3"/><path d="m88 80-16 14 16 14"/><path d="m122 80 16 14-16 14"/><path d="m112 74-14 40"/></svg></span>
+            <span class="go pf-go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
+            <span class="title"><span lang="en">Portfolio website</span><span lang="bg">Лично портфолио</span><span class="pf-arrow"> ↗</span></span>
           </a>
           <div class="chips"><span class="chip">HTML &amp; CSS</span><span class="chip">JavaScript</span><span class="chip">GitHub Pages</span></div>
           <h3 lang="en">George Panev’s portfolio</h3>
@@ -505,12 +578,12 @@
         </article>
 
         <article class="card">
-          <a class="shot" href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener">
-            <img src="img/tiktok-profile.webp" width="720" height="1630" loading="lazy" decoding="async" alt="">
+          <a class="shot tt" href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener">
+            <img src="img/tiktok-profile.webp" width="720" height="1630" loading="lazy" decoding="async" alt="Screenshot of the @panevx TikTok profile" data-alt-en="Screenshot of the @panevx TikTok profile" data-alt-bg="Екранна снимка на TikTok профила @panevx">
             <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></span>
             <span class="title">@panevx</span>
           </a>
-          <div class="chips"><span class="chip">Content strategy</span><span class="chip">Analytics</span><span class="chip">2025</span></div>
+          <div class="chips"><span class="chip"><span lang="en">Content strategy</span><span lang="bg">Съдържание</span></span><span class="chip"><span lang="en">Analytics</span><span lang="bg">Анализи</span></span><span class="chip">2025</span></div>
           <h3 lang="en">TikTok Account Revival</h3>
           <h3 lang="bg">Съживяване на TikTok профил</h3>
           <p lang="en">I relaunched a dormant TikTok account with street interviews. The relaunch generated over 676,000 organic views in five days.</p>
@@ -556,7 +629,7 @@
             <p lang="en">I interned at Sofia’s municipal investment agency and returned in 2026 to support its marketing work. I took and uploaded photos for its digital communications.</p>
             <p lang="bg">Преминах стаж в Столичната агенция за инвестиции, а през 2026 г. се върнах, за да помагам с маркетинга. Заснемах и качвах снимки за дигиталните канали на агенцията.</p>
             <details>
-              <summary><span lang="en">Internship photos on Facebook</span><span lang="bg">Снимки от стажа във Facebook</span></summary>
+              <summary class="link-summary"><span lang="en">Internship photos on Facebook</span><span lang="bg">Снимки от стажа във Facebook</span></summary>
               <ul class="photo-links">
                 <li><a href="https://www.facebook.com/photo.php?fbid=1132005589078749&amp;set=pb.100068079544041.-2207520000&amp;type=3" target="_blank" rel="noopener"><span lang="en">Photo 1</span><span lang="bg">Снимка 1</span> ↗</a></li>
                 <li><a href="https://www.facebook.com/photo.php?fbid=1132005232412118&amp;set=pb.100068079544041.-2207520000&amp;type=3" target="_blank" rel="noopener"><span lang="en">Photo 2</span><span lang="bg">Снимка 2</span> ↗</a></li>
@@ -633,6 +706,8 @@
         <p class="f-about" lang="en">Student web developer in Sofia, Bulgaria.</p>
         <p class="f-about" lang="bg">Уеб разработчик и ученик от София.</p>
         <div class="socials">
+          <a href="https://github.com/panevx" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+          <a href="https://www.linkedin.com/in/george-panev-bb3361431/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
           <a href="https://www.instagram.com/panevx/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
           <a href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"/></svg></a>
           <a href="mailto:iamgeorgepanev@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
@@ -643,7 +718,6 @@
         <ul>
           <li><a href="#services"><span lang="en">What I do</span><span lang="bg">Какво правя</span></a></li>
           <li><a href="#experience"><span lang="en">Experience</span><span lang="bg">Опит</span></a></li>
-          <li><a href="#experience"><span lang="en">Experience</span><span lang="bg">Опит</span></a></li>
           <li><a href="#activities"><span lang="en">Activities</span><span lang="bg">Дейности</span></a></li>
           <li><a href="george_panev_cv.pdf">CV (PDF)</a></li>
         </ul>
@@ -652,6 +726,8 @@
         <h3><span lang="en">Contact</span><span lang="bg">Контакт</span></h3>
         <ul>
           <li><a href="mailto:iamgeorgepanev@gmail.com">iamgeorgepanev@gmail.com</a></li>
+          <li><a href="https://github.com/panevx" target="_blank" rel="noopener" aria-label="GitHub · panevx">GitHub · panevx</a></li>
+          <li><a href="https://www.linkedin.com/in/george-panev-bb3361431/" target="_blank" rel="noopener" aria-label="LinkedIn · George Panev">LinkedIn · George Panev</a></li>
           <li><a href="https://www.instagram.com/panevx/" target="_blank" rel="noopener">Instagram · @panevx</a></li>
           <li><a href="https://www.tiktok.com/@panevx" target="_blank" rel="noopener">TikTok · @panevx</a></li>
         </ul>
@@ -668,8 +744,16 @@
   (function(){
     var root = document.documentElement;
     var btns = document.querySelectorAll('[data-lang-toggle]');
+    var TITLES = { en: 'George Panev — Web Developer', bg: 'Георги Панев — уеб разработчик' };
+    var metaTitles = document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]');
+    var altImgs = document.querySelectorAll('img[data-alt-en]');
     function sync(){
-      var bg = root.getAttribute('data-lang') === 'bg';
+      var lang = root.getAttribute('data-lang') === 'bg' ? 'bg' : 'en';
+      var bg = lang === 'bg';
+      root.lang = lang;
+      document.title = TITLES[lang];
+      metaTitles.forEach(function(m){ m.setAttribute('content', TITLES[lang]); });
+      altImgs.forEach(function(img){ img.alt = img.getAttribute('data-alt-' + lang); });
       btns.forEach(function(b){ b.setAttribute('aria-label', bg ? 'EN, switch to English' : 'BG, превключи на български'); });
     }
     sync();
@@ -682,6 +766,30 @@
         sync();
       });
     });
+
+    // Mobile: hide the sticky nav while scrolling down, show it on scroll up.
+    // Uses a transform only (no layout shift); off for reduced motion and on desktop.
+    var nav = document.querySelector('.nav');
+    var mqMobile = window.matchMedia('(max-width: 768px)');
+    var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var lastY = window.scrollY, ticking = false;
+    function onScroll(){
+      ticking = false;
+      var y = window.scrollY;
+      if (!mqMobile.matches || mqReduce.matches || y < 80) {
+        nav.classList.remove('nav-hidden');
+      } else if (Math.abs(y - lastY) > 6) {
+        nav.classList.toggle('nav-hidden', y > lastY);
+      } else {
+        return;
+      }
+      lastY = y;
+    }
+    if (nav) {
+      window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+      // Keyboard users tabbing into the nav must be able to see it.
+      nav.addEventListener('focusin', function(){ nav.classList.remove('nav-hidden'); });
+    }
 
     // Highlight the nav pill for the section in view. IntersectionObserver
     // avoids reading layout on every scroll frame.
